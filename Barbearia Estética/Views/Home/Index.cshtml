@@ -1,0 +1,1050 @@
+﻿
+<head>
+    <style>
+        .scissors {
+            position: relative;
+            width: 64px;
+            height: 64px;
+        }
+
+            .scissors .blade {
+                position: absolute;
+                width: 50%;
+                height: 6px;
+                background: #000;
+                top: 50%;
+                left: 50%;
+                transform-origin: left center;
+                transform: rotate(0deg);
+                transition: transform 0.3s ease-in-out;
+            }
+
+            .scissors .blade-1 {
+                transform-origin: left center;
+            }
+
+            .scissors .blade-2 {
+                transform-origin: left center;
+                transform: rotate(180deg);
+            }
+
+            .scissors:hover .blade-1 {
+                transform: rotate(30deg);
+            }
+
+            .scissors:hover .blade-2 {
+                transform: rotate(150deg);
+            }
+    </style>
+    <style>
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 200px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            padding: 8px;
+            border-radius: 3%;
+            right: 0;
+            /* Alinha o submenu à direita */
+        }
+
+            .dropdown-content a {
+                color: black;
+                padding: 7px;
+                text-decoration: none;
+                display: flex;
+                align-items: center;
+                margin: 5px;
+                color: black;
+                padding: 18px;
+                /* Adiciona padding */
+                text-decoration: none;
+                display: flex;
+                margin: 1px;
+                /* Adiciona a margem */
+                border-radius: 3%;
+            }
+
+                .dropdown-content a:hover {
+                    background-color: #ddd;
+                    border: #725f47 solid 2px;
+                    border-radius: 3%;
+                }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+    </style>
+    <style>
+        body {
+            font-family: 'Times New Roman', serif;
+        }
+    </style>   
+
+</head>
+<body>   
+    <!-------------------- Scroll-Top Area (Start) -------------------->
+    <a href="#home" class="scroll-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+    <!-------------------- Scroll-Top Area (End) -------------------->
+    <!-------------------- Header Area (Start) -------------------->
+    <header class="header">
+
+        <!-- Logo -->
+        <a class="logo" href="#home" style="display: flex; align-items: center; text-decoration: none;">
+            <img src="~/images/Home/Home.jpeg" alt="home" style="width: 50px; height: 50px; margin-right: 10px;">
+            <h1 style="font-family: 'Times New Roman', serif; color: #91917a;">Barbearia Estética<br>no auge da beleza!</h1>
+        </a>
+
+        <!-- Logo End -->
+        <!-- Navbar -->
+        <nav class="navbar" style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap;">
+            <span style="display: flex; align-items: center; margin-right: 20px;">
+                <i class="fas fa-home fa-lg" aria-hidden="true" , icone></i>
+                <a href="#home" style="margin-left: 10px;">Inicio</a>
+            </span>
+
+            <span style="display: flex; align-items: center; margin-right: 20px;">
+                <i class="fas fa-info-circle fa-lg" aria-hidden="true" style="margin-right: 8px; color: #725f47;"></i>
+                <a href="#about" style="margin-left: 10px;">Sobre</a>
+            </span>
+
+            <span style="display: flex; align-items: center; margin-right: 20px;">
+                <i class="fas fa-gavel fa-lg" aria-hidden="true" style="margin-right: 8px; color: #725f47;"></i>
+                <a href="#service" style="margin-left: 10px;">Serviço</a>
+            </span>
+
+            <span style="display: flex; align-items: center; margin-right: 20px;">
+                <i class="fas fa-window-restore fa-lg" aria-hidden="true"
+                   style="margin-right: 8px; color: #725f47;"></i>
+                <a href="#portfolio" style="margin-left: 10px;">Portfolio</a>
+            </span>
+
+            <span style="display: flex; align-items: center; margin-right: 20px;">
+                <i class="fa fa-users fa-lg" aria-hidden="true" style="margin-right: 8px; color: #725f47;"></i>
+                <a href="#testimonial" style="margin-left: 10px;">Depoimento</a>
+            </span>
+
+            <span style="display: flex; align-items: center; margin-right: 20px;">
+                <i class="fa fa-file fa-lg" aria-hidden="true" style="margin-right: 8px; color: #725f47;"></i>
+                <a href="#blog" style="margin-left: 10px;">Noticias</a>
+            </span>
+
+            <span style="display: flex; align-items: center; margin-right: 20px;">
+                <i class="fa fa-phone-square fa-lg" aria-hidden="true" style="margin-right: 8px; color: #725f47;"></i>
+                <a href="#contact" style="margin-left: 10px;">Contato</a>
+            </span>
+            <div class="dropdown" style="position: relative; display: inline-block;">
+                <span style="display: flex; align-items: center; margin-right: 20px;">
+                    <i class="fa fa-user" aria-hidden="true" style="margin-right: 8px; color: #725f47;"></i>
+                    <a href="/Usuario/Login" style="margin-left: 10px;">Login</a>
+                </span>
+                <div class="dropdown-content"
+                     style="display: none; position: absolute; background-color: white; width: 200px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1; padding: 8px; border-radius: 3%;">
+                    <a href="/Usuario/Index"
+                       style="padding: 7px; text-decoration: none; display: flex; align-items: center; margin: 5px;">
+                        <i class="fa fa-users" aria-hidden="true" style="margin-right: 8px; color: #725f47;"></i>
+                        Usuarios
+                    </a>
+                    <a href="/Agendamento/Index"
+                       style="padding: 7px; text-decoration: none; display: flex; align-items: center; margin: 5px;">
+                        <i class="fa fa-calendar" aria-hidden="true" style="margin-right: 8px; color: #725f47;"></i>
+                        Agendamento Administração
+                    </a>
+                    <a href="/Agendamento/AgendamentoUsuario/"
+                       style="padding: 7px; text-decoration: none; display: flex; align-items: center; margin: 5px;">
+                        <i class="fa fa-calendar" aria-hidden="true" style="margin-right: 8px; color: #725f47;"></i>
+                        Agendamento Usuario
+                    </a>
+                    <a href="/Agendamento/CadastroAgendamento"
+                       style="padding: 7px; text-decoration: none; display: flex; align-items: center; margin: 5px;">
+                        <i class="fa fa-user-plus" aria-hidden="true" style="margin-right: 8px; color: #725f47;"></i>
+                        Cadastro Agendamento
+                    </a>
+                    <a href="/Servico/Index"
+                       style="padding: 7px; text-decoration: none; display: flex; align-items: center; margin: 5px;">
+                        <i class="fa fa-user-plus" aria-hidden="true" style="margin-right: 8px; color: #725f47;"></i>
+                        Serviços
+                    </a>
+                    <a href="#logout"
+                       style="padding: 7px; text-decoration: none; display: flex; align-items: center; margin: 5px;">
+                        <i class="fa fa-bar-chart" aria-hidden="true" style="margin-right: 8px; color: #725f47;"></i>
+                        Relatório
+                    </a>
+                </div>
+            </div>
+
+        </nav>
+
+        <!-- Menubar -->
+        <div class="fas fa-bars" id="menu-btn"></div>
+
+    </header>
+    <!-------------------- Header Area (End) -------------------->
+    <!-------------------- Home Area (Start) -------------------->
+    <section class="home" id="home">
+
+        <div class="box-container">
+
+            <div class="content">
+                <div class="text">
+                    <h1 style="font-family: 'Times New Roman', serif; font-size: 60px;"> Olá, nós somos a Estética</h1>
+                    <h1 style="font-family: 'Times New Roman', serif; font-size: 30px;">E temos a oferecer: <br> <span class="typing-text" style="font-family: 'Times New Roman', serif;"></span></h1>
+                    <p style="font-family: 'Times New Roman', serif;">
+                            Transformamos o seu visual com excelência e estilo,
+                            <br>para que você esteja sempre no auge da sua beleza.
+                        </p>
+                        <!--<a href="#" class="btn">Saiba mais<i class="fas fa-user"></i></a> -->
+                </div>
+            </div>
+
+            <div class="image">
+                <img src="~/images/Home/Home.jpeg" alt="Home-Image" style="height: 400px;
+                width: 400px;
+                border-radius: 50% 50% 50% 50% / 30% 30% 70% 70%;
+                object-fit: cover;
+                border: 2px solid #91917a;">
+                
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-------------------- Home Area (End) -------------------->
+    <!-------------------- About Area (Start) -------------------->
+    <section class="about" id="about">
+
+        <div class="box-container">
+
+            <div class="image">
+                <img src="~/images/About/About.jpeg" alt="About-Image" />
+            </div>
+
+            <div class="content">
+
+                <h2>Sobre</h2>
+                <p>
+                    Oferecemos cortes de cabelo modernos e clássicos, adaptados ao estilo pessoal de cada cliente. <br>
+                    Também temos um corte de cabelo padrão, rápido eficiente e de alta qualidade para clientes com pouco
+                    tempo. <br>
+                    Nossos barbeiros são especializados em diversas técnicas para garantir um corte perfeito. <br>
+                    Ideal para quem busca um visual impecável de maneira rápida. <br>
+                    Utilizamos produtos de alta qualidade para hidratação e alinhamento, proporcionando um visual
+                    impecável. <br>
+                    Serviço de coloração para cabelos, incluindo cobertura de cabelos brancos, luzes e mechas. <br>
+                    Trabalhamos com produtos de ponta para garantir cores vibrantes e duradouras. <br>
+                    Serviço especializado em criar designs simples com máquina de corte. Perfeito para quem prefere um
+                    estilo criativo. <br>
+                    Plano de assinatura que inclui cortes de cabelo e aparos de barba mensais com desconto. Ideal para
+                    clientes que desejam manter o visual sempre em dia. <br>
+
+                </p>
+
+                <div class="about-info">
+
+                    <div class="info">
+                        <h4>Idade da empresa: <span>4 anos</span></h4>
+                        <h4>Área de atuação: <span>Beleza</span></h4>
+                        <h4>País: <span>Brasil</span></h4>
+                        <h4>Ramo de trabalho: <span>Estilização</span></h4>
+
+                    </div>
+
+                    <div class="counting">
+
+                        <div class="box">
+                            <h1 class="count" data-count="4">4+</h1>
+                            <h3>Anos de experiência</h3>
+                        </div>
+
+                        <div class="box">
+                            <h1 class="count" data-count="100">100+</h1>
+                            <h3>Projetos concluídos</h3>
+                        </div>
+
+                        <div class="box">
+                            <h1 class="count" data-count="80">80+</h1>
+                            <h3>Clientes satisfeitos</h3>
+                        </div>
+
+                        <div class="box">
+                            <h1 class="count" data-count="20">20+</h1>
+                            <h3>Total de Prêmios ganhos</h3>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="skill-container">
+
+            <div class="heading">
+                <h2>Nossas <span>Habilidades</span></h2>
+            </div>
+
+            <div class="skills">
+                <div class="skill-item item1">
+                    <div class="box">
+                        <h3>temos habilidade em criar estilos personalizados para homens.<span> 100% </span> </h3>
+                        <div class="progress-bar"> <span></span> </div>
+                    </div>
+                    <div class="box">
+                        <h3>Temos competência em realizar cortes clássicos e modernos.<span> 100% </span> </h3>
+                        <div class="progress-bar"> <span></span> </div>
+                    </div>
+                    <div class="box">
+                        <h3>Temos especialização em várias técnicas de coloração.<span> 100% </span> </h3>
+                        <div class="progress-bar"> <span></span> </div>
+                    </div>
+                </div>
+
+                <div class="skill-item item2">
+                    <div class="box">
+                        <h3>
+                            Temos uma modelagem e cuidados específicos para cada tipo de barba e bigode.<span>
+                                100%
+                            </span>
+                        </h3>
+                        <div class="progress-bar"> <span></span> </div>
+                    </div>
+                    <div class="box">
+                        <h3>Temos um serviço rápido e eficiente para homens ocupados.<span> 100% </span> </h3>
+                        <div class="progress-bar"> <span></span> </div>
+                    </div>
+                    <div class="box">
+                        <h3>
+                            Temos soluções abrangentes para manter ou inovar a aparência dos clientes.<span>
+                                100%
+                            </span>
+                        </h3>
+                        <div class="progress-bar"> <span></span> </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+    <!-------------------- About Area (End) -------------------->
+    <!-------------------- Qualification Area (Start) -------------------->
+    <section class="qualification">
+
+        <div class="heading">
+            <h2>Nossas<span> Qualificações</span></h2>
+        </div>
+
+        <div class="box-container">
+
+            <div class="education">
+
+                <div class="experience-item">
+                    <i class="fas fa-graduation-cap"></i>
+                    <div class="content">
+                        <span>2015 - 2016</span>
+                        <h3>Designer de cabelos masculino: com cortes ou penteados</h3>
+                        <p>
+                            Destaque para o início focado em estilização masculina:
+                            <br>Iniciamos com foco em estilizar cabelos masculinos, oferecendo cortes e penteados
+                            personalizados para cada cliente.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <i class="fas fa-graduation-cap"></i>
+                    <div class="content">
+                        <span>2016 - 2017</span>
+                        <h3>Corte de Cabelo padrão: na máquina ou na tesoura</h3>
+                        <p>
+                            Expansão para cortes clássicos e modernos:
+                            <br>Expandimos nossos serviços para incluir cortes clássicos e modernos,
+                            atendendo a clientes de todas as idades com técnicas precisas.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <i class="fas fa-graduation-cap"></i>
+                    <div class="content">
+                        <span>2017 - 2018</span>
+                        <h3>Coloração de Cabelo: com estilo ou padrão</h3>
+                        <p>
+                            Introdução de serviços de coloração com técnicas avançadas:
+                            <br>Introduzimos serviços de coloração de cabelo, utilizando técnicas avançadas
+                            como tintura, mechas e balayage para transformar a aparência de nossos clientes.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="experience">
+
+                <div class="experience-item">
+                    <i class="fas fa-briefcase"></i>
+                    <div class="content">
+                        <span>2018 - 2019</span>
+                        <h3>Barba e Bigode: corte, realce e tonalisação</h3>
+                        <p>
+                            Foco na modelagem e cuidados especializados para barba e bigode:
+                            <br>Aprimoramos nosso atendimento com modelagem e cuidados especializados
+                            para barba e bigode, garantindo um visual impecável.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <i class="fas fa-briefcase"></i>
+                    <div class="content">
+                        <span>2019 - 2020</span>
+                        <h3>Barba Expressa: na máquina e na navalha</h3>
+                        <p>
+                            Serviço rápido de modelagem de barba:
+                            <br>Adicionamos o serviço de Barba Expressa, oferecendo um corte rápido e eficiente
+                            para clientes com tempo limitado, sem comprometer a qualidade.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <i class="fas fa-briefcase"></i>
+                    <div class="content">
+                        <span>2020 - 2021</span>
+                        <h3>Pacote de Manutenção Mensal: o cliente vem toda semana mas só paga uma vez ao mês!</h3>
+                        <p>
+                            Pacotes personalizados para manutenção contínua do estilo dos clientes:
+                            <br>E finalmente lançamos os pacotes de manutenção mensal personalizados,
+                            que inclui cortes, coloração e cuidados com a barba, para manter o estilo dos nossos
+                            clientes sempre atualizado.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-------------------- Qualification Area (End) -------------------->
+    <!-------------------- Services Area (Start) -------------------->
+    <section class="service" id="service">
+
+        <div class="heading">
+            <h2>Nossos <span>Serviços</span></h2>
+        </div>
+
+        <div class="box-container">
+
+            <div class="service-item">
+                <i class="fas fa-thumbs-up"></i>
+                <h3>
+                    Designer de cabelos masculino:
+                    <br> Cortes e penteados
+                </h3>
+                <p>
+                    Elevamos o seu estilo a um novo patamar, <br>
+                    seu visual com cortes e penteados exclusivos. <br>
+                    Modernos ou clássicos, nossos cortes são adaptados ao estilo pessoal de cada cliente. <br>
+                    nossos profissionais altamente qualificados criam looks exclusivos e recriam tendências <br>
+                    pensados para destacar sua personalidade.
+            </div>
+            <br>
+            <div class="service-item">
+                <i class="fas fa-thumbs-up"></i>
+                <h3>
+                    Corte de Cabelo padrão:
+                    <br>Na máquina ou tesoura
+                </h3>
+                <p>
+
+                    Rápidos, eficientes e de alta qualidade, <br>
+                    Ideal para quem busca um visual impecável. <br>
+                    Nossos barbeiros são especialistas em diversas técnicas, garantindo um corte perfeito. <br>
+                    Oferecemos um acabamento memorável que combina praticidade e sofisticação.
+                </p>
+            </div>
+
+            <div class="service-item">
+                <i class="fas fa-thumbs-up"></i>
+                <h3>
+                    Coloração de Cabelo:
+                    <br>com estilo ou padrão
+                </h3>
+                <p>
+                    Nosso acabamento é duradouro e deslumbrante.<br>
+                    Transforme seu visual com nossa coloração adaptada ao seu estilo pessoal. <br>
+                    Oferecemos com excelência cores vibrantes e naturais, perfeitas para qualquer ocasião.
+                    Com técnicas avançadas e resultados impecáveis, <br>
+                    garantimos um visual marcante e sofisticado. <br>
+
+                </p>
+            </div>
+
+            <div class="service-item">
+                <i class="fas fa-thumbs-up"></i>
+                <h3>
+                    Estilização da Barba e Bigode:
+                    <br>corte, realce e coloração,
+                </h3>
+                <p>
+                    Aprimore sua aparência com nosso serviço completo de barba e bigode. <br>
+                    Do corte à tonalização, proporcionamos um visual impecável e marcante. <br>
+                    Com técnicas especializadas e produtos de qualidade, <br>
+                    garantimos um acabamento que realça sua masculinidade com estilo e sofisticação.
+                </p>
+            </div>
+
+            <div class="service-item">
+                <i class="fas fa-thumbs-up"></i>
+                <h3>
+                    Corte super rápido da Barba no modo Expresso:
+                    <br>Na máquina e navalha,
+                </h3>
+                <p>
+                    Para quem busca praticidade e precisão oferecemos o serviço de barba expressa. <br>
+                    Com cortes detalhados na máquina e acabamento preciso na navalha, <br>
+                    proporcionamos um visual definido e elegante em pouco tempo. <br>
+                    Ideal para quem valoriza um cuidado rápido sem abrir mão da qualidade.
+                </p>
+            </div>
+
+            <div class="service-item">
+                <i class="fas fa-thumbs-up"></i>
+                <h3>
+                    Pacote de Manutenção Mensal:
+                    <br>o cliente vem toda semana, mas só paga uma vez ao mês!
+                </h3>
+                <p>
+                    Economize tempo e dinheiro com nosso pacote de manutenção mensal. <br>
+                    Visite-nos toda semana para cuidar da sua aparência e pague apenas uma vez ao mês. <br>
+                    Com tratamentos personalizados e atendimento de excelência, <br>
+                    garantimos que você esteja sempre impecável, sem preocupações extras.
+                </p>
+            </div>
+
+        </div>
+    </section>
+    <!-------------------- Services Area (End) -------------------->
+    <!-------------------- Portfolio Area (Start) -------------------->
+    <section class="portfolio" id="portfolio">
+
+        <div class="heading">
+            <h2>Nosso <span>portfólio</span></h2>
+        </div>
+
+        <div class="gallery">
+
+            <ul class="controls">
+                <li class="button btn active" data-filter="all">Todos</li>
+                <li class="button btn" data-filter="web">Designer de Cabelos</li>
+                <li class="button btn" data-filter="design">Estilista de barba</li>
+                <li class="button btn" data-filter="photography">especialista em coloração</li>
+            </ul>
+
+            <div class="box-container">
+
+                <div class="portfolio-item image web">
+                    <img src="~/images/Portfolio/portfolio1.png" alt="Portfolio-Image" />
+                    <div class="content">
+                        <h4>Designer de Cabelos</h4>
+                        <p>com cortes e penteados</p>
+                        <a data-effect="mfp-newspaper" href="~/images/Portfolio/portfolio1.png" class="view-btn">
+                            <i class="fas fa-search-plus"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="portfolio-item image web">
+                    <img src="~/images/Portfolio/portfolio2.png" alt="Portfolio-Image" />
+                    <div class="content">
+                        <h4>Corte de Cabelo padrão</h4>
+                        <p> Na máquina ou tesoura</p>
+                        <a data-effect="mfp-newspaper" href="~/images/Portfolio/portfolio2.png" class="view-btn">
+                            <i class="fas fa-search-plus"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="portfolio-item image design">
+                    <img src="~/images/Portfolio/portfolio3.png" alt="Portfolio-Image" />
+                    <div class="content">
+                        <h4>Estilizar Barba e Bigode</h4>
+                        <p>Com corte, realce e coloração</p>
+                        <a data-effect="mfp-newspaper" href="~/images/Portfolio/portfolio3.png" class="view-btn">
+                            <i class="fas fa-search-plus"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="portfolio-item image design">
+                    <img src="~/images/Portfolio/portfolio4.png" alt="Portfolio-Image" />
+                    <div class="content">
+                        <h4>Barba Expressa</h4>
+                        <p>Na máquina e navalha</p>
+                        <a data-effect="mfp-newspaper" href="~/images/Portfolio/portfolio4.png" class="view-btn">
+                            <i class="fas fa-search-plus"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="portfolio-item image photography">
+                    <img src="~/images/Portfolio/portfolio5.png" alt="Portfolio-Image" />
+                    <div class="content">
+                        <h4>Coloração de cabelos</h4>
+                        <p>com estilo ou padrão</p>
+                        <a data-effect="mfp-newspaper" href="~/images/Portfolio/portfolio5.png" class="view-btn">
+                            <i class="fas fa-search-plus"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="portfolio-item image photography">
+                    <img src="~/images/Portfolio/portfolio6.png" alt="Portfolio-Image" />
+                    <div class="content">
+                        <h4>Pacote de Manutenção Mensal</h4>
+                         <p>o cliente vem toda semana, mas só paga uma vez ao mês!</p>
+                        <a data-effect="mfp-newspaper" href="~/images/Portfolio/portfolio6.png"
+                           class="view-btn"><i class="fas fa-search-plus"></i></a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+    <!-------------------- Portfolio Area (End) -------------------->
+    <!-------------------- Testimonials Area (Start) -------------------->
+    <section class="testimonial" id="testimonial">
+
+        <div class="heading">
+            <h2><span>Depoimentos</span></h2>
+        </div>
+
+        <div class="swiper-container testimonial-slider">
+            <div class="swiper-wrapper">
+
+                <div class="swiper-slide testi-item">
+                    <img src="~/images/Testimonials/Ricardo Souza.png" alt="Testimonial-Pic" />
+
+                    <i class="fas fa-quote-left"></i>
+
+                    <p class="comment">
+                        “A atenção, o profissionalismo e o talento superaram todas as minhas expectativas.
+                        Um <strong>designer de cabelos masculino</strong> excepcional.
+                        A Barbearia Estética demonstrou uma habilidade descomunal ao criar um corte personalizado que
+                        realçou meus traços faciais.
+                        A experiência na Barbearia Estética não apenas transformou meu visual, mas também me fez sentir
+                        como um verdadeiro cavalheiro.”
+                        Recebi inúmeros elogios, me senti renovado e confiante. E sobretudo com uma aparência sempre
+                        impecável.”
+                    </p>
+
+                    <div class="intro">
+                        <h3>Ricardo Souza</h3>
+                        <h5>Desenvolvedor Web</h5>
+                    </div>
+                </div>
+
+                <div class="swiper-slide testi-item">
+                    <img src="~/images/Testimonials/Felipe Oliveira.png" alt="Testimonial-Pic" />
+
+                    <i class="fas fa-quote-left"></i>
+
+                    <p class="comment">
+                        “O meu é um <strong>corte de cabelo padrão</strong>, mas realmente me impressionou a atenção
+                        dada aos detalhes.
+                        O cabeleireiro João tem um olhar artístico único e uma habilidade incrível de entender
+                        exatamente o que seus clientes querem,
+                        mesmo quando eles próprios não sabem explicar. Ele sugeriu um estilo que não só combinava com o
+                        formato do meu rosto,
+                        mas também realçava minha personalidade e estilo de vida.
+                        O resultado final foi simplesmente incrível.”
+                    </p>
+
+                    <div class="intro">
+                        <h3>Felipe Oliveira</h3>
+                        <h5>freelancer</h5>
+                    </div>
+                </div>
+
+                <div class="swiper-slide testi-item">
+                    <img src="~/images/Testimonials/André Silva.png" alt="Testimonial-Pic" />
+
+                    <i class="fas fa-quote-left"></i>
+
+                    <p class="comment">
+                        “o cabeleireiro João me sugeriu um <strong>estilo de barba e bigode</strong> que combina com a
+                        minha personalidade e o meu padrão de vida.
+                        Durante o corte, usou técnicas modernas e precisas, explicando cada passo do processo
+                        e oferecendo dicas valiosas sobre o cabelo da minha barba, para mantê-lo saudável e estiloso.
+                        Recomendo o serviço da barbearia Estética a qualquer homem que procura não apenas um corte de
+                        cabelo,
+                        mas uma verdadeira transformação de estilo.”
+                    </p>
+
+                    <div class="intro">
+                        <h3>André Silva</h3>
+                        <h5>Designer Gráfico</h5>
+                    </div>
+                </div>
+
+                <div class="swiper-slide testi-item">
+                    <img src="~/images/Testimonials/Bruno Costa.jpg" alt="Testimonial-Pic" />
+
+                    <i class="fas fa-quote-left"></i>
+
+                    <p class="comment">
+                        "Em apenas minutos, com o serviço de <strong>barba expressa</strong>,
+                        transformaram a aparência da minha barba, deslocada em uma top,
+                        com uma combinação perfeita de máquina e navalha. Me impressionou a personalização.
+                        Mesmo em um tempo curto, A Ana conseguiu personalizar o estilo da barba.
+                        Ideal para quem busca uma transformação rápida e elegante sem comprometer a qualidade.
+                        Recomendo fortemente a qualquer homem que deseje uma barba impecável em pouco tempo."
+                    </p>
+
+                    <div class="intro">
+                        <h3>Bruno Costa</h3>
+                        <h5>Capitão da Policia militar</h5>
+
+                    </div>
+                </div>
+
+                <div class="swiper-slide testi-item">
+                    <img src="~/images/Testimonials/Lucas Almeida.png" alt="Testimonial-Pic" />
+
+                    <i class="fas fa-quote-left"></i>
+
+                    <p class="comment">
+                        "Busquei inovação na Coloração de Cabelo com estilo ou padrão, mas me surpreende com tamanha
+                        eficiência.
+                        Mestres em estilização.
+                        Saí da barbearia me sentindo renovado e confiante, recebendo elogios de todos ao meu redor.
+                        Com cortes precisos, realces bem-feitos e com a coloração sofisticada e impecável
+                        a Barbearia Estética é capaz de transformar completamente a aparência de qualquer um.
+                        Sem dúvida, São verdadeiros artistas na estilização.""
+
+                    </p>
+
+                    <div class="intro">
+                        <h3>Lucas Almeida</h3>
+                        <h5>Advogado</h5>
+                    </div>
+                </div>
+
+                <div class="swiper-slide testi-item">
+                    <img src="~/images/Testimonials/Gustavo Lima.png" alt="Testimonial-Pic" />
+
+                    <i class="fas fa-quote-left"></i>
+
+                    <p class="comment">
+                        "A conveniência de pagar uma única vez por mês é insuperável, e a qualidade do serviço é
+                        excepcional.
+                        Para o meu trabalho como influenciador digital, minha imagem é fundamental, e o <strong>
+                            Pacote
+                            de Manutenção Mensal
+                        </strong>" da Barbearia Estética tem sido uma verdadeira bênção.
+                        Com minha agenda abarrotada de eventos, eu não tenho tempo para agendamentos frequentes.
+                        Recomendo grandemente a qualquer homem que queira manter seu status em alta. A paz!"
+
+                    </p>
+
+                    <div class="intro">
+                        <h3>Gustavo Lima</h3>
+                        <h5>Influenciador Digital e Pastor</h5>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="swiper-pagination swiper-pagination1"></div>
+
+        </div>
+    </section>
+    <!-------------------- Testimonials Area (End) -------------------->
+    <!-------------------- Blog Area (Start) -------------------->
+    <section class="blog" id="blog">
+
+        <div class="heading">
+            <h2>Atualização de <span>Notícias</span></h2>
+        </div>
+
+        <div class="swiper-container blog-slider">
+            <div class="swiper-wrapper">
+
+                <div class="swiper-slide blog-item">
+                    <div class="image">
+                        <img src="~/images/Blogs/pagina1.png" alt="Blog-Image" />
+                    </div>
+                    <div class="content">
+                        <div class="intro">
+                            <h5><i class="fas fa-calendar-alt"></i><span>1st jan, 2022</span></h5>
+                            <h5><i class="fas fa-user"></i><span>by admin</span></h5>
+                        </div>
+                        <a class="main-heading" href="#">
+                            Conheça os principais nomes de cortes <br> de cabelo masculino
+                            </a>
+                            <a href="https://blog.lavibora.com.br/nomes-de-cortes-de-cabelo/" class="btn"
+                               target="_blank">Saiba mais <i class="fas fa-arrow-right"></i></a>
+
+                    </div>
+                </div>
+
+                <div class="swiper-slide blog-item">
+                    <div class="image">
+                        <img src="~/images/Blogs/pagina2.png" alt="Blog-Image" />
+                    </div>
+                    <div class="content">
+                        <div class="intro">
+                            <h5><i class="fas fa-calendar-alt"></i><span>1st jan, 2022</span></h5>
+                            <h5><i class="fas fa-user"></i><span>by admin</span></h5>
+                        </div>
+                        <a class="main-heading" href="#">
+                            Qual é o padrão de corte de cabelo <br> para militar
+                            brasileiro?
+                            </a>
+                            <p></p>
+                            <a href="https://www.portalinsights.com.br/perguntas-frequentes/qual-padrao-do-corte-militar"
+                               class="btn" target="_blank">Saiba mais <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="swiper-slide blog-item">
+                    <div class="image">
+                        <img src="~/images/Blogs/pagina3.png" alt="Blog-Image" />
+                    </div>
+                    <div class="content">
+                        <div class="intro">
+                            <h5><i class="fas fa-calendar-alt"></i><span>1st jan, 2022</span></h5>
+                            <h5><i class="fas fa-user"></i><span>by admin</span></h5>
+                        </div>
+                        <a class="main-heading" href="#">
+                            Vaidade: homens descobrem o poder da barba na revolução da
+                            imagem
+                        </a>
+                        <p>
+                        </p>
+                        <a href="https://www.em.com.br/app/noticia/empresas/2021/08/04/interna-empresas,1292842/vaidade-homens-descobrem-o-poder-da-barba-na-revolucao-da-imagem.shtml"
+                           class="btn" target="_blank">Saiba mais <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="swiper-slide blog-item">
+                    <div class="image">
+                        <img src="~/images/Blogs/pagina4.png" alt="Blog-Image" />
+                    </div>
+                    <div class="content">
+                        <div class="intro">
+                            <h5><i class="fas fa-calendar-alt"></i><span>1st jan, 2022</span></h5>
+                            <h5><i class="fas fa-user"></i><span>by admin</span></h5>
+                        </div>
+                        <a class="main-heading" href="#">
+                            Barba Lenhador: <br> Tudo o que você Precisa Saber e com
+                            Estilo
+                        </a>
+                        <p>
+                        </p>
+                        <a href="https://blog.daazcavernas.com/barba-lenhador/" class="btn" target="_blank">
+                            Saiba mais
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="swiper-slide blog-item">
+                    <div class="image">
+                        <img src="~/images/Blogs/pagina5.png" alt="Blog-Image" />
+                    </div>
+                    <div class="content">
+                        <div class="intro">
+                            <h5><i class="fas fa-calendar-alt"></i><span>1st jan, 2022</span></h5>
+                            <h5><i class="fas fa-user"></i><span>by admin</span></h5>
+                        </div>
+                        <a class="main-heading" href="#">A vez deles: <br> tudo sobre Coloração Pessoal Masculina </a>
+                        <p>
+                        </p>
+                        <a href="https://blog.daazcavernas.com/barba-lenhador/" class="btn" target="_blank">
+                            Saiba mais
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="swiper-slide blog-item">
+                    <div class="image">
+                        <img src="~/images/Blogs/pagina6.png" alt="Blog-Image" />
+                    </div>
+                    <div class="content">
+                        <div class="intro">
+                            <h5><i class="fas fa-calendar-alt"></i><span>1st jan, 2022</span></h5>
+                            <h5><i class="fas fa-user"></i><span>by admin</span></h5>
+                        </div>
+                        <a class="main-heading" href="#">Barbearia por assinatura: <br> como é e quais as vantagens</a>
+                        <p>
+                        </p>
+                        <a href="https://blog.vindi.com.br/assinatura-em-barbearias/" class="btn" target="_blank">
+                            Saiba
+                            mais <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="swiper-pagination swiper-pagination2"></div>
+
+        </div>
+
+    </section>
+    <!-------------------- Blog Area (End) -------------------->
+    <!-------------------- Contact Area (Start) -------------------->
+    <section class="contact" id="contact">
+
+        <div class="heading">
+            <h2><span>Contatos</span></h2>
+        </div>
+
+        <div class="box-container">
+
+            <div class="contact-info">
+
+                <h3>Estética</h3>
+
+                <p>No auge da beleza!</p>
+
+                <div class="info-item">
+                    <h4>Telefone:</h4>
+                    <div class="detail">
+                        <div class="fas fa-phone"></div>
+                        <p>+123-456-789</p>
+                    </div>
+                    <div class="detail">
+                        <div class="fas fa-phone"></div>
+                        <p>+111-222-333</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <h4>email:</h4>
+                    <div class="detail">
+                        <div class="fas fa-envelope"></div>
+                        <p class="gmail">abc@gmail.com</p>
+                    </div>
+                    <div class="detail">
+                        <div class="fas fa-envelope"></div>
+                        <p class="gmail">xyz@gmail.com</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <h4>linkedin:</h4>
+                    <div class="detail">
+                        <div class="fab fa-linkedin"></div>
+                        <p class="linkedin">https://www.linkedin.com/</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <h4>github:</h4>
+                    <div class="detail">
+                        <div class="fab fa-github"></div>
+                        <p class="github">https://github.com/</p>
+                    </div>
+                </div>
+            </div>
+
+            <form method="post" class="contact-form" id="contactUs-Form">
+
+                <input type="text" name="name" class="box" id="name" placeholder="Nome" required />
+                <input type="email" name="email" class="box" id="email" placeholder="Email" required />
+                <input type="text" name="subject" class="box" id="subject" placeholder="Assunto" required />
+                <textarea cols="30" rows="10" name="comment" id="comment" class="box"
+                          placeholder="Menssagem"></textarea>
+                <button type="submit" class="btn" name="submit" id="submit">Enviar mensagem</button>
+
+                <span class="alert" id="msg"></span>
+
+            </form>
+
+        </div>
+
+    </section>
+    <!-------------------- Contact Area (End) -------------------->
+    <!-------------------- Footer Area (Start) -------------------->
+    <footer>
+        <div class="social">
+            <a href="#" class="fab fa-facebook-f"></a>
+            <a href="#" class="fab fa-twitter"></a>
+            <a href="#" class="fab fa-instagram"></a>
+            <a href="#" class="fab fa-linkedin-in"></a>
+        </div>
+
+        <div class="content">
+            <p>
+                Criado por <span>Sayte Web </span> todos os direitos reservados a: Barbearia Estética
+            </p>
+        </div>
+    </footer>
+    <!-------------------- Footer Area (End) -------------------->
+    <!-- JQuery -->
+    <script src="~/vendors/jquery/jquery-3.6.0.js"></script>   
+
+    <!-- Typed JS -->
+    <script src="~/vendors/typed/typed.js"></script>
+
+   
+
+    <!---------------- Custom Script ---------------->
+    <!-- Typed Script -->
+    <script>
+        var typed = new Typed('.typing-text', {
+
+            strings: ['Designer de cabelos masculino', 'Corte de Cabelo padrão', 'Coloração de Cabelo',
+                'Barba e Bigode', 'Barba Expressa', 'Pacote de Manutenção Mensal'],
+            typeSpeed: 120,
+            loop: true
+        });
+    </script>
+
+    <!-- Contact-Form Script -->
+    <script>
+        jQuery('#contactUs-Form').on('submit', function (e) {
+            jQuery('#msg').html('');
+            jQuery('#submit').html('Please wait');
+            jQuery('#submit').attr('disabled', true);
+            jQuery.ajax({
+                url: '~/php/submit.php',
+                type: 'post',
+                data: jQuery('#contactUs-Form').serialize(),
+                success: function (result) {
+                    jQuery('#msg').html(result);
+                    jQuery('#submit').html('Submit');
+                    jQuery('#submit').attr('disabled', false);
+                    jQuery('#contactUs-Form')[0].reset();
+                }
+            });
+            e.preventDefault();
+        });
+    </script>
+    <script>
+        // Script to handle the dropdown functionality
+        document.querySelector('.dropdown').addEventListener('mouseover', function () {
+            this.querySelector('.dropdown-content').style.display = 'block';
+        });
+
+        document.querySelector('.dropdown').addEventListener('mouseout', function () {
+            this.querySelector('.dropdown-content').style.display = 'none';
+        });
+    </script>
+
+</body>
