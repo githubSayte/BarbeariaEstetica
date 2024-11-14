@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Aluno Noite\\OneDrive\\Área de Trabalho\\Estetica-Estetica\\TestBarbeariaEstetica\\TestBarbeariaEstetica.csproj": {}
+    "C:\\Users\\Aluno Noite\\OneDrive\\Área de Trabalho\\Renato R. Aluno da Manhã\\Repositórios\\BarbeariaEstetica\\TestBarbeariaEstetica\\TestBarbeariaEstetica.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Aluno Noite\\OneDrive\\Área de Trabalho\\Estetica-Estetica\\Barbearia Estética\\Barbearia Estética.csproj": {
+    "C:\\Users\\Aluno Noite\\OneDrive\\Área de Trabalho\\Renato R. Aluno da Manhã\\Repositórios\\BarbeariaEstetica\\Barbearia Estética\\Barbearia Estética.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Aluno Noite\\OneDrive\\Área de Trabalho\\Estetica-Estetica\\Barbearia Estética\\Barbearia Estética.csproj",
+        "projectUniqueName": "C:\\Users\\Aluno Noite\\OneDrive\\Área de Trabalho\\Renato R. Aluno da Manhã\\Repositórios\\BarbeariaEstetica\\Barbearia Estética\\Barbearia Estética.csproj",
         "projectName": "Barbearia Estética",
-        "projectPath": "C:\\Users\\Aluno Noite\\OneDrive\\Área de Trabalho\\Estetica-Estetica\\Barbearia Estética\\Barbearia Estética.csproj",
+        "projectPath": "C:\\Users\\Aluno Noite\\OneDrive\\Área de Trabalho\\Renato R. Aluno da Manhã\\Repositórios\\BarbeariaEstetica\\Barbearia Estética\\Barbearia Estética.csproj",
         "packagesPath": "C:\\Users\\Aluno Noite\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Aluno Noite\\OneDrive\\Área de Trabalho\\Estetica-Estetica\\Barbearia Estética\\obj\\",
+        "outputPath": "C:\\Users\\Aluno Noite\\OneDrive\\Área de Trabalho\\Renato R. Aluno da Manhã\\Repositórios\\BarbeariaEstetica\\Barbearia Estética\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Aluno Noite\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -48,27 +48,27 @@
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[8.0.10, )"
+              "version": "[9.0.0, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[8.0.10, )"
+              "version": "[9.0.0, )"
             },
             "Microsoft.EntityFrameworkCore.InMemory": {
               "target": "Package",
-              "version": "[8.0.0, )"
+              "version": "[9.0.0, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[8.0.10, )"
+              "version": "[9.0.0, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[8.0.10, )"
+              "version": "[9.0.0, )"
             },
             "Moq": {
               "target": "Package",
@@ -102,14 +102,14 @@
         }
       }
     },
-    "C:\\Users\\Aluno Noite\\OneDrive\\Área de Trabalho\\Estetica-Estetica\\TestBarbeariaEstetica\\TestBarbeariaEstetica.csproj": {
+    "C:\\Users\\Aluno Noite\\OneDrive\\Área de Trabalho\\Renato R. Aluno da Manhã\\Repositórios\\BarbeariaEstetica\\TestBarbeariaEstetica\\TestBarbeariaEstetica.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Aluno Noite\\OneDrive\\Área de Trabalho\\Estetica-Estetica\\TestBarbeariaEstetica\\TestBarbeariaEstetica.csproj",
+        "projectUniqueName": "C:\\Users\\Aluno Noite\\OneDrive\\Área de Trabalho\\Renato R. Aluno da Manhã\\Repositórios\\BarbeariaEstetica\\TestBarbeariaEstetica\\TestBarbeariaEstetica.csproj",
         "projectName": "TestBarbeariaEstetica",
-        "projectPath": "C:\\Users\\Aluno Noite\\OneDrive\\Área de Trabalho\\Estetica-Estetica\\TestBarbeariaEstetica\\TestBarbeariaEstetica.csproj",
+        "projectPath": "C:\\Users\\Aluno Noite\\OneDrive\\Área de Trabalho\\Renato R. Aluno da Manhã\\Repositórios\\BarbeariaEstetica\\TestBarbeariaEstetica\\TestBarbeariaEstetica.csproj",
         "packagesPath": "C:\\Users\\Aluno Noite\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Aluno Noite\\OneDrive\\Área de Trabalho\\Estetica-Estetica\\TestBarbeariaEstetica\\obj\\",
+        "outputPath": "C:\\Users\\Aluno Noite\\OneDrive\\Área de Trabalho\\Renato R. Aluno da Manhã\\Repositórios\\BarbeariaEstetica\\TestBarbeariaEstetica\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Aluno Noite\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -127,8 +127,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Aluno Noite\\OneDrive\\Área de Trabalho\\Estetica-Estetica\\Barbearia Estética\\Barbearia Estética.csproj": {
-                "projectPath": "C:\\Users\\Aluno Noite\\OneDrive\\Área de Trabalho\\Estetica-Estetica\\Barbearia Estética\\Barbearia Estética.csproj"
+              "C:\\Users\\Aluno Noite\\OneDrive\\Área de Trabalho\\Renato R. Aluno da Manhã\\Repositórios\\BarbeariaEstetica\\Barbearia Estética\\Barbearia Estética.csproj": {
+                "projectPath": "C:\\Users\\Aluno Noite\\OneDrive\\Área de Trabalho\\Renato R. Aluno da Manhã\\Repositórios\\BarbeariaEstetica\\Barbearia Estética\\Barbearia Estética.csproj"
               }
             }
           }
@@ -153,8 +153,10 @@
               "version": "[17.11.1, )"
             },
             "coverlet.collector": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
-              "version": "[6.0.0, )"
+              "version": "[6.0.2, )"
             },
             "xunit": {
               "target": "Package",
