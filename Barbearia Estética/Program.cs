@@ -17,6 +17,10 @@ builder.Services.AddScoped<UsuarioRepositorio>();  // Ou AddTransient ou AddSing
 // Registrar outros serviços, como controllers com views
 builder.Services.AddControllersWithViews();
 
+// Registrar o repositório (ServicoRepositorio)
+builder.Services.AddScoped<ServicoRepositorio>();
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
