@@ -16,8 +16,4 @@ public partial class TbAtendimento
     public int FkUsuarioId { get; set; }
 
     public int FkServicoId { get; set; }
-
-    public virtual TbServico FkServico { get; set; } = null!;
-
-    public virtual TbUsuario FkUsuario { get; set; } = null!;
 }

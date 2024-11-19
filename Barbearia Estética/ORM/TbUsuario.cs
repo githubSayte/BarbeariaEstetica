@@ -16,6 +16,4 @@ public partial class TbUsuario
     public string Senha { get; set; } = null!;
 
     public int TipoUsuario { get; set; }
-
-    public virtual ICollection<TbAtendimento> TbAtendimentos { get; set; } = new List<TbAtendimento>();
 }

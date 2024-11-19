@@ -40,27 +40,19 @@ public partial class BdEsteticaContext : DbContext
             entity.Property(e => e.Id).HasColumnName("ID");
             entity.Property(e => e.FkServicoId).HasColumnName("fk_Servico_ID");
             entity.Property(e => e.FkUsuarioId).HasColumnName("fk_Usuario_ID");
-
-            entity.HasOne(d => d.FkServico).WithMany(p => p.TbAtendimentos)
-                .HasForeignKey(d => d.FkServicoId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_Tb_Atendimento_Tb_Servico");
-
-            entity.HasOne(d => d.FkUsuario).WithMany(p => p.TbAtendimentos)
-                .HasForeignKey(d => d.FkUsuarioId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_Tb_Atendimento_TbUsuario");
         });
 
         modelBuilder.Entity<TbServico>(entity =>
         {
+            entity.HasKey(e => e.Id).HasName("PK__Tb_Servi__3214EC272978050F");
+
             entity.ToTable("Tb_Servico");
 
             entity.Property(e => e.Id).HasColumnName("ID");
             entity.Property(e => e.TipoServico)
-                .HasMaxLength(50)
+                .HasMaxLength(150)
                 .IsUnicode(false);
-            entity.Property(e => e.Valor).HasColumnType("decimal(18, 0)");
+            entity.Property(e => e.Valor).HasColumnType("decimal(18, 2)");
         });
 
         modelBuilder.Entity<TbUsuario>(entity =>

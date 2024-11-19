@@ -30,9 +30,17 @@ namespace SiteAgendamento.Controllers
         // Método para listar todos os serviços
         public IActionResult Index()
         {
-            List<SelectListItem> tiposervico = new List<SelectListItem>();
+            List<SelectListItem> tipoServico = new List<SelectListItem>
+             {
+                 new SelectListItem { Value = "0", Text = "Designer de cabelos masculino: com cortes ou penteados" },
+                 new SelectListItem { Value = "1", Text = "Corte de Cabelo padrão: na máquina ou na tesoura" },
+                 new SelectListItem { Value = "2", Text = "Coloração de Cabelo: com estilo ou padrão" },
+                 new SelectListItem { Value = "3", Text = "Pacote de Manutenção Mensal" },
+                 new SelectListItem { Value = "4", Text = "Barba e Bigode: corte, realce e tonalisação" },
+                 new SelectListItem { Value = "5", Text = "Barba Expressa: na máquina e na navalha" }
+             };
 
-            ViewBag.lstTipoServico = new SelectList(tiposervico, "Value", "Text");
+            ViewBag.lstTipoServico = new SelectList(tipoServico, "Value", "Text");
             var Servicos = _servicoRepositorio.ListarServicos();
             return View(Servicos);
         }
@@ -88,7 +96,7 @@ namespace SiteAgendamento.Controllers
         }
 
         // Método para excluir um serviço
-        public IActionResult ExcluirServicos(int id)
+        public IActionResult ExcluirServico(int id)
         {
             try
             {
