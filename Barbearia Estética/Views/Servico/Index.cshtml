@@ -77,6 +77,10 @@
                     </table>
                 </div>
             </div>
+            <!-- Contador de Registros Centralizado com Fonte Maior -->
+            <div style="text-align: center; color: black; margin-top: 10px;">
+                <strong style="font-size: 18px">Total de Usuários: <span id="registroCount">0</span></strong>
+            </div>
         </div>
       
         <div class="modal fade" id="EditarServico" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -119,6 +123,7 @@
                 </div>
             </div>
         </div>
+
         <div class="modal fade" id="ExcluirServico" tabindex="-1" aria-labelledby="exampleModalLabel"
              aria-hidden="true">
             <div class="modal-dialog">
@@ -152,6 +157,7 @@
                 </div>
             </div>
         </div>
+
         <div class="modal fade" id="InserirServico" tabindex="-1" aria-labelledby="exampleModalLabel"
              aria-hidden="true">
             <div class="modal-dialog">
@@ -199,14 +205,42 @@
         </div>
 
 
-        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
 
-        <script src="assets/lib/swiper/swiper-bundle.min.js"></script>
+        <script src="~/lib/swiper/swiper-bundle.min.js"></script>
 
-        <script src="assets/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
 
-        <script src="assets/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
         <script>
+
+            $(document).ready(function () {
+                // Função para atualizar o contador de registros visíveis
+                function atualizarContador() {
+                    var visibleRows = $('#TbServicosBody tbody tr:visible').length; // Conta as linhas visíveis
+                    $('#registroCount').text(visibleRows); // Atualiza o contador
+                }
+
+                // Quando o usuário digitar no campo de filtro
+                $('#filtro').on('keyup', function () {
+                    var value = $(this).val().toLowerCase(); // Pega o valor do campo de filtro e converte para minúsculas
+
+                    // Filtra as linhas do corpo da tabela
+                    $('#TbServicosBody tbody tr').each(function () {
+                        // Verifica se qualquer célula na linha contém o valor digitado no filtro
+                        var rowText = $(this).text().toLowerCase();
+                        // Exibe ou oculta a linha, dependendo de conter o valor
+                        $(this).toggle(rowText.indexOf(value) > -1);
+                    });
+
+                    // Atualiza o contador após filtrar as linhas
+                    atualizarContador();
+                });
+
+                // Inicializa o contador de registros ao carregar a página
+                atualizarContador();
+            });
 
             function definirEdt(id, tiposervico, valor) {
                 console.log("tiposervico recebido:", tiposervico);  // Verifique o valor que está sendo passado para a função
@@ -249,6 +283,7 @@
                     console.error("DropDownList 'EdtTipoServico' não encontrado.");
                 }
             }
+
             function definirExc(id, nome, valor) 
             {
                 console.log(id, nome, valor)
@@ -256,6 +291,7 @@
                 $('#ExcServico').val(nome);
                 $('#ExcValor').val(valor);
             }
+
             function ExcluirServico() 
             {
                 var id = $('#ExcId').val();
@@ -289,6 +325,7 @@
                     });
                 }
             }
+
             function AlterarServico() 
             {
                 var id = $('#EdtId').val();
@@ -326,6 +363,7 @@
                     }
                 });
             }
+
             function AdicionarServico() {
 
                 var tipoServico = $('#TipoServico option:selected').text();
@@ -368,6 +406,8 @@
                     }
                 });
             }
+
+
         </script>
     </section>
 </body>

@@ -1,36 +1,41 @@
-﻿
-using Barbearia_Estética.Models;
+﻿using Barbearia_Estética.Models;
 using Barbearia_Estética.ORM;
-using System.Drawing;
+using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace SiteAgendamento.Repositorio
 {
     public class ServicoRepositorio
     {
+        private readonly BdEsteticaContext _context;
 
-        private BdEsteticaContext _context;
         public ServicoRepositorio(BdEsteticaContext context)
         {
             _context = context;
         }
-        public bool InserirServico(string tiposervico, decimal valor)
+
+        public bool InserirServico(string tipoServico, decimal valor)
         {
             try
             {
-                TbServico servico = new TbServico();
-                servico.TipoServico = tiposervico;
-                servico.Valor = valor;
+                TbServico servico = new TbServico
+                {
+                    TipoServico = tipoServico,
+                    Valor = valor
+                };
 
-
-                _context.TbServicos.Add(servico);  // Supondo que _context.TbServicos seja o DbSet para a entidade de TbServico
+                _context.TbServicos.Add(servico);
                 _context.SaveChanges();
 
-                return true;  // Retorna true para indicar sucesso
+                return true;
             }
             catch (Exception ex)
             {
-                // Trate o erro ou faça um log do ex.Message se necessário
-                return false;  // Retorna false para indicar falha
+                // Log do erro
+                Console.WriteLine($"Erro ao inserir serviço: {ex.Message}");
+                return false;
             }
         }
 
@@ -46,8 +51,7 @@ namespace SiteAgendamento.Repositorio
                 {
                     Id = item.Id,
                     TipoServico = item.TipoServico,
-                    Valor = item.Valor = item.Valor,
-                   
+                    Valor = item.Valor
                 };
 
                 listFun.Add(servicos);
@@ -56,26 +60,23 @@ namespace SiteAgendamento.Repositorio
             return listFun;
         }
 
-        public bool AtualizarServicos(int id, string tiposervico, decimal valor)
+        public bool AtualizarServico(int id, string tipoServico, decimal valor)
         {
             try
             {
-                // Busca os servicos pelo ID
-                var servicos = _context.TbServicos.FirstOrDefault(u => u.Id == id);
-                if (servicos != null)
+                var servico = _context.TbServicos.FirstOrDefault(s => s.Id == id);
+                if (servico != null)
                 {
-                    // Atualiza os dados dos servicos
-                    servicos.TipoServico = tiposervico; 
-                    servicos.Valor = valor; 
+                    servico.TipoServico = tipoServico;
+                    servico.Valor = valor;
 
-                    // Salva as mudanças no banco de dados
                     _context.SaveChanges();
 
-                    return true;  // Retorna verdadeiro se a atualização for bem-sucedida
+                    return true;
                 }
                 else
                 {
-                    return false;  // Retorna falso se o servico não foi encontrado
+                    return false;
                 }
             }
             catch (Exception ex)
@@ -83,25 +84,25 @@ namespace SiteAgendamento.Repositorio
                 Console.WriteLine($"Erro ao atualizar o serviço com ID {id}: {ex.Message}");
                 return false;
             }
+
+            throw new NotImplementedException();
         }
 
-        public bool ExcluirServicos(int id)
+        public bool ExcluirServico(int id)
         {
             try
             {
-                // Busca o servico pelo ID
-                var servicos = _context.TbServicos.FirstOrDefault(u => u.Id == id);
-                if (servicos != null)
+                var servico = _context.TbServicos.FirstOrDefault(s => s.Id == id);
+                if (servico != null)
                 {
-                    // Remove o servico do banco de dados
-                    _context.TbServicos.Remove(servicos);
+                    _context.TbServicos.Remove(servico);
                     _context.SaveChanges();
 
-                    return true;  // Retorna verdadeiro se a exclusão for bem-sucedida
+                    return true;
                 }
                 else
                 {
-                    return false;  // Retorna falso se o servico não foi encontrado
+                    return false;
                 }
             }
             catch (Exception ex)
@@ -109,7 +110,8 @@ namespace SiteAgendamento.Repositorio
                 Console.WriteLine($"Erro ao excluir o serviço com ID {id}: {ex.Message}");
                 return false;
             }
-        }
+
+            throw new NotImplementedException();
+        }     
     }
 }
-

@@ -78,7 +78,7 @@ namespace SiteAgendamento.Controllers
             try
             {
                 // Chama o repositório para atualizar o serviço
-                var resultado = _servicoRepositorio.AtualizarServicos(id, TipoServico, Valor);
+                var resultado = _servicoRepositorio.AtualizarServico(id, TipoServico, Valor);
 
                 if (resultado)
                 {
@@ -101,7 +101,7 @@ namespace SiteAgendamento.Controllers
             try
             {
                 // Chama o repositório para excluir o serviço
-                var resultado = _servicoRepositorio.ExcluirServicos(id);
+                var resultado = _servicoRepositorio.ExcluirServico(id);
 
                 if (resultado)
                 {
