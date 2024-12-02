@@ -43,8 +43,8 @@
                             <th style="border: 1px solid #ddd; padding: 8px; width: 50px; position: sticky; top: 0; background-color: #725f47; z-index: 2;">#</th>
                             <th style="border: 1px solid #ddd; padding: 8px; width: 190px; position: sticky; top: 0; background-color: #725f47; z-index: 2;">Tipo de Serviço</th>
                             <th style="border: 1px solid #ddd; padding: 8px; width: 230px; position: sticky; top: 0; background-color: #725f47; z-index: 2;">Valor</th>
-                            <th class="editar" style="border: 1px solid #ddd; padding: 8px; position: sticky; top: 0; background-color: #725f47; z-index: 2;">Editar</th>
-                            <th class="excluir" style="border: 1px solid #ddd; padding: 8px; position: sticky; top: 0; background-color: #725f47; z-index: 2;">Excluir</th>
+                            <th class="editar" style="border: 1px solid #ddd; padding: 8px; width: 80px; position: sticky; top: 0; background-color: #725f47; z-index: 2;">Editar</th> <!-- Largura reduzida -->
+                            <th class="excluir" style="border: 1px solid #ddd; padding: 8px; width: 80px; position: sticky; top: 0; background-color: #725f47; z-index: 2;">Excluir</th> <!-- Largura reduzida -->
                         </tr>
                     </thead>
                 </table>
@@ -61,12 +61,14 @@
                                     <td style="color: black; border: 1px solid #ddd; padding: 8px; width: 230px">
                                         @servico.Valor.ToString("C2")
                                     </td>
-                                    <td class="text-center" style="border: 1px solid #ddd;">
+                                    <td class="text-center" style="border: 1px solid #ddd; width: 80px;">
+                                        <!-- Largura reduzida -->
                                         <button class="btn btn-default" onclick="definirEdt('@servico.Id', '@servico.TipoServico', '@servico.Valor')" data-bs-toggle="modal" data-bs-target="#EditarServico" style="color: #EAE7DC;">
                                             <i class="fa fa-edit"></i>
                                         </button>
                                     </td>
-                                    <td class="text-center" style="border: 1px solid #ddd;">
+                                    <td class="text-center" style="border: 1px solid #ddd; width: 80px;">
+                                        <!-- Largura reduzida -->
                                         <button class="btn btn-default" onclick="definirExc('@servico.Id', '@servico.TipoServico', '@servico.Valor')" data-bs-toggle="modal" data-bs-target="#ExcluirServico" style="color: #EAE7DC;">
                                             <i class="fa fa-trash"></i>
                                         </button>
@@ -77,6 +79,7 @@
                     </table>
                 </div>
             </div>
+
             <!-- Contador de Registros Centralizado com Fonte Maior -->
             <div style="text-align: center; color: black; margin-top: 10px;">
                 <strong style="font-size: 18px">Total de Usuários: <span id="registroCount">0</span></strong>

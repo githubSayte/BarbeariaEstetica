@@ -10,4 +10,6 @@ public partial class TbServico
     public string TipoServico { get; set; } = null!;
 
     public decimal Valor { get; set; }
+
+    public virtual ICollection<TbAgendamento> TbAgendamentos { get; set; } = new List<TbAgendamento>();
 }

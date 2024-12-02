@@ -1,5 +1,11 @@
 C:\Users\Aluno Noite\OneDrive\Área de Trabalho\Renato R. Aluno da Manhã\Repositórios\BarbeariaEstetica\TestBarbeariaEstetica\bin\Debug\net8.0\.msCoverageSourceRootsMapping_TestBarbeariaEstetica
 C:\Users\Aluno Noite\OneDrive\Área de Trabalho\Renato R. Aluno da Manhã\Repositórios\BarbeariaEstetica\TestBarbeariaEstetica\bin\Debug\net8.0\CoverletSourceRootsMapping_TestBarbeariaEstetica
+C:\Users\Aluno Noite\OneDrive\Área de Trabalho\Renato R. Aluno da Manhã\Repositórios\BarbeariaEstetica\TestBarbeariaEstetica\obj\Debug\net8.0\TestBarbeariaEstetica.csproj.AssemblyReference.cache
+C:\Users\Aluno Noite\OneDrive\Área de Trabalho\Renato R. Aluno da Manhã\Repositórios\BarbeariaEstetica\TestBarbeariaEstetica\obj\Debug\net8.0\TestBarbeariaEstetica.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Aluno Noite\OneDrive\Área de Trabalho\Renato R. Aluno da Manhã\Repositórios\BarbeariaEstetica\TestBarbeariaEstetica\obj\Debug\net8.0\TestBarbeariaEstetica.AssemblyInfoInputs.cache
+C:\Users\Aluno Noite\OneDrive\Área de Trabalho\Renato R. Aluno da Manhã\Repositórios\BarbeariaEstetica\TestBarbeariaEstetica\obj\Debug\net8.0\TestBarbeariaEstetica.AssemblyInfo.cs
+C:\Users\Aluno Noite\OneDrive\Área de Trabalho\Renato R. Aluno da Manhã\Repositórios\BarbeariaEstetica\TestBarbeariaEstetica\obj\Debug\net8.0\TestBarbeariaEstetica.csproj.CoreCompileInputs.cache
+C:\Users\Aluno Noite\OneDrive\Área de Trabalho\Renato R. Aluno da Manhã\Repositórios\BarbeariaEstetica\TestBarbeariaEstetica\obj\Debug\net8.0\TestBarbeariaEstetica.sourcelink.json
 C:\Users\Aluno Noite\OneDrive\Área de Trabalho\Renato R. Aluno da Manhã\Repositórios\BarbeariaEstetica\TestBarbeariaEstetica\bin\Debug\net8.0\testhost.dll
 C:\Users\Aluno Noite\OneDrive\Área de Trabalho\Renato R. Aluno da Manhã\Repositórios\BarbeariaEstetica\TestBarbeariaEstetica\bin\Debug\net8.0\Barbearia Estética.deps.json
 C:\Users\Aluno Noite\OneDrive\Área de Trabalho\Renato R. Aluno da Manhã\Repositórios\BarbeariaEstetica\TestBarbeariaEstetica\bin\Debug\net8.0\Barbearia Estética.runtimeconfig.json
@@ -152,12 +158,6 @@ C:\Users\Aluno Noite\OneDrive\Área de Trabalho\Renato R. Aluno da Manhã\Reposi
 C:\Users\Aluno Noite\OneDrive\Área de Trabalho\Renato R. Aluno da Manhã\Repositórios\BarbeariaEstetica\TestBarbeariaEstetica\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 C:\Users\Aluno Noite\OneDrive\Área de Trabalho\Renato R. Aluno da Manhã\Repositórios\BarbeariaEstetica\TestBarbeariaEstetica\bin\Debug\net8.0\Barbearia Estética.dll
 C:\Users\Aluno Noite\OneDrive\Área de Trabalho\Renato R. Aluno da Manhã\Repositórios\BarbeariaEstetica\TestBarbeariaEstetica\bin\Debug\net8.0\Barbearia Estética.pdb
-C:\Users\Aluno Noite\OneDrive\Área de Trabalho\Renato R. Aluno da Manhã\Repositórios\BarbeariaEstetica\TestBarbeariaEstetica\obj\Debug\net8.0\TestBarbeariaEstetica.csproj.AssemblyReference.cache
-C:\Users\Aluno Noite\OneDrive\Área de Trabalho\Renato R. Aluno da Manhã\Repositórios\BarbeariaEstetica\TestBarbeariaEstetica\obj\Debug\net8.0\TestBarbeariaEstetica.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Aluno Noite\OneDrive\Área de Trabalho\Renato R. Aluno da Manhã\Repositórios\BarbeariaEstetica\TestBarbeariaEstetica\obj\Debug\net8.0\TestBarbeariaEstetica.AssemblyInfoInputs.cache
-C:\Users\Aluno Noite\OneDrive\Área de Trabalho\Renato R. Aluno da Manhã\Repositórios\BarbeariaEstetica\TestBarbeariaEstetica\obj\Debug\net8.0\TestBarbeariaEstetica.AssemblyInfo.cs
-C:\Users\Aluno Noite\OneDrive\Área de Trabalho\Renato R. Aluno da Manhã\Repositórios\BarbeariaEstetica\TestBarbeariaEstetica\obj\Debug\net8.0\TestBarbeariaEstetica.csproj.CoreCompileInputs.cache
-C:\Users\Aluno Noite\OneDrive\Área de Trabalho\Renato R. Aluno da Manhã\Repositórios\BarbeariaEstetica\TestBarbeariaEstetica\obj\Debug\net8.0\TestBarbeariaEstetica.sourcelink.json
 C:\Users\Aluno Noite\OneDrive\Área de Trabalho\Renato R. Aluno da Manhã\Repositórios\BarbeariaEstetica\TestBarbeariaEstetica\obj\Debug\net8.0\TestBarb.EECE3ED3.Up2Date
 C:\Users\Aluno Noite\OneDrive\Área de Trabalho\Renato R. Aluno da Manhã\Repositórios\BarbeariaEstetica\TestBarbeariaEstetica\obj\Debug\net8.0\TestBarbeariaEstetica.dll
 C:\Users\Aluno Noite\OneDrive\Área de Trabalho\Renato R. Aluno da Manhã\Repositórios\BarbeariaEstetica\TestBarbeariaEstetica\obj\Debug\net8.0\refint\TestBarbeariaEstetica.dll

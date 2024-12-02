@@ -21,6 +21,10 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<ServicoRepositorio>();
 
 
+// Registrar o repositório (AgendamentoRepositorio)
+builder.Services.AddScoped<AgendamentoRepositorio>();
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
