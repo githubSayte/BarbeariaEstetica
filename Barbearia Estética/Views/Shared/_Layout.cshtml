@@ -23,6 +23,125 @@
 </head>
 <body>
 
+    <header class="header">
+        @{
+            // Verifica se o usuário está autenticado e recupera os dados de ambiente
+            bool usuarioAutenticado = !string.IsNullOrEmpty(Environment.GetEnvironmentVariable("USUARIO_ID"));
+            string usuarioNome = Environment.GetEnvironmentVariable("USUARIO_NOME");
+            string tipoUsuario = Environment.GetEnvironmentVariable("USUARIO_TIPO");
+        }
+
+        <!-- Logo -->
+        <a class="logo" href="#home" style="display: flex; align-items: center; text-decoration: none;">
+            <img src="~/images/Home/Home.jpeg" alt="Logo" style="width: 50px; height: 50px; margin-right: 10px; border-radius: 50%;">
+            <h2 style="margin: 0; font-size: 24px;">Elysium Beauty</h2>
+        </a>
+        <!-- Logo End -->
+        <!-- Navbar -->
+        <nav class="navbar" style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap;">
+
+            <!-- Links do menu -->
+            <span style="display: flex; align-items: center; margin-right: 20px;">
+                <i class="fas fa-home fa-lg" aria-hidden="true" style="color: chocolate;"></i>
+                <a href="#home" style="margin-left: 10px;">Inicio</a>
+            </span>
+
+            <span style="display: flex; align-items: center; margin-right: 20px;">
+                <i class="fas fa-info-circle fa-lg" aria-hidden="true" style="color: chocolate;"></i>
+                <a href="#about" style="margin-left: 10px;">Sobre</a>
+            </span>
+
+            <span style="display: flex; align-items: center; margin-right: 20px;">
+                <i class="fas fa-gavel fa-lg" aria-hidden="true" style="color: chocolate;"></i>
+                <a href="#service" style="margin-left: 10px;">Serviço</a>
+            </span>
+
+            <span style="display: flex; align-items: center; margin-right: 20px;">
+                <i class="fas fa-window-restore fa-lg" aria-hidden="true" style="color: chocolate;"></i>
+                <a href="#portfolio" style="margin-left: 10px;">Portifólio</a>
+            </span>
+
+            <span style="display: flex; align-items: center; margin-right: 20px;">
+                <i class="fa fa-users fa-lg" aria-hidden="true" style="color: chocolate;"></i>
+                <a href="#testimonial" style="margin-left: 10px;">Depoimento</a>
+            </span>
+
+            <span style="display: flex; align-items: center; margin-right: 20px;">
+                <i class="fa fa-file fa-lg" aria-hidden="true" style="color: chocolate;"></i>
+                <a href="#blog" style="margin-left: 10px;">Noticias</a>
+            </span>
+
+            <span style="display: flex; align-items: center; margin-right: 20px;">
+                <i class="fa fa-phone-square fa-lg" aria-hidden="true" style="color: chocolate;"></i>
+                <a href="#contact" style="margin-left: 10px;">Contato</a>
+            </span>
+
+            <!-- Menu baseado no tipo de usuário -->
+            @if (usuarioAutenticado)
+            {
+                @if (tipoUsuario == "1")
+                {
+                    <!-- Menu do Administrador -->
+                    <div class="dropdown" style="position: relative; display: inline-block;">
+                        <span style="display: flex; align-items: center; margin-right: 20px;">
+                            <i class="fa fa-user" aria-hidden="true" style="color: chocolate;"></i>
+                            <a href="#" style="margin-left: 10px;">@usuarioNome</a>
+                        </span>
+                        <div class="dropdown-content" style="display: none; position: absolute; background-color: #EAE7DC; width: 200px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1; padding: 8px; border-radius: 3%; border: #A65F3C solid 1px; box-shadow: 5px #A65F3C;">
+                            <a href="/Usuario/Index" style="padding: 7px; text-decoration: none; display: flex; align-items: center; margin: 5px;">
+                                <i class="fa fa-users" aria-hidden="true" style="margin-right: 8px;"></i>Usuarios
+                            </a>
+                            <a href="/Agendamento/Index" style="padding: 7px; text-decoration: none; display: flex; align-items: center; margin: 5px;">
+                                <i class="fa fa-calendar" aria-hidden="true" style="margin-right: 8px;"></i>Agendamento Admin
+                            </a>
+                            <a href="/Servico/Index" style="padding: 7px; text-decoration: none; display: flex; align-items: center; margin: 5px;">
+                                <i class="fas fa-gavel fa-lg" aria-hidden="true" style="margin-right: 8px;"></i>Serviço
+                            </a>
+                            <a href="#logout" style="padding: 7px; text-decoration: none; display: flex; align-items: center; margin: 5px;">
+                                <i class="fa fa-align-justify" aria-hidden="true" style="margin-right: 8px;"></i>Relatório
+                            </a>
+                            <a href="javascript:void(0);" onclick="logout()" style="padding: 7px; text-decoration: none; display: flex; align-items: center; margin: 5px;">
+                                <i class="fa fa-sign-out-alt" aria-hidden="true" style="margin-right: 8px;"></i> Sair
+                            </a>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <!-- Menu do Usuário -->
+                    <div class="dropdown" style="position: relative; display: inline-block;">
+                        <span style="display: flex; align-items: center; margin-right: 20px;">
+                            <i class="fa fa-user" aria-hidden="true" style="color: chocolate;"></i>
+                            <a href="#" style="margin-left: 10px;">@usuarioNome</a>
+                        </span>
+                        <div class="dropdown-content" style="display: none; position: absolute; background-color: #EAE7DC; width: 200px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1; padding: 8px; border-radius: 3%; border: #A65F3C solid 1px; box-shadow: 5px #A65F3C;">
+                            <a href="/Agendamento/Gerenciamento_Agendamento_Usuario" style="padding: 7px; text-decoration: none; display: flex; align-items: center; margin: 5px;">
+                                <i class="fa fa-calendar" aria-hidden="true" style="margin-right: 8px;"></i>Agendamento User
+                            </a>
+                            <a href="/Agendamento/Cadastro_Agendamento" style="padding: 7px; text-decoration: none; display: flex; align-items: center; margin: 5px;">
+                                <i class="fa fa-file" aria-hidden="true" style="margin-right: 8px;"></i>Cadastro Agendamento
+                            </a>
+                            <a href="javascript:void(0);" onclick="logout()" style="padding: 7px; text-decoration: none; display: flex; align-items: center; margin: 5px;">
+                                <i class="fa fa-sign-out-alt" aria-hidden="true" style="margin-right: 8px;"></i> Sair
+                            </a>
+                        </div>
+                    </div>
+                }
+            }
+            else
+            {
+                <!-- Menu de Login (Quando o usuário não está autenticado) -->
+                <div class="dropdown" style="position: relative; display: inline-block;">
+                    <span style="display: flex; align-items: center; margin-right: 20px;">
+                        <i class="fa fa-user" aria-hidden="true" style="color: chocolate;"></i>
+                        <a href="/Usuario/Login" style="margin-left: 10px;">Login</a>
+                    </span>
+                </div>
+            }
+
+        </nav>
+    </header>
+
 
     <div>
         <main>
@@ -31,17 +150,8 @@
     </div>
 
     <!-------------------- Footer Area (Start) -------------------->
-    <footer>
-        <div class="social">
-            <a href="#" class="fab fa-facebook-f"></a>
-            <a href="#" class="fab fa-twitter"></a>
-            <a href="#" class="fab fa-instagram"></a>
-            <a href="#" class="fab fa-linkedin-in"></a>
-        </div>
+    
 
-        <div class="content">
-            <p>created by <span>AS_Designs</span> | all rights reserved</p>
-        </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <!-- Typed JS -->

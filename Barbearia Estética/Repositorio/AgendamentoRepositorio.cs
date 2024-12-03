@@ -1,7 +1,7 @@
 ﻿using Barbearia_Estética.Models;
 using Barbearia_Estética.ORM;
-
-
+using Microsoft.EntityFrameworkCore;
+using System;
 
 namespace SiteAgendamento.Repositorio
 {
@@ -77,6 +77,8 @@ namespace SiteAgendamento.Repositorio
                 var agendamento = _context.TbAgendamentos.FirstOrDefault(a => a.Id == id);
                 if (agendamento != null)
                 {
+                    _context.Entry(agendamento).State = EntityState.Modified;
+
                     agendamento.DtHoraAgendamento = dtHoraAgendamento;
                     agendamento.DataAgendamento = dataAgendamento;
                     agendamento.Horario = horario;
@@ -107,6 +109,8 @@ namespace SiteAgendamento.Repositorio
                 var agendamento = _context.TbAgendamentos.FirstOrDefault(a => a.Id == id);
                 if (agendamento != null)
                 {
+                    _context.Entry(agendamento).State = EntityState.Deleted;
+
                     _context.TbAgendamentos.Remove(agendamento);
                     _context.SaveChanges();
 
@@ -123,5 +127,6 @@ namespace SiteAgendamento.Repositorio
                 return false;
             }
         }
+
     }
 }

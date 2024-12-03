@@ -38,6 +38,37 @@ namespace SiteAgendamento.Controllers
             var Usuarios = _usuarioRepositorio.ListarUsuarios();
             return View(Usuarios);
         }
+        public IActionResult VerificarLogin(string email, string senha)
+        {
+            try
+            {
+                // Verifica se os parâmetros foram passados corretamente
+                if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(senha))
+                {
+                    return Json(new { success = false, message = "E-mail e senha são necessários." });
+                }
+
+                // Chama o método do repositório para verificar o usuário baseado no e-mail e senha
+                var usuario = _usuarioRepositorio.VerificarLogin(email, senha);
+
+                // Verifica se o usuário foi encontrado e autenticado
+                if (usuario != null)
+                {
+                    // Se o usuário foi encontrado, significa que o login foi bem-sucedido
+                    return Json(new { success = true, message = "Usuário autenticado com sucesso!" });
+                }
+                else
+                {
+                    // Se não encontrar o usuário, a resposta é de falha na autenticação
+                    return Json(new { success = false, message = "E-mail ou senha inválidos." });
+                }
+            }
+            catch (Exception ex)
+            {
+                // Em caso de erro inesperado, captura e exibe o erro
+                return Json(new { success = false, message = "Erro ao processar a solicitação. Detalhes: " + ex.Message });
+            }
+        }
 
         public IActionResult InserirUsuario(string Nome, string Senha, string Email, string Telefone, int TipoUsuario)
         {

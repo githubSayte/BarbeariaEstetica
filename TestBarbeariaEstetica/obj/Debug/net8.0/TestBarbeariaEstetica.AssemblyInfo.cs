@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TestBarbeariaEstetica")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ffb1b81909cccd1344e372bcecfc60b8ac1be074")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+48eef3bf80f6d4eab0e289362a856c1e0fa9ce3c")]
 [assembly: System.Reflection.AssemblyProductAttribute("TestBarbeariaEstetica")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TestBarbeariaEstetica")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

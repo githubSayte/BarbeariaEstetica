@@ -35,6 +35,8 @@ namespace Barbearia_Estética.Controllers
             var atendimentos = _agendamentoRepositorio.ListarAgendamentos();
             return View(atendimentos);
         }
+
+
         public IActionResult AgendamentoUsuario()
         {
             return View();
