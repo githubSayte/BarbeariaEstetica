@@ -30,8 +30,8 @@ namespace SiteAgendamento.Controllers
         {
             List<SelectListItem> tipoUsuario = new List<SelectListItem>
              {
-                 new SelectListItem { Value = "0", Text = "Administrador" },
-                 new SelectListItem { Value = "1", Text = "Cliente" }
+                 new SelectListItem { Value = "1", Text = "Administrador" },
+                 new SelectListItem { Value = "0", Text = "Cliente" }
              };
 
             ViewBag.lstTipoUsuario = new SelectList(tipoUsuario, "Value", "Text");
@@ -141,6 +141,31 @@ namespace SiteAgendamento.Controllers
             }
         }
 
+        public IActionResult Logout()
+        {
+            try
+            {
+                // Limpar a sessão
+                HttpContext.Session.Clear();
+
+                // Limpar as variáveis de ambiente
+                Environment.SetEnvironmentVariable("USUARIO_ID", null);
+                Environment.SetEnvironmentVariable("USUARIO_NOME", null);
+                Environment.SetEnvironmentVariable("USUARIO_EMAIL", null);
+                Environment.SetEnvironmentVariable("USUARIO_TELEFONE", null);
+                Environment.SetEnvironmentVariable("USUARIO_TIPO", null);
+
+                // Caso esteja usando o SignInManager, também deve chamar o método de logout
+                // _signInManager.SignOutAsync();
+
+                return Json(new { success = true });
+            }
+            catch (Exception ex)
+            {
+                // Se ocorrer um erro, retornar uma resposta de erro com a mensagem
+                return Json(new { success = false, message = ex.Message });
+            }
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

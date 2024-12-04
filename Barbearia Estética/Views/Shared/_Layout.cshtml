@@ -34,7 +34,7 @@
         <!-- Logo -->
         <a class="logo" href="#home" style="display: flex; align-items: center; text-decoration: none;">
             <img src="~/images/Home/Home.jpeg" alt="Logo" style="width: 50px; height: 50px; margin-right: 10px; border-radius: 50%;">
-            <h2 style="margin: 0; font-size: 24px;">Elysium Beauty</h2>
+            <h2 style="margin: 0; font-size: 24px;">Barbearia Estética</h2>
         </a>
         <!-- Logo End -->
         <!-- Navbar -->
@@ -86,6 +86,8 @@
                         <span style="display: flex; align-items: center; margin-right: 20px;">
                             <i class="fa fa-user" aria-hidden="true" style="color: chocolate;"></i>
                             <a href="#" style="margin-left: 10px;">@usuarioNome</a>
+                            <i class="fa fa-chevron-down" aria-hidden="true" style="color: chocolate; margin-left: 5px;"></i>
+
                         </span>
                         <div class="dropdown-content" style="display: none; position: absolute; background-color: #EAE7DC; width: 200px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1; padding: 8px; border-radius: 3%; border: #A65F3C solid 1px; box-shadow: 5px #A65F3C;">
                             <a href="/Usuario/Index" style="padding: 7px; text-decoration: none; display: flex; align-items: center; margin: 5px;">
@@ -113,6 +115,8 @@
                         <span style="display: flex; align-items: center; margin-right: 20px;">
                             <i class="fa fa-user" aria-hidden="true" style="color: chocolate;"></i>
                             <a href="#" style="margin-left: 10px;">@usuarioNome</a>
+                            <i class="fa fa-chevron-down" aria-hidden="true" style="color: chocolate; margin-left: 5px;"></i>
+
                         </span>
                         <div class="dropdown-content" style="display: none; position: absolute; background-color: #EAE7DC; width: 200px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1; padding: 8px; border-radius: 3%; border: #A65F3C solid 1px; box-shadow: 5px #A65F3C;">
                             <a href="/Agendamento/Gerenciamento_Agendamento_Usuario" style="padding: 7px; text-decoration: none; display: flex; align-items: center; margin: 5px;">
@@ -150,9 +154,33 @@
     </div>
 
     <!-------------------- Footer Area (Start) -------------------->
-    
+    <script>
 
-    </footer>
+        function logout() {
+            // Envia a requisição AJAX para o servidor
+            $.ajax({
+                url: '/Usuario/Logout', // URL do método Logout no controller
+                type: 'POST', // Tipo de requisição (POST)
+                success: function (response) {
+                    // Se a requisição for bem-sucedida
+                    if (response.success) {
+                        // Redireciona para a página de login ou outra página conforme desejado
+                        window.location.href = '/Home/Index';
+                    } else {
+                        // Se houver uma mensagem de erro, exibe
+                        alert('Erro ao realizar o logout: ' + (response.message || 'Erro desconhecido'));
+                    }
+                },
+                error: function (xhr, status, error) {
+                    // Se ocorrer algum erro na requisição AJAX
+                    alert('Erro ao processar a solicitação de logout. Detalhes: ' + error);
+                }
+            });
+        }
+
+    </script>
+
+    
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <!-- Typed JS -->
     <script src="~/vendors/typed/typed.js"></script>

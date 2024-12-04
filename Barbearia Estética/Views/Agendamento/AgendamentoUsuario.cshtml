@@ -1,4 +1,4 @@
-﻿@{
+﻿ @{
     Layout = "~/Views/Shared/_LayoutGereciamento.cshtml";
 }
 <body>
@@ -80,8 +80,8 @@
                 </table>
             </div>
         </div>
+        
         <!--Butao Voltar-->
-
         <section class="container text-center">
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                 <div>
@@ -287,12 +287,12 @@
                                 <div class="col-md-8">
                                     <select id="Servico" class="form-select">
                                         <option value="" disabled selected>Escolha o serviço</option>
-                                        <option value="Volume5D">Designer de cabelos masculino</option>
-                                        <option value="EfeitoSirene">Corte de Cabelo padrão</option>
-                                        <option value="Volume5D">Estilos de Barba e Bigode</option>
-                                        <option value="EfeitoSirene">Barba Expressa</option>
-                                        <option value="Volume5D">Coloração de Cabelo</option>
-                                        <option value="EfeitoSirene">Pacote de Manutenção Mensal</option>
+                                        <option value="Volume5D">Designer de cabelos masculino: com cortes ou penteados</option>
+                                        <option value="EfeitoSirene">Corte de Cabelo padrão: na máquina ou na tesoura</option>
+                                        <option value="Volume5D">Coloração de Cabelo: com estilo ou padrão</option>
+                                        <option value="EfeitoSirene">Barba e Bigode: corte, realce e Coloração</option>
+                                        <option value="Volume5D">Barba Expressa: na máquina e na navalha</option>
+                                        <option value="EfeitoSirene">Pacote de Manutenção Mensal: pagamento uma vez ao mês</option>
                                     </select>
                                 </div>
                             </div>
@@ -342,7 +342,9 @@
 
                             <input type="hidden" id="IdEdt" value="">
                         </form>
+
                     </div>
+
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
                         <button type="button" class="btn btn-primary"

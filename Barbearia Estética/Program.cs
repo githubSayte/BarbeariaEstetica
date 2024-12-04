@@ -1,7 +1,7 @@
 using Barbearia_Estética.ORM;
 using Microsoft.EntityFrameworkCore;
 using SiteAgendamento.Repositorio;
-
+using Microsoft.AspNetCore.Session;  // Necessário para usar sessões
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,10 +20,16 @@ builder.Services.AddControllersWithViews();
 // Registrar o repositório (ServicoRepositorio)
 builder.Services.AddScoped<ServicoRepositorio>();
 
-
 // Registrar o repositório (AgendamentoRepositorio)
 builder.Services.AddScoped<AgendamentoRepositorio>();
 
+// Adicionar suporte a sessões
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(30);  // Defina o tempo de expiração da sessão
+    options.Cookie.HttpOnly = true;  // Tornar o cookie da sessão apenas para HTTP
+    options.Cookie.IsEssential = true;  // Garantir que o cookie seja essencial para o funcionamento da aplicação
+});
 
 var app = builder.Build();
 
@@ -40,6 +46,9 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+// Ativar o uso de sessões
+app.UseSession();
+
 app.UseAuthorization();
 
 app.MapControllerRoute(
@@ -47,5 +56,3 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
-
-

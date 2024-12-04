@@ -25,7 +25,7 @@
                         <!-- Alteração para "text-md-end" para alinhar à direita apenas em telas médias e maiores -->
                         <button class="btn btn-success btn-lg" onclick="" data-bs-toggle="modal"
                                 data-bs-target="#InserirUsuario">
-                            <i class="fa fa-plus"></i> Adicionar Cliente
+                            <i class="fa fa-plus"></i> Adicionar Usuario
                         </button>
                     </div>
                 </div>
@@ -64,11 +64,11 @@
 
                                     @if (usuario.TipoUsuario == 1)
                                     {
-                                        <td style="color: black; border: 1px solid #ddd; padding: 8px; width: 170px">Cliente</td>
+                                        <td style="color: black; border: 1px solid #ddd; padding: 8px; width: 170px">Administrador</td>
                                     }
                                     else
                                     {
-                                        <td style="color: black; border: 1px solid #ddd; padding: 8px; width: 170px">Administrador</td>
+                                        <td style="color: black; border: 1px solid #ddd; padding: 8px; width: 170px">Cliente</td>
                                     }
 
                                     <td class="text-center" style="border: 1px solid #ddd;">
@@ -99,7 +99,7 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title" id="exampleModalLabel">Editar Cliente</h1>
+                        <h1 class="modal-title" id="exampleModalLabel">Editar Usuario</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -170,7 +170,7 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title" id="exampleModalLabel">Excluir Cliente</h1>
+                        <h1 class="modal-title" id="exampleModalLabel">Excluir Usuario</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -208,7 +208,7 @@
                 <div class="modal-content">
 
                     <div class="modal-header">
-                        <h1 class="modal-title" id="exampleModalLabel">Adicionar Cliente</h1>
+                        <h1 class="modal-title" id="exampleModalLabel">Adicionar Usuario</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
 
@@ -243,13 +243,12 @@
                                 </div>
                             </div>
 
-                            <div class="mb-4 row">
-                                <div class="col-md-8">
-                                    <select id="Servico" class="form-select">
-                                        <option value="">Escolha o tipo de usuario:</option>
-                                        <option value="Volume5D">Administrador</option>
-                                        <option value="EfeitoSirene">Cliente</option>
-                                    </select>
+                            <div class="mb-3 row">
+                                <div class="col-md-6">
+                                    @Html.DropDownList("TipoUsuario", ViewBag.lstTipoUsuario as SelectList, "Escolha o tipo de Usuário", new { @class = "form-control", @style = "width:230px; background-color: #EAE7DC; color: #333;", required = "required" })
+                                </div>
+                                <div class="col-md-6">
+                                    <label style="color:red">*</label>
                                 </div>
                             </div>
 
@@ -282,6 +281,126 @@
         <script src="~/lib/jquery/dist/jquery.min.js"></script>
 
         <script>
+
+            document.addEventListener("DOMContentLoaded", function () {
+                // Função para remover o asterisco
+                function removerAsterisco(campo) {
+                    var label = campo.closest('.row').querySelector('label');
+
+                    // Verifica se o campo foi preenchido
+                    if (campo.value.trim() !== "") {
+                        label.style.display = 'none'; // Remove o asterisco
+                    } else {
+                        label.style.display = 'inline'; // Exibe o asterisco novamente se o campo estiver vazio
+                    }
+                }
+
+                // Função para aplicar o evento de input em todos os campos
+                function adicionarEventos() {
+                    // Campos de texto
+                    var campos = ['#Nome', '#Senha', '#Email', '#Telefone', '#TipoUsuario'];
+
+                    campos.forEach(function (seletor) {
+                        var campo = document.querySelector(seletor);
+                        if (campo) {
+                            campo.addEventListener('input', function () {
+                                removerAsterisco(campo);
+                            });
+                        }
+                    });
+                }
+
+                // Inicializa os eventos
+                adicionarEventos();
+            });
+
+            document.addEventListener("DOMContentLoaded", function () {
+                // Função para verificar se o campo foi preenchido e esconder o asterisco
+                function verificarPreenchimento(campo, label) {
+                    if (campo.value.trim() !== "" || (campo.tagName === "SELECT" && campo.selectedIndex !== 0)) {
+                        label.style.display = 'none'; // Esconde o asterisco
+                    } else {
+                        label.style.display = 'inline'; // Exibe o asterisco se o campo estiver vazio
+                    }
+                }
+
+                // Função para adicionar os eventos de input e change nos campos
+                function adicionarEventos() {
+                    // Campos a serem monitorados
+                    const campos = [
+                        { id: '#EdtNome', type: 'input' },
+                        { id: '#EdtSenha', type: 'input' },
+                        { id: '#EdtEmail', type: 'input' },
+                        { id: '#EdtTel', type: 'input' },
+                        { id: '#EdtTipoUsuario', type: 'select' }
+                    ];
+
+                    campos.forEach(function (campoInfo) {
+                        const campo = document.querySelector(campoInfo.id);
+                        const label = campo.closest('.row').querySelector('label'); // Encontra o label associado ao campo
+
+                        if (campoInfo.type === 'input') {
+                            // Para campos de input, adicionar evento de 'input'
+                            campo.addEventListener('input', function () {
+                                verificarPreenchimento(campo, label);
+                            });
+                        } else if (campoInfo.type === 'select') {
+                            // Para o select, adicionar evento de 'change'
+                            campo.addEventListener('change', function () {
+                                verificarPreenchimento(campo, label);
+                            });
+                        }
+
+                        // Chama a função para inicializar o estado do campo ao carregar a página
+                        verificarPreenchimento(campo, label);
+                    });
+                }
+
+                // Inicializa os eventos
+                adicionarEventos();
+
+                // Função que preenche os campos ao editar o usuário
+                window.definirEdt = function (id, Nome, Email, Senha, TipoUsuario, Telefone) {
+                    $('#EdtId').val(id);
+                    $('#EdtNome').val(Nome);
+                    $('#EdtSenha').val(Senha);
+                    $('#EdtEmail').val(Email);
+                    $('#EdtTel').val(Telefone);
+
+                    // Preenche o campo de senha, se necessário
+                    var senhaValue = "";
+                    if (Senha) {
+                        $('#EdtSenha').val(Senha);
+                        senhaValue = Senha;
+                    }
+
+                    // Atualiza o tipo de usuário no dropdown
+                    if ($('#EdtTipoUsuario').length > 0) {
+                        $('#EdtTipoUsuario option').filter(function () {
+                            return $(this).val() === TipoUsuario;
+                        }).prop('selected', true);
+                        $('#EdtTipoUsuario').trigger('chosen:updated');
+                    } else {
+                        console.error("DropDownList não encontrado.");
+                    }
+
+                    // Verifica o preenchimento dos campos e esconde os asteriscos
+                    const campos = [
+                        { id: '#EdtNome', type: 'input' },
+                        { id: '#EdtSenha', type: 'input' },
+                        { id: '#EdtEmail', type: 'input' },
+                        { id: '#EdtTel', type: 'input' },
+                        { id: '#EdtTipoUsuario', type: 'select' }
+                    ];
+
+                    // Chama a função de verificação para cada campo ao preencher os dados
+                    campos.forEach(function (campoInfo) {
+                        const campo = document.querySelector(campoInfo.id);
+                        const label = campo.closest('.row').querySelector('label');
+                        verificarPreenchimento(campo, label);
+                    });
+                }
+            });
 
             $(document).ready(function () {
                 // Função para atualizar o contador de registros visíveis
@@ -496,5 +615,16 @@
             }
 
         </script>
+    </section>
+    <!--Butao Voltar-->
+    <section class="container text-center">
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <div>
+                <button type="button" id="send-button2" class="nav-link active btn btn-danger btn-block"
+                        style="flex: 1; margin-left: 5px;" onclick="window.location.href = '/Home/Index';">
+                    Voltar
+                </button>
+            </div>
+        </div>
     </section>
 </body>
