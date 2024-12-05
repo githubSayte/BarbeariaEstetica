@@ -47,7 +47,7 @@ namespace SiteAgendamento.Repositorio
             string tipoUsuario = Environment.GetEnvironmentVariable("USUARIO_TIPO");
             // Se não encontrar o usuário, retorna null ou uma exceção
             */
-            return null; // Ou você pode lançar uma exceção, dependendo de sua estratégia
+            return null!; // Ou você pode lançar uma exceção, dependendo de sua estratégia
         }
 
         public bool InserirUsuario(string nome, string email, string telefone, string senha, int tipoUsuario)
@@ -64,9 +64,9 @@ namespace SiteAgendamento.Repositorio
                 _context.TbUsuarios.Add(usuario);  // Supondo que _context.TbUsuarios seja o DbSet para a entidade de usuários
                 _context.SaveChanges();
 
-                return true;  // Retorna true para indicar sucesso
+                return true;  // Retorna true para indicar sucesso " ex "
             }
-            catch (Exception ex)
+            catch (Exception )
             {
                 // Trate o erro ou faça um log do ex.Message se necessário
                 return false;  // Retorna false para indicar falha

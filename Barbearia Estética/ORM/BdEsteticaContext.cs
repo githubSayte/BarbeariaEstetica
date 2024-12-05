@@ -88,7 +88,7 @@ public partial class BdEsteticaContext : DbContext
         {
             entity
                 .HasNoKey()
-                .ToView("View_Agendamento");
+                .ToView("ViewAgendamento");
 
             entity.Property(e => e.Email)
                 .HasMaxLength(100)

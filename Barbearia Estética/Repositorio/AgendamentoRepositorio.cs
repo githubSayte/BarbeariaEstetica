@@ -2,6 +2,7 @@
 using Barbearia_Estética.ORM;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Globalization;
 
 namespace SiteAgendamento.Repositorio
 {
@@ -128,5 +129,37 @@ namespace SiteAgendamento.Repositorio
             }
         }
 
+        public List<AgendamentoVM> ConsultarAgendamento(string datap)
+        {
+            DateOnly data = DateOnly.ParseExact(datap, "yyyy-MM-dd", CultureInfo.InvariantCulture);
+            string dataFormatada = data.ToString("yyyy-MM-dd"); // Formato desejado: "yyyy-MM-dd"
+            Console.WriteLine(dataFormatada);
+
+            try
+            {
+                // Consulta ao banco de dados, convertendo para o tipo AtendimentoVM
+                var ListaAgendamento = _context.TbAgendamentos
+                    .Where(a => a.DataAgendamento == DateOnly.Parse(dataFormatada))
+                    .Select(a => new AgendamentoVM
+                    {
+                        // Mapear as propriedades de TbAtendimento para AtendimentoVM
+                        // Suponha que TbAtendimento tenha as propriedades Id, DataAtendimento, e outras:
+                        Id = a.Id,
+                        DtHoraAgendamento = a.DtHoraAgendamento,
+                        DataAgendamento = DateOnly.Parse(dataFormatada),
+                        Horario = a.Horario,
+                        FkUsuarioId = a.FkUsuarioId,
+                        FkServicoId = a.FkServicoId
+                    })
+                    .ToList(); // Converte para uma lista
+
+                return ListaAgendamento;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Erro ao consultar agendamentos: {ex.Message}");
+                return new List<AgendamentoVM>(); // Retorna uma lista vazia em caso de erro
+            }
+        }
     }
 }

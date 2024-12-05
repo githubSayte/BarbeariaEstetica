@@ -5,7 +5,7 @@
     {
         public int Id { get; set; }
 
-        public DateOnly DtHoraAgendamento { get; set; }
+        public DateTime DtHoraAgendamento { get; set; }
 
         public DateOnly DataAgendamento { get; set; }
 
