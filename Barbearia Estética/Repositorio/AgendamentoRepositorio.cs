@@ -20,7 +20,8 @@ namespace SiteAgendamento.Repositorio
         {
             try
             {
-                TbAgendamento agendamento = new TbAgendamento
+                // Criando uma instância do modelo AtendimentoVM
+                var atendimento = new TbAgendamento
                 {
                     DtHoraAgendamento = dtHoraAgendamento,
                     DataAgendamento = dataAgendamento,
@@ -29,18 +30,19 @@ namespace SiteAgendamento.Repositorio
                     FkServicoId = fkServicoId
                 };
 
-                _context.TbAgendamentos.Add(agendamento);
-                _context.SaveChanges();
+                // Adicionando o atendimento ao contexto
+                _context.TbAgendamentos.Add(atendimento);
+                _context.SaveChanges(); // Persistindo as mudanças no banco de dados
 
-                return true;
+                return true; // Retorna true indicando sucesso
             }
             catch (Exception ex)
             {
-                // Log do erro
-                Console.WriteLine($"Erro ao inserir agendamento: {ex.Message}");
-                return false;
+                // Em caso de erro, pode-se logar a exceção (ex.Message)
+                return false; // Retorna false em caso de erro
             }
         }
+
 
         // Listar Agendamentos
         public List<ViewAgendamentoVM> ListarAgendamentos()
@@ -160,6 +162,24 @@ namespace SiteAgendamento.Repositorio
                 Console.WriteLine($"Erro ao consultar agendamentos: {ex.Message}");
                 return new List<AgendamentoVM>(); // Retorna uma lista vazia em caso de erro
             }
+        }
+
+        public List<UsuarioVM> ListarNomesAgendamentos()
+        {
+            // Lista para armazenar os usuários com apenas Id e Nome
+            List<UsuarioVM> listFun = new List<UsuarioVM>();
+
+            // Obter apenas os campos Id e Nome da tabela TbUsuarios
+            var listTb = _context.TbUsuarios
+                                 .Select(u => new UsuarioVM
+                                 {
+                                     Id = u.Id,
+                                     Nome = u.Nome
+                                 })
+                                 .ToList();
+
+            // Retorna a lista já com os campos filtrados
+            return listTb;
         }
     }
 }

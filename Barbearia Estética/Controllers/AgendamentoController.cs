@@ -22,21 +22,35 @@ namespace Barbearia_Estética.Controllers
             // Criar a lista de SelectListItems, onde o 'Value' será o 'Id' e o 'Text' será o 'TipoServico'
             List<SelectListItem> tipoServico = new List<SelectListItem>
              {
-                 new SelectListItem { Value = "0", Text = "Designer de cabelos masculino: com cortes ou penteados" },
-                 new SelectListItem { Value = "1", Text = "Corte de Cabelo padrão: na máquina ou na tesoura" },
-                  new SelectListItem { Value = "2", Text = "Coloração de Cabelo: com estilo ou padrão" },
-                 new SelectListItem { Value = "3", Text = "Barba e Bigode: corte, realce e Coloração" },
-                  new SelectListItem { Value = "4", Text = "Barba Expressa: na máquina e na navalha" },
-                 new SelectListItem { Value = "5", Text = "Pacote de Manutenção Mensal: pagamento uma vez ao mês" }
+                 new SelectListItem { Value = "1", Text = "Designer de cabelos masculino: com cortes ou penteados" },
+                 new SelectListItem { Value = "2", Text = "Corte de Cabelo padrão: na máquina ou na tesoura" },
+                  new SelectListItem { Value = "3", Text = "Coloração de Cabelo: com estilo ou padrão" },
+                 new SelectListItem { Value = "4", Text = "Barba e Bigode: corte, realce e Coloração" },
+                  new SelectListItem { Value = "5", Text = "Barba Expressa: na máquina e na navalha" },
+                 new SelectListItem { Value = "6", Text = "Pacote de Manutenção Mensal: pagamento uma vez ao mês" }
             };
 
             // Passar a lista para a View usando ViewBag
             ViewBag.lstTipoServico = new SelectList(tipoServico, "Value", "Text");
+
+            // Chama o método ListarNomesAgendamentos para obter a lista de usuários
+            var usuarios = _agendamentoRepositorio.ListarNomesAgendamentos();
+
+            if (usuarios != null && usuarios.Any())
+            {
+                // Cria a lista de SelectListItem
+                var selectList = usuarios.Select(u => new SelectListItem
+                {
+                    Value = u.Id.ToString(),  // O valor do item será o ID do usuário
+                    Text = u.Nome             // O texto exibido será o nome do usuário
+                }).ToList();
+
+                // Passa a lista para o ViewBag para ser utilizada na view
+                ViewBag.Usuarios = selectList;
+            }
             var atendimentos = _agendamentoRepositorio.ListarAgendamentos();
             return View(atendimentos);
         }
-
-
         public IActionResult AgendamentoUsuario()
         {
             return View();
@@ -44,9 +58,7 @@ namespace Barbearia_Estética.Controllers
         public IActionResult CadastroAgendamento()
         {
             return View();
-        }
-
-        // Método para inserir um novo agendamento
+        }       
         public IActionResult InserirAgendamento(DateTime dtHoraAgendamento, DateOnly dataAgendamento, TimeOnly horario, int fkUsuarioId, int fkServicoId)
         {
             try
@@ -57,13 +69,11 @@ namespace Barbearia_Estética.Controllers
                 // Verifica o resultado da inserção
                 if (resultado)
                 {
-                    // Se o resultado for verdadeiro, significa que o agendamento foi inserido com sucesso
-                    return Json(new { success = true, message = "Agendamento inserido com sucesso!" });
+                    return Json(new { success = true, message = "Atendimento inserido com sucesso!" });
                 }
                 else
                 {
-                    // Se o resultado for falso, significa que houve um erro ao tentar inserir o agendamento
-                    return Json(new { success = false, message = "Erro ao inserir o agendamento. Tente novamente." });
+                    return Json(new { success = false, message = "Erro ao inserir o atendimento. Tente novamente." });
                 }
             }
             catch (Exception ex)
@@ -72,9 +82,7 @@ namespace Barbearia_Estética.Controllers
                 return Json(new { success = false, message = "Erro ao processar a solicitação. Detalhes: " + ex.Message });
             }
         }
-
-        // Método para atualizar um agendamento
-        public IActionResult AtualizarAgendamento(int id, DateTime dtHoraAgendamento, DateOnly dataAgendamento, TimeOnly horario, int fkUsuarioId, int fkServicoId)
+       public IActionResult AtualizarAgendamento(int id, DateTime dtHoraAgendamento, DateOnly dataAgendamento, TimeOnly horario, int fkUsuarioId, int fkServicoId)
         {
             try
             {
@@ -95,9 +103,7 @@ namespace Barbearia_Estética.Controllers
                 return Json(new { success = false, message = "Erro ao processar a solicitação. Detalhes: " + ex.Message });
             }
         }
-
-        // Método para excluir um agendamento
-        public IActionResult ExcluirAgendamento(int id)
+       public IActionResult ExcluirAgendamento(int id)
         {
             try
             {
@@ -118,8 +124,7 @@ namespace Barbearia_Estética.Controllers
                 return Json(new { success = false, message = "Erro ao processar a solicitação. Detalhes: " + ex.Message });
             }
         }
-
-        public IActionResult ConsultarAgendamento(string data)
+       public IActionResult ConsultarAgendamento(string data)
         {
 
             var agendamento = _agendamentoRepositorio.ConsultarAgendamento(data);
@@ -134,9 +139,7 @@ namespace Barbearia_Estética.Controllers
             }
 
         }
-
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+       [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });

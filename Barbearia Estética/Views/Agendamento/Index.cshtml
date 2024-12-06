@@ -276,12 +276,32 @@
                             <div class="mb-3 d-flex align-items-center">
                                 <input type="hidden" id="TxtId" class="form-check-input" value="10:00" style="margin-right: 10px;" disabled>
                             </div>
-
+                           
                             <!-- Campo de data -->
                             <div class="mb-3 d-flex align-items-center">
                                 <input id="data_agdt" type="date" class="form-control" style="width: 300px;" placeholder="Escolha a data do agendamento" oninput="consultarAgendamento()">
                             </div>
-                           
+                            <div class="mb-3 row">
+                                <div class="col-md-6">
+                                    @Html.DropDownList("DropUsuario",
+                                             new SelectList(ViewBag.Usuarios, "Value", "Text", null),
+                                             "Escolha o usuário",
+                                             new { @class = "form-control", @style = "width:230px; background-color: #EAE7DC; color: #333;", required = "required" })
+                                </div>
+                                <div class="col-md-6">
+                                    <label style="color:red">*</label>
+                                </div>
+                            </div>
+
+                            <!-- DropDown de Tipo de Serviço -->
+                            <div class="mb-3 row">
+                                <div class="col-md-6">
+                                    @Html.DropDownList("TipoServico", ViewBag.lstTipoServico as SelectList, "Escolha o tipo de Serviço", new { @class = "form-control", @style = "width:230px; background-color: #EAE7DC; color: #333;", required = "required" })
+                                </div>
+                                <div class="col-md-6">
+                                    <label style="color:red">*</label>
+                                </div>
+                            </div>
                             <fieldset>
                                 <legend>Escolha o horário de atendimento:</legend>
 
@@ -328,7 +348,7 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
                         <button type="button" class="btn btn-primary"
-                                onclick="InserirAgendamentoManutencao()">
+                                onclick="InserirAgendamento()">
                             Adicionar
                         </button>
                     </div>
@@ -470,59 +490,47 @@
             return dataHoraFormatada;
         }
 
-        function InserirAgendamentos() {
+        function InserirAgendamento() {
 
-            //var id =
-            var dataC = obterDataHoraFormatada();
+            // Data from hidden field or any other necessary values
+            var dataC = obterDataHoraFormatada();  // Assuming this function formats the current date/time.
             var data = $("#data_agdt").val();
-            var servico = $("#DropServico").val();
+            var usuario = $("#DropUsuario").val();  // Getting value for "DropUsuario"
+            var tipoServico = $('#TipoServico option:selected').val(); // Getting value for "TipoServico"
             var atendimentos = [];
+
+            // Check if the time slots are selected and push them into the atendimentos array
             if ($("#chk08").prop("checked")) atendimentos.push($("#chk08").val());
             if ($("#chk10").prop("checked")) atendimentos.push($("#chk10").val());
             if ($("#chk13").prop("checked")) atendimentos.push($("#chk13").val());
             if ($("#chk15").prop("checked")) atendimentos.push($("#chk15").val());
             if ($("#chk17").prop("checked")) atendimentos.push($("#chk17").val());
             if ($("#chk19").prop("checked")) atendimentos.push($("#chk19").val());
-            if (!id) {
-                alert("Por favor, Insira aum Id");
-                return;
-            }
 
-            if (!dataC) {
-                alert("Por favor, selecione uma data de cadastro");
-                return;
-            }
-            if (!data) {
-                alert("Por favor, selecione uma data para o agendamento.");
-                return;
-            }
-            if (!servico) {
-                alert("Por favor, selecione o serviço.");
-                return;
-            }
-            if (atendimentos.length === 0) {
-                alert("Por favor, selecione pelo menos um horário para o agendamento.");
-                return; // Retorna da função se nenhum horário foi selecionado
-            }
+
+
+            // Collect data for AJAX request
             var dados = {
-                id: id,
-                dataC: dataC,
-                data: data,
-                servico: servico,
-                atendimentos: atendimentos
+                dtHoraAgendamento: dataC,
+                dataAtendimento: data,
+                horario: atendimentos,
+                fkUsuarioId: usuario,
+                fkServicoId: tipoServico,
+
             };
             console.log(dados)
+
+            // Perform the AJAX request
             $.ajax({
-                url: '/Agendamento/InserirAgendamentos',
+                url: '/Agendamento/InserirAgendamento',
                 type: "POST",
                 dataType: "json",
                 data: dados,
                 success: function (response) {
                     if (response.success) {
                         alert("Agendamento(s) cadastrado(s) com sucesso!");
-                        $('#InserirAgendamento').modal('hide'); // Substitua 'seuModal' pelo ID do seu modal
-                        // Atualizar a página
-                        location.reload();
+                        $('#InserirAgendamento').modal('hide');  // Close the modal
+                        location.reload();  // Reload the page
                     } else {
                         alert("Erro ao cadastrar agendamento(s).");
                     }

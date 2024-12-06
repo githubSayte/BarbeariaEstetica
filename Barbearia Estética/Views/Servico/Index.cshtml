@@ -104,7 +104,10 @@
                             <p style="color:red">Campos com * vermelho são obrigatórios</p>
                             <div class="mb-3 row">
                                 <div class="col-md-6">
-                                    @Html.DropDownList("EdtTipoServico", ViewBag.lstTipoServico as SelectList, "Escolha o tipo de Serviço", new { @class = "form-control", @style = "width:230px; background-color: #EAE7DC; color: #333;", required = "required" })
+                                    @Html.DropDownList("EdtTipoServico",
+                                             new SelectList(ViewBag.Servicos, "Value", "Text", null),
+                                             "Escolha o serviço",
+                                             new { @class = "form-control", @style = "width:230px; background-color: #EAE7DC; color: #333;", required = "required" })
                                 </div>
                                 <div class="col-md-6">
                                     <label style="color:red">*</label>
@@ -178,7 +181,10 @@
                             <p style="color:red">Campos com * vermelho são obrigatórios</p>
                             <div class="mb-3 row">
                                 <div class="col-md-6">
-                                    @Html.DropDownList("TipoServico", ViewBag.lstTipoServico as SelectList, "Escolha o tipo de Serviço", new { @class = "form-control", @style = "width:230px; background-color: #EAE7DC; color: #333;", required = "required" })
+                                    @Html.DropDownList("TipoServico",
+                                             new SelectList(ViewBag.Servicos, "Value", "Text", null),
+                                             "Escolha o serviço",
+                                             new { @class = "form-control", @style = "width:230px; background-color: #EAE7DC; color: #333;", required = "required" })
                                 </div>
                                 <div class="col-md-6">
                                     <label style="color:red">*</label>
@@ -203,7 +209,8 @@
                         <button type="button" class="btn btn-primary"
                                 onclick="AdicionarServico()">
                             Adicionar
-                        </button><!--onclick para chamar a funcao de alteração-->
+                        </button>
+                        <!--onclick para chamar a funcao de alteração-->
                     </div>
                 </div>
             </div>
@@ -220,7 +227,8 @@
 
         <script>
 
-            document.addEventListener("DOMContentLoaded", function () {
+            document.addEventListener("DOMContentLoaded", function () 
+            {
                 // Função para verificar se o campo foi preenchido e esconder o asterisco
                 function verificarPreenchimento(campo, label) {
                     // Verifica se o campo está preenchido (para input) ou se o select não tem o valor padrão

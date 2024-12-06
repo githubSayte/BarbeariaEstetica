@@ -1,11 +1,13 @@
 ﻿
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
+ <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Title -->
+
+    <!-- Titulo -->
     <title>Barbearia Estética</title>
+
     <!-- Inclusão da biblioteca Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
@@ -18,11 +20,8 @@
     <!-- Custom Stylesheets -->
     <link rel="stylesheet" href="~/css/main.css" />    
     <link rel="stylesheet" href="~/css/responsive.css" />
-
-
-</head>
-<body>
-
+ </head>
+ <body>
     <header class="header">
         @{
             // Verifica se o usuário está autenticado e recupera os dados de ambiente
@@ -31,12 +30,13 @@
             string tipoUsuario = Environment.GetEnvironmentVariable("USUARIO_TIPO");
         }
 
-        <!-- Logo -->
+        <!-- Logo inicio -->
         <a class="logo" href="#home" style="display: flex; align-items: center; text-decoration: none;">
             <img src="~/images/Home/Home.jpeg" alt="Logo" style="width: 50px; height: 50px; margin-right: 10px; border-radius: 50%;">
             <h2 style="margin: 0; font-size: 24px;">Barbearia Estética</h2>
         </a>
-        <!-- Logo End -->
+        <!-- Logo final -->
+
         <!-- Navbar -->
         <nav class="navbar" style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap;">
 
@@ -110,6 +110,7 @@
                 }
                 else
                 {
+
                     <!-- Menu do Usuário -->
                     <div class="dropdown" style="position: relative; display: inline-block;">
                         <span style="display: flex; align-items: center; margin-right: 20px;">
@@ -153,7 +154,7 @@
         </main>
     </div>
 
-    <!-------------------- Footer Area (Start) -------------------->
+    <!-------------------- Área de Rodapé (Início) -------------------->
     <script>
 
         function logout() {
@@ -193,7 +194,7 @@
 
     <!-- Magnific-Popup JS -->
     <script src="~/vendors/magnific-popup/jquery.magnific-popup.js"></script>
-    <!-- Custom Script File -->
+    <!-- Arquivo de Script Personalizado -->
     <script src="~/js/script.js"></script>
     <script src="~/js/scroll-spy.js"></script>
     <script src="~/js/counter-up.js"></script>
@@ -201,4 +202,5 @@
     <script src="~/js/testi-slider.js"></script>
     <script src="~/js/blog-slider.js"></script>
 </body>
+
 </html>
