@@ -8,7 +8,7 @@ namespace SiteAgendamento.Repositorio
 {
     public class AgendamentoRepositorio
     {
-        private readonly BdEsteticaContext _context;
+        public readonly BdEsteticaContext _context;
 
         public AgendamentoRepositorio(BdEsteticaContext context)
         {
@@ -72,38 +72,7 @@ namespace SiteAgendamento.Repositorio
             return listAgendamentos;
         }
 
-        // Atualizar Agendamento
-        public bool AtualizarAgendamento(int id, DateTime dtHoraAgendamento, DateOnly dataAgendamento, TimeOnly horario, int fkUsuarioId, int fkServicoId)
-        {
-            try
-            {
-                var agendamento = _context.TbAgendamentos.FirstOrDefault(a => a.Id == id);
-                if (agendamento != null)
-                {
-                    _context.Entry(agendamento).State = EntityState.Modified;
-
-                    agendamento.DtHoraAgendamento = dtHoraAgendamento;
-                    agendamento.DataAgendamento = dataAgendamento;
-                    agendamento.Horario = horario;
-                    agendamento.FkUsuarioId = fkUsuarioId;
-                    agendamento.FkServicoId = fkServicoId;
-
-                    _context.SaveChanges();
-
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Erro ao atualizar o agendamento com ID {id}: {ex.Message}");
-                return false;
-            }
-        }
-
+        
         // Excluir Agendamento
         public bool ExcluirAgendamento(int id)
         {
@@ -180,6 +149,11 @@ namespace SiteAgendamento.Repositorio
 
             // Retorna a lista já com os campos filtrados
             return listTb;
+        }
+
+        internal bool AtualizarAgendamento(int id, DateTime dtHoraAgendamento, DateOnly dataAgendamento, TimeOnly horario, int fkUsuarioId, int fkServicoId)
+        {
+            throw new NotImplementedException();
         }
     }
 }

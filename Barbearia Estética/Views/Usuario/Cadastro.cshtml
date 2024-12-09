@@ -2,6 +2,7 @@
     Layout = "~/Views/Shared/_LayoutCadastro.cshtml";
 }
 
+<html>
 <body>
     <div id="custom_container" class="custom_container">
         <div class="tab-content">
@@ -18,14 +19,13 @@
                        aria-controls="pills-login" aria-selected="true">Cadastrar</a>
                 </li>
             </ul>
-            <!-- Navegação em Pílulas final -->
-            <!-- Conteúdo em Pílulas -->
+           
             <div class="tab-content">
                 <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
                     <form>
                         <div class="text-center mb-3">
 
-                            <!-- -->
+                           
                             <button type="button" class="btn btn-link btn-floating mx-1">
                                 <i class="fab fa-facebook-f"></i>
                             </button>
@@ -41,13 +41,11 @@
                                    required />
                         </div>
 
-                        <!-- Email input -->
                         <div class=" form-outline mb-4">
                             <input type="email" id="loginEmail" class="form-control" placeholder="Digite seu Email"
                                    required />
                         </div>
 
-                        <!-- Password input -->
                         <div class="form-outline mb-4">
                             <input type="password" id="loginPassword" class="form-control" required
                                    placeholder="Digite sua senha" />
@@ -57,18 +55,15 @@
                             <input type="text" id="loginTelefone" class="form-control" placeholder="Digite seu Telefone"
                                    required />
                         </div>
-                        <!-- 2 column grid layout -->
+
                         <div class="row mb-4">
                             <div class="col-md-6 d-flex justify-content-center">
-                                <!-- Checkbox -->
 
                             </div>
 
                             <div class="col-md-6 d-flex justify-content-center">
-                                <!-- Simple link
-                                    <a href="#!">Esqueci a senha</a>
-                                -->
-
+                                Simple link
+                                    <a href="#!">Esqueci a senha</a>                               
                             </div>
                         </div>
 
@@ -77,21 +72,18 @@
                             <button type="button" id="send-button2" class="nav-link active btn btn-primary btn-block" style="flex: 1; margin-left: 5px;" onclick="window.location.href = '/Home/Index';">Voltar</button>
                         </div>
 
-
-                        <!-- Register buttons -->
-
                     </form>
                 </div>
-
             </div>
         </div>
     </div>
    
-</body>
+ </body>
 
- <script>
+  <script>
 
     function InserirUsuario() {
+
         // Obtenha os valores dos controles HTML
         var nome = $('#loginNome').val();
         var email = $('#loginEmail').val();
@@ -116,12 +108,12 @@
             data: dados,
             success: function (resultado) {
                 if (resultado.success) {
-                    alert(resultado.message);  // Exibe a mensagem de sucesso ou erro
+                    alert(resultado.message);// Exibe a mensagem de sucesso ou erro
                     if (resultado.success) {
                         window.location.href = "/Usuario/Login";
                     }
                 } else {
-                    alert(resultado.message);  // Exibe a mensagem de falha
+                    alert(resultado.message);// Exibe a mensagem de falha
                 }
             },
             error: function () {
@@ -129,7 +121,7 @@
             }
         });
     }
-
- </script>
+ 
+  </script>
 
 </html>

@@ -1,6 +1,8 @@
 using Barbearia_Estética.Models;
+using Barbearia_Estética.ORM;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using SiteAgendamento.Controllers;
 using SiteAgendamento.Repositorio;
 using System.Diagnostics;
@@ -10,28 +12,30 @@ namespace Barbearia_Estética.Controllers
     public class AgendamentoController : Controller
     {
         private readonly AgendamentoRepositorio _agendamentoRepositorio;
-        private readonly ILogger<ServicoController> _logger;
+        private BdEsteticaContext _context;
 
-        public AgendamentoController(AgendamentoRepositorio agendamentoRepositorio, ILogger<ServicoController> logger)
+        // Construtor para injetar o repositório
+        public AgendamentoController(AgendamentoRepositorio agendamentoRepositorio, BdEsteticaContext context)
         {
             _agendamentoRepositorio = agendamentoRepositorio;
-            _logger = logger;
+            _context = context;
         }
         public IActionResult Index()
         {
-            // Criar a lista de SelectListItems, onde o 'Value' será o 'Id' e o 'Text' será o 'TipoServico'
-            List<SelectListItem> tipoServico = new List<SelectListItem>
-             {
-                 new SelectListItem { Value = "1", Text = "Designer de cabelos masculino: com cortes ou penteados" },
-                 new SelectListItem { Value = "2", Text = "Corte de Cabelo padrão: na máquina ou na tesoura" },
-                  new SelectListItem { Value = "3", Text = "Coloração de Cabelo: com estilo ou padrão" },
-                 new SelectListItem { Value = "4", Text = "Barba e Bigode: corte, realce e Coloração" },
-                  new SelectListItem { Value = "5", Text = "Barba Expressa: na máquina e na navalha" },
-                 new SelectListItem { Value = "6", Text = "Pacote de Manutenção Mensal: pagamento uma vez ao mês" }
-            };
+            var servicos = new ServicoRepositorio(_context);
+            var nomeServicos = servicos.ListarNomesServicos();
+            if (nomeServicos != null && nomeServicos.Any())
+            {
+                // Cria a lista de SelectListItem
+                var selectList = nomeServicos.Select(u => new SelectListItem
+                {
+                    Value = u.Id.ToString(),  // O valor do item será o ID do usuário
+                    Text = u.TipoServico     // O texto exibido será o nome do usuário
+                }).ToList();
 
-            // Passar a lista para a View usando ViewBag
-            ViewBag.lstTipoServico = new SelectList(tipoServico, "Value", "Text");
+                // Passa a lista para o ViewBag para ser utilizada na view
+                ViewBag.lstTipoServico = selectList;
+            }
 
             // Chama o método ListarNomesAgendamentos para obter a lista de usuários
             var usuarios = _agendamentoRepositorio.ListarNomesAgendamentos();
@@ -48,16 +52,30 @@ namespace Barbearia_Estética.Controllers
                 // Passa a lista para o ViewBag para ser utilizada na view
                 ViewBag.Usuarios = selectList;
             }
+
+
+            var listaHorario = new List<SelectListItem>
+            {
+            new SelectListItem { Value = "8",  Text = "08:00:00" },
+            new SelectListItem { Value = "10", Text = "10:00:00" },
+            new SelectListItem { Value = "13", Text = "13:00:00" },
+            new SelectListItem { Value = "15", Text = "15:00:00" },
+            new SelectListItem { Value = "17", Text = "17:00:00" },
+            new SelectListItem { Value = "19", Text = "19:00:00" }
+            };
+
+            ViewBag.lstHorarios = listaHorario;
+
             var atendimentos = _agendamentoRepositorio.ListarAgendamentos();
             return View(atendimentos);
         }
         public IActionResult AgendamentoUsuario()
         {
-            return View();
+          return View();
         }
         public IActionResult CadastroAgendamento()
         {
-            return View();
+          return View();
         }       
         public IActionResult InserirAgendamento(DateTime dtHoraAgendamento, DateOnly dataAgendamento, TimeOnly horario, int fkUsuarioId, int fkServicoId)
         {
@@ -69,21 +87,23 @@ namespace Barbearia_Estética.Controllers
                 // Verifica o resultado da inserção
                 if (resultado)
                 {
-                    return Json(new { success = true, message = "Atendimento inserido com sucesso!" });
+                  return Json(new { success = true, message = "Atendimento inserido com sucesso!" });
                 }
+
                 else
                 {
-                    return Json(new { success = false, message = "Erro ao inserir o atendimento. Tente novamente." });
+                  return Json(new { success = false, message = "Erro ao inserir o atendimento. Tente novamente." });
                 }
             }
+
             catch (Exception ex)
             {
-                // Em caso de erro inesperado, captura e exibe o erro
-                return Json(new { success = false, message = "Erro ao processar a solicitação. Detalhes: " + ex.Message });
+                 // Em caso de erro inesperado, captura e exibe o erro
+                 return Json(new { success = false, message = "Erro ao processar a solicitação. Detalhes: " + ex.Message });
             }
         }
        public IActionResult AtualizarAgendamento(int id, DateTime dtHoraAgendamento, DateOnly dataAgendamento, TimeOnly horario, int fkUsuarioId, int fkServicoId)
-        {
+       {
             try
             {
                 // Chama o repositório para atualizar o agendamento
@@ -102,7 +122,7 @@ namespace Barbearia_Estética.Controllers
             {
                 return Json(new { success = false, message = "Erro ao processar a solicitação. Detalhes: " + ex.Message });
             }
-        }
+       }
        public IActionResult ExcluirAgendamento(int id)
         {
             try
@@ -131,11 +151,12 @@ namespace Barbearia_Estética.Controllers
 
             if (agendamento != null)
             {
-                return Json(agendamento);
+              return Json(agendamento);
             }
+
             else
             {
-                return NotFound();
+              return NotFound();
             }
 
         }

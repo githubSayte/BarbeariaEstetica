@@ -25,6 +25,7 @@
 <title>Agendamento</title>
 
 <body>
+
     <!-- Cabeçalho com logo e nome da empresa -->
     <div style="background-color: #c2c4a2; color: white; padding: 10px; text-align: center;">
         <a href="#home" style="text-decoration: none; color: white; display: inline-flex; align-items: center;">
@@ -40,68 +41,108 @@
         <div class="modal-body">
             <form>
                 <p style="color:red">Campos com * vermelho são obrigatórios</p>
+                <!-- Nome do cliente -->
                 <div class="mb-3 row">
                     <div class="col-md-6">
-                        <input id="Nome" type="date" class="form-control" placeholder="Digite o nome do cliente">
+                        <input id="EditNome" type="text"
+                               placeholder="Digite o nome do cliente">
+                    </div>
+                    <div class="col-md-6">
+                        <label style="color:red">*</label>
+                    </div>
+                </div>
+                <!-- Senha -->
+                <div class="mb-3 row">
+                    <div class="col-md-6">
+                        <input id="EditSenha" type="text"
+                               placeholder="Digite a senha">
+                    </div>
+                    <div class="col-md-6">
+                        <label style="color:red">*</label>
+                    </div>
+                </div>
+                <!-- Email -->
+                <div class="mb-3 row">
+                    <div class="col-md-7">
+                        <input id="EditEmail" type="email"
+                               placeholder="Digite o email">
+                    </div>
+                    <div class="col-md-5">
+                        <label style="color:red">*</label>
+                    </div>
+                </div>
+
+                <!-- Telefone -->
+                <div class="mb-3 row">
+                    <div class="col-md-6">
+                        <input id="EditTel" type="text"
+                               placeholder="Digite o telefone">
                     </div>
                     <div class="col-md-6">
                         <label style="color:red">*</label>
                     </div>
                 </div>
 
+                <!-- Data de Agendamento -->
                 <div class="mb-3 row">
                     <div class="col-md-6">
-                        <select id="Servico" class="form-select">
-                            <option value="">Escolha o Serviço</option>
-                            <option value="VolumeBrasileiro">Designer de cabelos masculino</option>
-                            <option value="Volume5D">Corte de Cabelo padrão</option>
-                            <option value="EfeitoSirene">Estilos de Barba e Bigode</option>
-                            <option value="VolumeExpress">Barba Expressa</option>
-                            <option value="HidraGloss">Coloração de Cabelo</option>
-                            <option value="HidraGloss">Pacote de Manutenção Mensal</option>
-                        </select>
+                        <input id="EditData" type="date">
+                    </div>
+                    <div class="col-md-6">
+                        <label style="color:red">*</label>
                     </div>
                 </div>
 
-                <!-- Checkboxes de horários com texto branco -->
-                <div class="mb-3 d-flex align-items-center" style="color: #867f58;">
-                    <input type="checkbox" id="chk08M" class="form-check-input" value="08:00" style="margin-right: 10px;" data-group="horario" disabled>
-                    <label class="form-check-label" for="chk08">Atendimento das 8:00</label>
-                    <span id="Span08M" style="color:red;"></span>
+                <!-- Horário -->
+                <div style="width: 200px; height: 40px; overflow: hidden; color: #EAE7DC; border-radius: 20px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); border: #EAE7DC solid 1px;">
+                    <select style="width: 100%; height: 100%; border: none; color: grey; padding: 10px; font-size: 16px; appearance: none; text-align: center; cursor: pointer; background: #A65F3C; color: #EAE7DC;" placeholder="Escolha um horário...">
+                        <option value="" disabled selected hidden>Escolha um horário...</option>
+                        <option value="1">8:00</option>
+                        <option value="2">10:00</option>
+                        <option value="3">13:00</option>
+                        <option value="4">15:00</option>
+                        <option value="5">17:00</option>
+                        <option value="6">19:00</option>
+                    </select>
+                </div><br>
+
+                <!-- Serviços -->
+                <div style="width: 200px; height: 40px; overflow: hidden; color: #EAE7DC; border-radius: 20px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); border: #EAE7DC solid 1px;">
+                    <select style="width: 100%; height: 100%; border: none; color: grey; padding: 10px; font-size: 16px; appearance: none; text-align: center; cursor: pointer; background: #A65F3C; color: #EAE7DC;" placeholder="Escolha um horário...">
+                        <option value="" disabled selected hidden>Escolha um serviço...</option>
+                        <option value="1">Tratamento Facial</option>
+                        <option value="2">Tratamento Corporal</option>
+                        <option value="3">Tratamento Capilar</option>
+                        <option value="4">Podologia</option>
+                        <option value="5">Bem-Estar e Terapias Alternativas</option>
+                        <option value="6">Tratamento Corporal e Remodelação</option>
+                    </select>
+                </div>
+                <br>
+                <!-- Valor -->
+                <div class="mb-3 row">
+                    <div class="col-md-6">
+                        <input id="EditValor" type="text"
+                               placeholder="Digite o valor">
+                    </div>
+                    <div class="col-md-6">
+                        <label style="color:red">*</label>
+                    </div>
                 </div>
 
-                <div class="mb-3 d-flex align-items-center" style="color: #867f58;">
-                    <input type="checkbox" id="chk10M" class="form-check-input" value="10:00" style="margin-right: 10px;" data-group="horario" disabled>
-                    <label class="form-check-label" for="chk10">Atendimento das 10:00</label>
-                    <span id="Span10M" style="color:red;"></span>
+                <!-- Confirmação -->
+                <div class="mb-3 row">
+                    <div class="col-md-6">
+                        <input id="EditValor" type="text"
+                               placeholder="Confirmação">
+                    </div>
+                    <div class="col-md-6">
+                        <label style="color:red">*</label>
+                    </div>
                 </div>
 
-                <div class="mb-3 d-flex align-items-center" style="color: #867f58;">
-                    <input type="checkbox" id="chk13M" class="form-check-input" value="13:00" style="margin-right: 10px;" data-group="horario" disabled>
-                    <label class="form-check-label" for="chk13">Atendimento das 13:00</label>
-                    <span id="Span13M" style="color:red;"></span>
-                </div>
+                <input type="hidden" id="IdEdt" value="" />
 
-                <div class="mb-3 d-flex align-items-center" style="color: #867f58;">
-                    <input type="checkbox" id="chk15M" class="form-check-input" value="15:00" style="margin-right: 10px;" data-group="horario" disabled>
-                    <label class="form-check-label" for="chk15">Atendimento das 15:00</label>
-                    <span id="Span15M" style="color:red;"></span>
-                </div>
-
-                <div class="mb-3 d-flex align-items-center" style="color: #867f58;">
-                    <input type="checkbox" id="chk17M" class="form-check-input" value="17:00" style="margin-right: 10px;" data-group="horario" disabled>
-                    <label class="form-check-label" for="chk17">Atendimento das 17:00</label>
-                    <span id="Span17M" style="color:red;"></span>
-                </div>
-
-                <div class="mb-3 d-flex align-items-center" style="color: #867f58;">
-                    <input type="checkbox" id="chk19M" class="form-check-input" value="19:00" style="margin-right: 10px;" data-group="horario" disabled>
-                    <label class="form-check-label" for="chk19">Atendimento das 19:00</label>
-                    <span id="Span19M" style="color:red;"></span>
-                </div>
-                <!-- Fim dos checkboxes de horários -->
-
-                <input type="hidden" id="IdEdt" value="">
             </form>
         </div>
 
@@ -126,7 +167,8 @@
 
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-<script>
+
+ <script>
     $(document).ready(function () {
         $('#show-hide-password').click(function () {
             var senhaInput = $('#loginPassword');
@@ -166,5 +208,5 @@
             }
         });
     }
-</script>
+ </script>
 </html>
