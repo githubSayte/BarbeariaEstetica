@@ -102,49 +102,27 @@ namespace Barbearia_Estética.Controllers
                  return Json(new { success = false, message = "Erro ao processar a solicitação. Detalhes: " + ex.Message });
             }
         }
-       public IActionResult AtualizarAgendamento(int id, DateTime dtHoraAgendamento, DateOnly dataAgendamento, TimeOnly horario, int fkUsuarioId, int fkServicoId)
-       {
-            try
-            {
-                // Chama o repositório para atualizar o agendamento
-                var resultado = _agendamentoRepositorio.AtualizarAgendamento(id, dtHoraAgendamento, dataAgendamento, horario, fkUsuarioId, fkServicoId);
-
-                if (resultado)
-                {
-                    return Json(new { success = true, message = "Agendamento atualizado com sucesso!" });
-                }
-                else
-                {
-                    return Json(new { success = false, message = "Erro ao atualizar o agendamento. Verifique se o agendamento existe." });
-                }
-            }
-            catch (Exception ex)
-            {
-                return Json(new { success = false, message = "Erro ao processar a solicitação. Detalhes: " + ex.Message });
-            }
-       }
-       public IActionResult ExcluirAgendamento(int id)
+        public IActionResult AlterarAgendamento(int id, string data, int servico, TimeOnly horario)
         {
-            try
-            {
-                // Chama o repositório para excluir o agendamento
-                var resultado = _agendamentoRepositorio.ExcluirAgendamento(id);
 
-                if (resultado)
-                {
-                    return Json(new { success = true, message = "Agendamento excluído com sucesso!" });
-                }
-                else
-                {
-                    return Json(new { success = false, message = "Erro ao excluir o agendamento. Verifique se o agendamento existe." });
-                }
-            }
-            catch (Exception ex)
+            var rs = _agendamentoRepositorio.AlterarAgendamento(id, data, servico, horario);
+            if (rs)
             {
-                return Json(new { success = false, message = "Erro ao processar a solicitação. Detalhes: " + ex.Message });
+                return Json(new { success = true });
+            }
+            else
+            {
+                return Json(new { success = false });
             }
         }
-       public IActionResult ConsultarAgendamento(string data)
+        public IActionResult ExcluirAgendamento(int id)
+        {
+
+            var rs = _agendamentoRepositorio.ExcluirAgendamento(id);
+            return Json(new { success = rs });
+
+        }
+        public IActionResult ConsultarAgendamento(string data)
         {
 
             var agendamento = _agendamentoRepositorio.ConsultarAgendamento(data);

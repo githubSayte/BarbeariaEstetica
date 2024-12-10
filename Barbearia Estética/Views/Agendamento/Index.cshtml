@@ -23,6 +23,7 @@
                                    aria-label="Filtrar" aria-describedby="basic-addon2">
                         </div>
                     </div>
+
                     <div class="col-md-6 text-md-end">
 
                         <!-- Alteração para "text-md-end" para alinhar à direita apenas em telas médias e maiores -->
@@ -30,6 +31,7 @@
                                 data-bs-target="#InserirAgendamento">
                             <i class="fa fa-plus"></i> Adicionar Agendamento
                         </button>
+
                     </div>
                 </div>
             </div>
@@ -55,7 +57,9 @@
 
             <!-- Corpo da tabela rolável -->
             <div style="max-height: 300px; overflow-y: auto; overflow-x: auto;">
+                
                 <table id="TbAgendamentosBody" class="table" style="width: 100%; border-collapse: collapse; table-layout: fixed;">
+                    
                     <tbody>
                         @if (Model != null && Model.Any())
                         {
@@ -76,6 +80,7 @@
                                             <i class="fa fa-edit"></i>
                                         </button>
                                     </td>
+
                                     <td class="text-center" style="border: 1px solid #ddd; min-width: 80px;">
                                         <button class="btn btn-default" onclick="definirExc('@atendimento.Id', '@atendimento.Nome', '@atendimento.TipoServico', '@atendimento.Valor')" data-bs-toggle="modal" data-bs-target="#ExcluirAgendamento" style="color: black;">
                                             <i class="fa fa-trash"></i>
@@ -165,7 +170,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                        <button type="button" class="btn btn-primary" onclick=" AlterarUsuario()">Salvar</button>
+                        <button type="button" class="btn btn-primary" onclick=" AlterarAgendamento()">Salvar</button>
                     </div>
                 </div>
             </div>
@@ -235,7 +240,7 @@
                         </form>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                            <button type="button" onclick="ExcluirUsuario()" class="btn btn-primary">Excluir</button>
+                            <button type="button" onclick="ExcluirAgendamento()" class="btn btn-primary">Excluir</button>
                         </div>
                     </div>
                 </div>
@@ -341,6 +346,7 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
 
     <script>
+
         var listaOriginalHorario;
         // Impede a digitação manual no campo de data
         document.getElementById('data_agdt').addEventListener('keydown', function (e) {
@@ -371,8 +377,8 @@
 
         }
 
-        function definirEdt(id, Nome, Email, Telefone, Data, Horario, Tecnica, Val, Conf, idservico) {
-            console.log(idservico)
+        function definirEdt(id, Nome, Email, Telefone, Data, Horario, Tecnica, Val, Conf) {
+
             $('#EdtId').val(id);
             $('#EdtNome').val(Nome);
             $('#EdtEmail').val(Email);
@@ -419,8 +425,7 @@
                 var value = $(this).val().toLowerCase(); // Pega o valor do campo de filtro e converte para minúsculas
 
                 // Filtra as linhas do corpo da tabela
-                $('#TbAgendamentoBody tbody tr').each(function () 
-                {
+                $('#TbAgendamentoBody tbody tr').each(function () {
                     // Verifica se qualquer célula na linha contém o valor digitado no filtro
                     var rowText = $(this).text().toLowerCase();
                     // Exibe ou oculta a linha, dependendo de conter o valor
@@ -548,71 +553,60 @@
             var checkboxes = document.querySelectorAll('#InserirAgendamento input[type="checkbox"]');
 
             // Itera sobre os checkboxes encontrados e ativa-os
-            checkboxes.forEach(function (checkbox) 
-            {
+            checkboxes.forEach(function (checkbox) {
                 checkbox.disabled = false;
             });
         }
 
-        function limparTextosSpans() 
-        {
+        function limparTextosSpans() {
             // Obtém todos os elementos <span> dentro do formulário
             var spans = document.querySelectorAll('#InserirAgendamento span');
 
             // Itera sobre os spans e define seu conteúdo como vazio
-            spans.forEach(function (span) 
-            {
+            spans.forEach(function (span) {
                 span.textContent = '';
             });
         }
 
-        function desmarcarCheckboxes() 
-        {
+        function desmarcarCheckboxes() {
             // Obtém todos os elementos <input type="checkbox"> dentro do formulário
             var checkboxes = document.querySelectorAll('#InserirAgendamento input[type="checkbox"]');
 
             // Itera sobre os checkboxes e desmarca todos
-            checkboxes.forEach(function (checkbox) 
-            {
+            checkboxes.forEach(function (checkbox) {
                 checkbox.checked = false;
             });
         }
 
-        function limparFormulario() 
-        {
+        function limparFormulario() {
             var usuarioId = "@Context.Session.GetString("UsuarioId")";
             document.getElementById("TxtId").value = usuarioId;
 
             // Limpar campos de texto
-            document.querySelectorAll('#InserirAgendamento input[type="text"]').forEach(function (input) 
-            {
+            document.querySelectorAll('#InserirAgendamento input[type="text"]').forEach(function (input) {
                 input.value = '';
             });
 
             // Limpar campos de seleção
-            document.querySelectorAll('#InserirAgendamento select').forEach(function (select) 
-            {
+            document.querySelectorAll('#InserirAgendamento select').forEach(function (select) {
                 select.selectedIndex = 0;
             });
 
             // Desmarcar checkboxes
 
             // Limpar spans
-            document.querySelectorAll('#InserirAgendamento span').forEach(function (span) 
-            {
+            document.querySelectorAll('#InserirAgendamento span').forEach(function (span) {
                 span.textContent = '';
             });
 
-            document.querySelectorAll('#InserirAgendamento input[type="checkbox"]').forEach(function (checkbox) 
-            {
+            document.querySelectorAll('#InserirAgendamento input[type="checkbox"]').forEach(function (checkbox) {
                 checkbox.checked = false;
                 checkbox.disabled = true;
             });
 
         }
 
-        function obterDataHoraFormatada() 
-        {
+        function obterDataHoraFormatada() {
             // Obtém a data e hora atuais
             var dataHoraAtual = new Date();
 
@@ -629,8 +623,7 @@
             return dataHoraFormatada;
         }
 
-        function InserirAgendamento() 
-        {
+        function InserirAgendamento() {
 
             // Data from hidden field or any other necessary values
             var dataC = obterDataHoraFormatada();  // Assuming this function formats the current date/time.
@@ -650,8 +643,7 @@
 
 
             // Collect data for AJAX request
-            var dados = 
-            {
+            var dados = {
                 dtHoraAgendamento: dataC,
                 dataAtendimento: data,
                 horario: atendimentos,
@@ -704,9 +696,6 @@
                     alert("Por favor, preencha o campo horário.");
                     return;
                 }
-
-
-
 
             }
             else {

@@ -42,8 +42,6 @@ namespace SiteAgendamento.Repositorio
                 return false; // Retorna false em caso de erro
             }
         }
-
-
         // Listar Agendamentos
         public List<ViewAgendamentoVM> ListarAgendamentos()
         {
@@ -70,36 +68,7 @@ namespace SiteAgendamento.Repositorio
             }
 
             return listAgendamentos;
-        }
-
-        
-        // Excluir Agendamento
-        public bool ExcluirAgendamento(int id)
-        {
-            try
-            {
-                var agendamento = _context.TbAgendamentos.FirstOrDefault(a => a.Id == id);
-                if (agendamento != null)
-                {
-                    _context.Entry(agendamento).State = EntityState.Deleted;
-
-                    _context.TbAgendamentos.Remove(agendamento);
-                    _context.SaveChanges();
-
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Erro ao excluir o agendamento com ID {id}: {ex.Message}");
-                return false;
-            }
-        }
-
+        }               
         public List<AgendamentoVM> ConsultarAgendamento(string datap)
         {
             DateOnly data = DateOnly.ParseExact(datap, "yyyy-MM-dd", CultureInfo.InvariantCulture);
@@ -132,7 +101,6 @@ namespace SiteAgendamento.Repositorio
                 return new List<AgendamentoVM>(); // Retorna uma lista vazia em caso de erro
             }
         }
-
         public List<UsuarioVM> ListarNomesAgendamentos()
         {
             // Lista para armazenar os usuários com apenas Id e Nome
@@ -150,10 +118,64 @@ namespace SiteAgendamento.Repositorio
             // Retorna a lista já com os campos filtrados
             return listTb;
         }
-
-        internal bool AtualizarAgendamento(int id, DateTime dtHoraAgendamento, DateOnly dataAgendamento, TimeOnly horario, int fkUsuarioId, int fkServicoId)
+        // Método para atualizar um atendimento
+        public bool AlterarAgendamento(int id, string data, int servico, TimeOnly horario)
         {
-            throw new NotImplementedException();
+            try
+            {
+                TbAgendamento agt = _context.TbAgendamentos.Find(id);
+                DateOnly dtHoraAgendamento;
+                if (agt != null)
+                {
+                    agt.Id = id;
+                    if (data != null)
+                    {
+                        if (DateOnly.TryParse(data, out dtHoraAgendamento))
+                        {
+                            agt.DataAgendamento = dtHoraAgendamento;
+                        }
+                    }
+
+                    // Corrigido a verificação do tipo TimeOnly
+                    if (horario != TimeOnly.MinValue)  // Verificando se o horário não é o valor padrão
+                    {
+                        agt.Horario = horario;
+                    }
+
+                    agt.FkServicoId = servico;
+                    _context.SaveChanges();
+                    return true;
+                }
+
+                return false;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+        // Método para excluir um atendimento
+        public bool ExcluirAgendamento(int id)
+        {
+            try
+            {
+
+
+                var agt = _context.TbAgendamentos.Where(a => a.Id == id).FirstOrDefault();
+                if (agt != null)
+                {
+                    _context.TbAgendamentos.Remove(agt);
+
+                }
+                _context.SaveChanges();
+                return true;
+            }
+
+            catch (Exception)
+            {
+
+                return false;
+            }
         }
     }
 }
