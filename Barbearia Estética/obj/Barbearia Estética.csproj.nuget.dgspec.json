@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Aluno Noite\\OneDrive\\Área de Trabalho\\Renato R. Aluno da Manhã\\Repositórios\\BarbeariaEstetica\\Barbearia Estética\\Barbearia Estética.csproj": {}
+    "C:\\Users\\Aluno Noite\\Área de Trabalho\\BarbeariaEstetica\\Barbearia Estética\\Barbearia Estética.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Aluno Noite\\OneDrive\\Área de Trabalho\\Renato R. Aluno da Manhã\\Repositórios\\BarbeariaEstetica\\Barbearia Estética\\Barbearia Estética.csproj": {
+    "C:\\Users\\Aluno Noite\\Área de Trabalho\\BarbeariaEstetica\\Barbearia Estética\\Barbearia Estética.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Aluno Noite\\OneDrive\\Área de Trabalho\\Renato R. Aluno da Manhã\\Repositórios\\BarbeariaEstetica\\Barbearia Estética\\Barbearia Estética.csproj",
+        "projectUniqueName": "C:\\Users\\Aluno Noite\\Área de Trabalho\\BarbeariaEstetica\\Barbearia Estética\\Barbearia Estética.csproj",
         "projectName": "Barbearia Estética",
-        "projectPath": "C:\\Users\\Aluno Noite\\OneDrive\\Área de Trabalho\\Renato R. Aluno da Manhã\\Repositórios\\BarbeariaEstetica\\Barbearia Estética\\Barbearia Estética.csproj",
+        "projectPath": "C:\\Users\\Aluno Noite\\Área de Trabalho\\BarbeariaEstetica\\Barbearia Estética\\Barbearia Estética.csproj",
         "packagesPath": "C:\\Users\\Aluno Noite\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Aluno Noite\\OneDrive\\Área de Trabalho\\Renato R. Aluno da Manhã\\Repositórios\\BarbeariaEstetica\\Barbearia Estética\\obj\\",
+        "outputPath": "C:\\Users\\Aluno Noite\\Área de Trabalho\\BarbeariaEstetica\\Barbearia Estética\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Aluno Noite\\AppData\\Roaming\\NuGet\\NuGet.Config",

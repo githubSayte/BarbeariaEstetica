@@ -42,7 +42,6 @@ namespace SiteAgendamento.Repositorio
                 return false; // Retorna false em caso de erro
             }
         }
-        // Listar Agendamentos
         public List<ViewAgendamentoVM> ListarAgendamentos()
         {
             var listAgendamentos = new List<ViewAgendamentoVM>();
@@ -107,17 +106,42 @@ namespace SiteAgendamento.Repositorio
             List<UsuarioVM> listFun = new List<UsuarioVM>();
 
             // Obter apenas os campos Id e Nome da tabela TbUsuarios
-            var listTb = _context.TbUsuarios
-                                 .Select(u => new UsuarioVM
-                                 {
-                                     Id = u.Id,
-                                     Nome = u.Nome
-                                 })
-                                 .ToList();
+            var listTb = _context.TbUsuarios .Select(u => new UsuarioVM{Id = u.Id,Nome = u.Nome}).ToList();
 
             // Retorna a lista já com os campos filtrados
             return listTb;
         }
+        public List<ViewAgendamentoVM> ListarAgendamentosCliente()
+        {
+            // Obtendo o ID do usuário a partir da variável de ambiente
+            string nome = Environment.GetEnvironmentVariable("USUARIO_NOME");
+
+            List<ViewAgendamentoVM> listAtendimentos = new List<ViewAgendamentoVM>();
+
+            // Recuperando todos os agendamentos que correspondem ao ID do usuário
+            var listTb = _context.ViewAgendamentos.Where(x => x.Nome == nome).ToList();
+
+            // Convertendo cada agendamento para ViewAgendamentoVM
+            foreach (var item in listTb)
+            {
+                var atendimento = new ViewAgendamentoVM
+                {
+                    Id = item.Id,
+                    DtHoraAgendamento = item.DtHoraAgendamento,
+                    DataAgendamento = item.DataAgendamento,
+                    Horario = item.Horario,
+                    TipoServico = item.TipoServico,
+                    Valor = item.Valor,
+                    Nome = item.Nome,
+                    Email = item.Email,
+                    Telefone = item.Telefone,
+                };
+
+                listAtendimentos.Add(atendimento);
+            }
+
+            return listAtendimentos;
+        }       
         // Método para atualizar um atendimento
         public bool AlterarAgendamento(int id, string data, int servico, TimeOnly horario)
         {
@@ -159,8 +183,6 @@ namespace SiteAgendamento.Repositorio
         {
             try
             {
-
-
                 var agt = _context.TbAgendamentos.Where(a => a.Id == id).FirstOrDefault();
                 if (agt != null)
                 {
