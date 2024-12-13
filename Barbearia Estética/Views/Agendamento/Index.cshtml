@@ -264,8 +264,9 @@
                            
                             <!-- Campo de data -->
                             <div class="mb-3 d-flex align-items-center">
-                                <input id="data_agdt" type="date" class="form-control" style="width: 300px;" placeholder="Escolha a data do agendamento" oninput="consultarAgendamento()">
+                                <input id="data_agdt" type="date" class="form-control" style="width: 300px;" placeholder="Escolha a data do agendamento" oninput="consultarAgendamento()" min="{{ today }}">
                             </div>
+
                             <div class="mb-3 row">
                                 <div class="col-md-6">
                                     @Html.DropDownList("DropUsuario",
@@ -345,6 +346,12 @@
 
     </section>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script>
+        // Definindo a data mínima como a data atual usando JavaScript
+        document.getElementById('data_agdt').setAttribute('min', new Date().toISOString().split('T')[0]);
+        // Definindo a data mínima como a data atual usando JavaScript
+        document.getElementById('data_a').setAttribute('min', new Date().toISOString().split('T')[0]);
+    </script>
 
     <script>
 
@@ -765,5 +772,7 @@
         }
 
     </script>
+
+
 </body>
 

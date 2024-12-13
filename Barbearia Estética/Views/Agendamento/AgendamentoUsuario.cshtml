@@ -26,17 +26,19 @@
                     <div class="col-md-6 text-md-end">
 
                         <!-- Alteração para "text-md-end" para alinhar à direita apenas em telas médias e maiores -->
-                        <a href="@Url.Action("CadastroAgendamento", "Agendamento")" class="btn btn-success btn-lg">
-                            <i class="fa fa-plus"></i> Adicionar Agendamento 
-                        </a>
-
+                        <div class="col-md-6 text-md-end">
+                            <!-- Alteração para "text-md-end" para alinhar à direita apenas em telas médias e maiores -->
+                            <a href="@Url.Action("CadastroAgendamento", "Agendamento")" class="btn btn-success btn-lg" style="background-color: #4e3e08">
+                                <i class="fa fa-plus"></i> Adicionar Agendamento
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <!-- Tabela com cabeçalho fixo -->
             <table id="TbAtendimentos" class="table" style="width: 100%; border-collapse: collapse; table-layout: fixed;">
-                <thead style="background-color: chocolate; color: #EAE7DC;">
+                <thead style="background-color: white; color: white;">
                     <tr>
                         <th style="border: 1px solid #ddd; padding: 8px; min-width: 50px; position: sticky; top: 0; background-color: #725f47">#</th>
                         <th style="border: 1px solid #ddd; padding: 8px; min-width: 150px; position: sticky; top: 0; background-color: #725f47;">Data/Hora de Atendimento</th>
@@ -109,6 +111,7 @@
                         <h3 class="modal-title" id="exampleModalLabel">Editar Agendamento</h3>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
+
                     <div class="modal-body">
                         <form>
                             <div class="mb-3">
@@ -116,16 +119,19 @@
                                 <input type="text" id="EdtNome" class="form-control" readonly>
 
                             </div>
+
                             <div class="mb-3">
                                 <label for="email">Email</label>
                                 <input type="email" id="EdtEmail" class="form-control" readonly>
 
                             </div>
+
                             <div class="mb-3">
                                 <label for="telefone">Telefone</label>
                                 <input type="text" id="EdtTel" class="form-control" readonly>
 
                             </div>
+
                             <div class="mb-3">
                                 <label for="telefone">Data do agendamento</label>
                                 <input type="text" id="EdtData" class="form-control" readonly>
@@ -141,12 +147,14 @@
                                 <label for="telefone">Valor</label>
                                 <input type="text" id="EdtVal" class="form-control" readonly>
                             </div>
+
                             <div class="mb-3 row">
                                 <div class="col-md-6">
                                     <div class="d-flex align-items-center">
                                         <label for="telefone" class="me-2">Tipo de Serviço</label>
                                         <label style="color:red">*</label>
                                     </div>
+
                                     @Html.DropDownList("EdtTipoServico",
                                              new SelectList(ViewBag.lstTipoServico, "Value", "Text", null),
                                              "Escolha o serviço",
@@ -249,20 +257,17 @@
             </div>
         </div>
 
-
     </section>
 
-    <script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
 
+    <script>
         var listaOriginalHorario;
-        // Impede a digitação manual no campo de data
-        document.getElementById('data_agdt').addEventListener('keydown', function (e) {
-            e.preventDefault(); // Bloqueia qualquer entrada do teclado
-        });
 
         $(document).ready(function () {
             $('input[type="checkbox"]').click(function () {
                 var isChecked = $(this).prop("checked");
+
                 var groupId = $(this).attr("data-group");
 
                 if (isChecked) {
@@ -511,7 +516,7 @@
                 }
             });
         }
-
+      
     </script>
 
    

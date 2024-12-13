@@ -49,9 +49,10 @@
 
                 <!-- Campo de data -->
                 <div class="mb-3 d-flex align-items-center">
-                    <input id="data_agdt" type="date" class="form-control" style="width: 300px;" placeholder="Escolha a data do agendamento" oninput="consultarAgendamento()" required>
-                    <label for="data_agdt" style="color:red; margin-left: 5px;">*</label>
+                    <input id="data_a" type="date" class="form-control" style="width: 300px;" placeholder="Escolha a data do agendamento" oninput="consultarAgendamentoEdt()" min="{{ today }}">
                 </div>
+
+
 
                 <div class="mb-3 row">
 
@@ -65,6 +66,7 @@
                     <div class="col-md-6">
                         <label style="color:red">*</label>
                     </div>
+
                 </div>
 
                 <fieldset>
@@ -121,14 +123,9 @@
         </div>
     </div>
 
- </body>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js">
-
- 
-    </script>
-
-  <script>
+    <script>
 
     // Impede a digitação manual no campo de data
     document.getElementById('data_agdt').addEventListener('keydown', function (e) {
@@ -327,12 +324,22 @@
                     alert("Erro ao cadastrar agendamento(s).");
                 }
             },
+
             error: function (xhr, textStatus, errorThrown) {
                 alert("Erro ao cadastrar agendamento(s): " + errorThrown);
             }
+
         });
+
     }
 
-
   </script>
+
+    <script>
+        // Definindo a data mínima como a data atual usando JavaScript
+        document.getElementById('data_a').setAttribute('min', new Date().toISOString().split('T')[0]);
+    </script>
+
+ </body>
+
 </html>
