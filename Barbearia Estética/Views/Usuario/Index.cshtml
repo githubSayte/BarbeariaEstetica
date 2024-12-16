@@ -3,11 +3,43 @@
 @{
     Layout = "~/Views/Shared/_LayoutGereciamento.cshtml";
 }
+<style>
+    /* Estilo para o overlay (fundo escuro) */
+    #overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); /* Cor escura com transparência */
+        z-index: 9998; /* Colocar abaixo do loader */
+        display: none; /* Inicialmente escondido */
+    }
+
+    /* Estilo para o loader */
+    #loader {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 15px 30px;
+        background-color: rgba(0, 0, 0, 0.7); /* Fundo escuro para o loader */
+        color: white;
+        border-radius: 5px;
+        font-size: 16px;
+        z-index: 9999; /* Colocar acima do overlay */
+        display: none; /* Inicialmente escondido */
+    }
+</style>
 <body>
+    <!-- Overlay e Loader -->
+    <div id="overlay" style="display: none;"></div>
+    <div id="loader" style="display: none;">
+        <i class="fa fa-spinner fa-spin"></i> Carregando...
+    </div>
 
     <section class="maneger-page-section">
         <div class="container page-maneger">
-
             <div class="add-user-button">
                 <h1 class="section-title cliente-title-maneger">Gerenciamento de Usuários</h1>
                 <br />
@@ -36,7 +68,7 @@
                 <!-- Tabela com cabeçalho fixo -->
                 <table id="TbClientes" class="table" style="width: 100%; border-collapse: collapse; table-layout: fixed;">
                     <!-- Cabeçalho fixo -->
-                    <thead style="background-color: chocolate; color: #EAE7DC;">
+                    <thead style="background-color: #725f47; color: #EAE7DC;">
                         <tr>
                             <th style="border: 1px solid #ddd; padding: 8px; width: 50px; position: sticky; top: 0; background-color: #725f47">#</th>
                             <th style="border: 1px solid #ddd; padding: 8px; width: 190px; position: sticky; top: 0; background-color: #725f47;">Nome</th>
@@ -506,6 +538,10 @@
                     alert("Por favor, insira um número de telefone válido.");
                     return;
                 }
+               
+                // Show the overlay and loader
+                $("#overlay").show();  // Exibir o overlay escuro
+                $("#loader").show();   // Exibir o loader
 
                 var dados = {
                     Nome: nome,
@@ -523,6 +559,9 @@
                     dataType: "json",
                     data: dados,
                     success: function (resultado) {
+                        // Hide the overlay and loader after the response
+                        $("#overlay").hide();
+                        $("#loader").hide();
                         if (resultado.success) {
                             alert(resultado.message);  // Exibe a mensagem de sucesso
                             // Fecha o modal
@@ -570,6 +609,10 @@
                     return;
                 }
 
+                // Show the overlay and loader
+                $("#overlay").show();  // Exibir o overlay escuro
+                $("#loader").show();   // Exibir o loader
+
                 var dados = {
                     Id: id, // ID do usuário a ser atualizado
                     Nome: nome,
@@ -586,6 +629,9 @@
                     dataType: "json",
                     data: dados,
                     success: function (resultado) {
+                        // Hide the overlay and loader after the response
+                        $("#overlay").hide();
+                        $("#loader").hide();
                         if (resultado.success) {
                             alert(resultado.message);  // Exibe a mensagem de sucesso
                             $('#InserirUsuario').modal('hide'); // Fecha o modal de inserção/atualização
@@ -603,6 +649,9 @@
             function ExcluirUsuario() {
                 var id = $('#ExcId').val();  // Pega o valor do ID do campo hidden
                 console.log("ID a ser excluído: ", id);  // Verifique se o ID está sendo corretamente recuperado
+                // Show the overlay and loader
+                $("#overlay").show();  // Exibir o overlay escuro
+                $("#loader").show();   // Exibir o loader
 
                 var dados = { Id: id };  // Dados a enviar para o servidor (ID do usuário)
 
@@ -613,6 +662,9 @@
                     dataType: "json",
                     data: dados,
                     success: function (resultado) {
+                        // Hide the overlay and loader after the response
+                        $("#overlay").hide();
+                        $("#loader").hide();
                         // Verifica se a resposta contém sucesso ou falha
                         if (resultado.success) {
                             alert(resultado.message);  // Exibe a mensagem de sucesso

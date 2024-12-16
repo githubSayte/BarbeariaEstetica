@@ -469,7 +469,7 @@ header #menu-btn:hover{
     font-size: 1.7rem;
     color: var(--white);
     font-weight: 400;
-}
+ }
 
  .skill-item .box .progress-bar{
     width:100%;
@@ -477,15 +477,16 @@ header #menu-btn:hover{
     overflow:hidden;
     height:1rem;
     border-radius: 50rem;
-}
+ }
 
-    .skill-item .box .progress-bar span {
-        display: block;
-        height: 100%;
-        background: var(--grey);
-    }
+ .skill-item .box .progress-bar span {
+    display: block;
+    height: 100%;
+    background: var(--grey);
+ }
 
- .skill-item.item1 .box:nth-child(1) .progress-bar span{
+ .skill-item.item1 .box:nth-child(1) .progress-bar span
+ {
     width:100%;
 }
 

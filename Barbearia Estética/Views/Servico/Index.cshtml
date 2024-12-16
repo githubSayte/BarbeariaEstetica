@@ -4,18 +4,46 @@
     Layout = "~/Views/Shared/_LayoutGereciamento.cshtml";
 }
 
-<html>
+<style>
+    /* Estilo para o overlay (fundo escuro) */
+    #overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); /* Cor escura com transparência */
+        z-index: 9998; /* Colocar abaixo do loader */
+        display: none; /* Inicialmente escondido */
+    }
 
+    /* Estilo para o loader */
+    #loader {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 15px 30px;
+        background-color: rgba(0, 0, 0, 0.7); /* Fundo escuro para o loader */
+        color: white;
+        border-radius: 5px;
+        font-size: 16px;
+        z-index: 9999; /* Colocar acima do overlay */
+        display: none; /* Inicialmente escondido */
+    }
+</style>
 <body>
-
+    <!-- Overlay e Loader -->
+    <div id="overlay" style="display: none;"></div>
+    <div id="loader" style="display: none;">
+        <i class="fa fa-spinner fa-spin"></i> Carregando...
+    </div>
     <section class="maneger-page-section">
         <div class="container page-maneger">
-
             <div class="add-user-button">
                 <h1 class="section-title cliente-title-maneger">Gerenciamento de serviços</h1>
                 <br />
             </div>
-
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
@@ -442,8 +470,11 @@
             }
 
             function ExcluirServico() 
-            {
+            {              
                 var id = $('#ExcId').val();
+                // Show the overlay and loader
+                $("#overlay").show();  // Exibir o overlay escuro
+                $("#loader").show();   // Exibir o loader
                 // Confirmar antes de excluir
                 if (confirm("Você tem certeza que deseja excluir este serviço?")) 
                 {
@@ -455,6 +486,9 @@
                         data: { id: id },
                         success: function (response) 
                         {
+                            // Hide the overlay and loader after the response
+                            $("#overlay").hide();
+                            $("#loader").hide();
                             // Verificar se a exclusão foi bem-sucedida
                             if (response.success) 
                             {
@@ -475,39 +509,53 @@
                 }
             }
 
-            function AlterarServico() 
-            {
+            function AlterarServico() {
+                // Obter valores dos campos
                 var id = $('#EdtId').val();
-                var tipoSevico = $('#EdtTipoServico option:selected').text()
-                var valor = $('#EdtValor').val();
+                var tipoServico = $('#EdtTipoServico option:selected').text();  // Valor do tipo de serviço selecionado
+                var valor = $('#EdtValor').val();  // Valor inserido
 
+                // Validação dos campos
+                if (!id || id === "") {
+                    alert("O ID do serviço é obrigatório.");
+                    return;  // Para a execução da função se o ID não estiver preenchido
+                }
+
+                if (!tipoServico || tipoServico === "Escolha o serviço") {
+                    alert("Por favor, selecione um tipo de serviço.");
+                    return;  // Para a execução da função se o tipo de serviço não for selecionado
+                }
+
+                if (!valor || valor.trim() === "") {
+                    alert("Por favor, insira um valor para o serviço.");
+                    return;  // Para a execução da função se o valor estiver vazio
+                }
+                // Show the overlay and loader
+                $("#overlay").show();  // Exibir o overlay escuro
+                $("#loader").show();   // Exibir o loader
                 // Fazer a requisição AJAX para atualizar o serviço
-                $.ajax
-                ({
-                    url: '/Servico/AtualizarServico',  // Substitua 'SeuController' pelo nome real do seu controller
+                $.ajax({
+                    url: '/Servico/AtualizarServico',  // Substitua pelo nome real do seu controller
                     type: 'POST',
-                    data: 
-                    {
+                    data: {
                         id: id,
-                        TipoServico: tipoSevico,
+                        TipoServico: tipoServico,
                         Valor: valor
                     },
-                    success: function (response) 
-                    {
+                    success: function (response) {
+                        // Hide the overlay and loader after the response
+                        $("#overlay").hide();
+                        $("#loader").hide();
                         // Verificar se a atualização foi bem-sucedida
-                        if (response.success) 
-                        {
-                            alert("Serviço " + tipoSevico + " alterado com sucesso!");
+                        if (response.success) {
+                            alert("Serviço " + tipoServico + " alterado com sucesso!");
                             $('#EditarServico').modal('hide');
                             location.reload();  // Opcional: recarrega a página
-                        } 
-                        else 
-                        {
-                            alert(response.message); // Caso haja erro
+                        } else {
+                            alert(response.message);  // Caso haja erro na resposta
                         }
                     },
-                    error: function (xhr, status, error) 
-                    {
+                    error: function (xhr, status, error) {
                         alert("Ocorreu um erro ao tentar atualizar o serviço: " + error);
                     }
                 });
@@ -518,6 +566,9 @@
                 var tipoServico = $('#TipoServico option:selected').text();
                 var Valor = $('#Valor').val();
 
+                // Show the overlay and loader
+                $("#overlay").show();  // Exibir o overlay escuro
+                $("#loader").show();   // Exibir o loader
                 // Objeto com os dados para enviar via AJAX
                 var dados = 
                 {
@@ -536,6 +587,9 @@
                     data: dados,
                     success: function (response) 
                     {
+                        // Hide the overlay and loader after the response
+                        $("#overlay").hide();
+                        $("#loader").hide();
                         // Exibe a mensagem de sucesso ou erro
                         if (response.success) 
                         {
@@ -556,9 +610,6 @@
                 });
             }
 
-
         </script>
-    </section>
-    
+    </section>  
 </body>
-</html>

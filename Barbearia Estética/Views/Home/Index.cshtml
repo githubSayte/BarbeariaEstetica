@@ -1,41 +1,43 @@
 ﻿
 <head>
     <style>
-        .scissors {
+        .scissors 
+        {
             position: relative;
             width: 64px;
             height: 64px;
         }
-
-            .scissors .blade {
-                position: absolute;
-                width: 50%;
-                height: 6px;
-                background: #000;
-                top: 50%;
-                left: 50%;
-                transform-origin: left center;
-                transform: rotate(0deg);
-                transition: transform 0.3s ease-in-out;
-            }
-
-            .scissors .blade-1 {
-                transform-origin: left center;
-            }
-
-            .scissors .blade-2 {
-                transform-origin: left center;
-                transform: rotate(180deg);
-            }
-
-            .scissors:hover .blade-1 {
-                transform: rotate(30deg);
-            }
-
-            .scissors:hover .blade-2 {
-                transform: rotate(150deg);
-            }
+        .scissors .blade 
+        {
+            position: absolute;
+            width: 50%;
+            height: 6px;
+            background: #000;
+            top: 50%;
+            left: 50%;
+            transform-origin: left center;
+            transform: rotate(0deg);
+            transition: transform 0.3s ease-in-out;
+        }
+        .scissors .blade-1 
+        {
+           transform-origin: left center;
+        }
+        .scissors .blade-2 
+        {
+           transform-origin: left center;
+           transform: rotate(180deg);
+        }
+        .scissors:hover .blade-1 
+        {
+            transform: rotate(30deg);
+        }
+        .scissors:hover .blade-2 
+        {
+           transform: rotate(150deg);
+        }
     </style>
+
     <style>
         .dropdown-content {
             display: none;
@@ -49,8 +51,7 @@
             right: 0;
             /* Alinha o submenu à direita */
         }
-
-            .dropdown-content a {
+        .dropdown-content a {
                 color: black;
                 padding: 7px;
                 text-decoration: none;
@@ -65,27 +66,29 @@
                 margin: 1px;
                 /* Adiciona a margem */
                 border-radius: 3%;
-            }
-
-                .dropdown-content a:hover {
-                    background-color: #ddd;
-                    border: #725f47 solid 2px;
-                    border-radius: 3%;
-                }
-
+        }
+        .dropdown-content a:hover 
+        {
+            background-color: #ddd;
+            border: #725f47 solid 2px;
+            border-radius: 3%;
+        }
         .dropdown:hover .dropdown-content {
             display: block;
         }
     </style>
+
     <style>
         body {
             font-family: 'Times New Roman', serif;
         }
     </style>   
-
 </head>
-<body>  
+
+<body>   
     
+
+
     <!--------------------  "Área de Rolagem Superior (Início)" -------------------->
     <a href="#home" class="scroll-top">
         <i class="fas fa-angle-up"></i>
@@ -93,18 +96,17 @@
    
     <!-------------------- Área Inicial (Início) -------------------->
     <section class="home" id="home">
-
         <div class="box-container">
-
             <div class="content">
-
                 <div class="text">
-                    <h1 style="font-family: 'Times New Roman', serif; font-size: 40px;"> Olá, nós somos a Estética</h1>  
-
-                    <h1 style="font-family: 'Times New Roman', serif; font-size: 40px;"> E temos a oferecer: <br> <span class="typing-text" style="font-family: 'Times New Roman', serif; font-size: 70px;"></span></h1>
-
-                    <h1 style="font-family: 'Segoe Script', serif; font-size: 25px; color: #725f47"> Transformamos o seu visual com excelência e estilo, <br> para que você esteja sempre no auge da sua beleza.</h1>
-                    <a href="#service" class="btn">Saiba mais<i class="fas fa-user"></i></a>
+                    <h1 style="font-family: 'Times New Roman', serif; font-size: 70px; "> Olá, nós somos a Estética</h1>
+                    <h1 style="font-family: 'Times New Roman', serif; font-size: 40px;">
+                        E temos a oferecer:<br>
+                        <span class="typing-text" style="font-family: 'Times New Roman', serif; font-size: 70px;"></span></h1>
+                    <h1 style="font-family: 'Segoe Script', serif; font-size: 25px; color: #725f47">
+                        Transformamos o seu visual com excelência e estilo,<br>
+                        para que você esteja sempre no auge da sua beleza.</h1>
+                    <a href="#about" class="btn">Saiba mais<i class="fas fa-user"></i></a>
                 </div>
             </div>
 
@@ -113,41 +115,35 @@
                 width: 400px;
                 border-radius: 50% 50% 50% 50% / 30% 30% 70% 70%;
                 object-fit: cover;
-                border: 2px solid #91917a;">
-                
+                border: 2px solid #91917a;">              
             </div>
-
         </div>
-
     </section>
-
     <!-------------------- Área Final (Início) -------------------->
+
     <!-------------------- Área Sobre (Início) -------------------->
     <section class="about" id="about">
-
         <div class="box-container">
-
             <div class="image">
                 <img src="~/images/About/About.jpeg" alt="About-Image" />
             </div>
 
             <div class="content">
-
                 <h2>Sobre</h2>
-                <p>
-                    Oferecemos cortes de cabelo modernos e clássicos, adaptados ao estilo pessoal de cada cliente. <br>
+                <p style ="text-indent: 20px;">
+                    Oferecemos cortes de cabelo modernos e clássicos, adaptados ao estilo pessoal de cada cliente.<br>
                     Também temos um corte de cabelo padrão, rápido eficiente e de alta qualidade para clientes com pouco
-                    tempo. <br>
-                    Nossos barbeiros são especializados em diversas técnicas para garantir um corte perfeito. <br>
-                    Ideal para quem busca um visual impecável de maneira rápida. <br>
+                    tempo.<br>
+                    Nossos barbeiros são especializados em diversas técnicas para garantir um corte perfeito.<br>
+                    Ideal para quem busca um visual impecável de maneira rápida.<br>
                     Utilizamos produtos de alta qualidade para hidratação e alinhamento, proporcionando um visual
-                    impecável. <br>
-                    Serviço de coloração para cabelos, incluindo cobertura de cabelos brancos, luzes e mechas. <br>
-                    Trabalhamos com produtos de ponta para garantir cores vibrantes e duradouras. <br>
+                    impecável.<br>
+                    Serviço de coloração para cabelos, incluindo cobertura de cabelos brancos, luzes e mechas.<br>
+                    Trabalhamos com produtos de ponta para garantir cores vibrantes e duradouras.<br>
                     Serviço especializado em criar designs simples com máquina de corte. Perfeito para quem prefere um
-                    estilo criativo. <br>
+                    estilo criativo.<br>
                     Plano de assinatura que inclui cortes de cabelo e aparos de barba mensais com desconto. Ideal para
-                    clientes que desejam manter o visual sempre em dia. <br>
+                    clientes que desejam manter o visual sempre em dia.<br>
 
                 </p>
 
@@ -242,6 +238,7 @@
 
     </section>
     <!-------------------- Área Sobre (Final) -------------------->
+
     <!-------------------- Área de Qualificação (Início) -------------------->
     <section class="qualification">
 
