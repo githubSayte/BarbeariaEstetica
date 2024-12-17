@@ -4,7 +4,43 @@
 @{
     Layout = "~/Views/Shared/_LayoutGereciamento.cshtml";
 }
+
+<style>
+    /* Estilo para o overlay (fundo escuro) */
+    #overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); /* Cor escura com transparência */
+        z-index: 9998; /* Colocar abaixo do loader */
+        display: none; /* Inicialmente escondido */
+    }
+
+    /* Estilo para o loader */
+    #loader {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 15px 30px;
+        background-color: rgba(0, 0, 0, 0.7); /* Fundo escuro para o loader */
+        color: white;
+        border-radius: 5px;
+        font-size: 16px;
+        z-index: 9999; /* Colocar acima do overlay */
+        display: none; /* Inicialmente escondido */
+    }
+</style>
+
 <body>
+
+    <!-- Overlay e Loader -->
+    <div id="overlay" style="display: none;"></div>
+    <div id="loader" style="display: none;">
+        <i class="fa fa-spinner fa-spin"></i> Carregando...
+    </div>
 
     <section class="maneger-page-section">
         <div class="container page-maneger">
@@ -38,7 +74,7 @@
 
             <!-- Tabela com cabeçalho fixo -->
             <table id="TbAtendimentos" class="table" style="width: 100%; border-collapse: collapse; table-layout: fixed;">
-                <thead style="background-color: white; color: white;">
+                <thead style="background-color: #725f47; color: white;">
                     <tr>
                         <th style="border: 1px solid #ddd; padding: 8px; min-width: 50px; position: sticky; top: 0; background-color: #725f47">#</th>
                         <th style="border: 1px solid #ddd; padding: 8px; min-width: 150px; position: sticky; top: 0; background-color: #725f47;">Data/Hora de Atendimento</th>
@@ -375,7 +411,8 @@
                 type: "GET",
                 url: "/Agendamento/ConsultarAgendamento",
                 data: { data: data },
-                success: function (response) {
+                success: function (response) 
+                {
                     response.forEach(function (item) {
                         switch (item.horario) {
                             case "08:00:00":
@@ -447,10 +484,6 @@
                     alert("Por favor, preencha o campo horário.");
                     return;
                 }
-
-
-
-
             }
             else {
 
@@ -458,6 +491,9 @@
                     horario = ""
 
             }
+            // Show the overlay and loader
+            $("#overlay").show();  // Exibir o overlay escuro
+            $("#loader").show();   // Exibir o loader
             var dados = {
                 id: id,
                 data: data,
@@ -471,7 +507,11 @@
                 type: "POST",
                 dataType: "json",
                 data: dados,
-                success: function (response) {
+                success: function (response) 
+                {
+                    // Hide the overlay and loader after the response
+                    $("#overlay").hide();
+                    $("#loader").hide();
                     if (response.success) {
                         alert("Agendamento(s) Alterados(s) com sucesso!");
                         $('#EditarAgendamento').modal('hide'); // Substitua 'seuModal' pelo ID do seu modal
@@ -491,14 +531,19 @@
 
 
             var userId = $('#ExcId').val();
-
+            // Show the overlay and loader
+            $("#overlay").show();  // Exibir o overlay escuro
+            $("#loader").show();   // Exibir o loader
             $.ajax({
                 type: "POST",
                 url: "/Agendamento/ExcluirAgendamento",
                 dataType: "json",
                 data: { id: userId },
-                success: function (response) {
-
+                success: function (response) 
+                {
+                    // Hide the overlay and loader after the response
+                    $("#overlay").hide();
+                    $("#loader").hide();
                     if (response.success) {
 
                         alert("Agendamento excluido com sucesso!");
