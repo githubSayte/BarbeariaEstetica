@@ -77,47 +77,57 @@
             display: block;
         }
     </style>
-
-    <style>
-        body {
-            font-family: 'Times New Roman', serif;
-        }
-    </style>   
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/responsive.css" />
 </head>
 
-<body>   
-    
+<body>  
+
     <!--------------------  "Área de Rolagem Superior (Início)" -------------------->
-    <a href="#home" class="scroll-top">
+     <a href="#home" class="scroll-top">
         <i class="fas fa-angle-up"></i>
     </a>
-   
+    <!--------------------  "Área de Rolagem Superior (Fim)" -------------------->
+
     <!-------------------- Área Inicial (Início) -------------------->
     <section class="home" id="home">
+       
         <div class="box-container">
+
             <div class="content">
                 <div class="text">
-                    <h1 style="font-family: 'Times New Roman', serif; font-size: 70px; "> Olá, nós somos a Estética</h1>
-                    <h1 style="font-family: 'Times New Roman', serif; font-size: 40px;">
-                        E temos a oferecer:<br>
-                        <span class="typing-text" style="font-family: 'Times New Roman', serif; font-size: 70px;"></span>
-                    </h1>
-                   
+                    <div class="text" style="margin-left: 30px;">
+                        <!-- Move o texto um pouco mais para a direita -->
+                        <h1 style="font-family: 'Dancing Script', cursive; font-size: 100px;">Olá, nós somos a Estética</h1>
+                        <h1 style="font-family: 'Times New Roman', serif; font-size: 40px;">
+                            E temos a oferecer:<br>
+                            <span class="typing-text" style="font-family: 'Times New Roman', serif; font-size: 50px;"></span>
+                        </h1>
+
                         <h1 style="font-family: 'Segoe Script', serif; font-size: 25px; color: #725f47">
-                        Transformamos o seu visual com excelência e estilo,<br>
-                        para que você esteja sempre no auge da sua beleza.</h1>
-                   
+                            Transformamos o seu visual com excelência e estilo,<br>
+                            para que você esteja sempre no auge da sua beleza.
+                        </h1>
+
                         <a href="#about" class="btn">Saiba mais<i class="fas fa-user"></i></a>
+                    </div>
                 </div>
             </div>
 
-            <div class="image">
-                <img src="~/images/Home/Home.jpeg" alt="Home-Image" style="height: 400px;
-                width: 400px;
+            <!-- Imagem -->
+            <div class="image" style="text-align: right;">
+                <img src="~/images/Home/Home.jpeg" alt="Home-Image" style="height: 600px;
+                width: auto;
                 border-radius: 50% 50% 50% 50% / 30% 30% 70% 70%;
                 object-fit: cover;
-                border: 2px solid #91917a;">              
+                border: 2px solid #91917a;
+                margin-left: 20px;
+                margin-top: 120px; /* Aumenta ainda mais a distância do topo, movendo para baixo */
+                margin-right: 60px;"> <!-- Ajuste para mover a imagem mais para a esquerda -->
             </div>
+
+
+
         </div>
     </section>
     <!-------------------- Área Final (Início) -------------------->
@@ -145,7 +155,6 @@
                     estilo criativo.<br>
                     Plano de assinatura que inclui cortes de cabelo e aparos de barba mensais com desconto. Ideal para
                     clientes que desejam manter o visual sempre em dia.<br>
-
                 </p>
 
                 <div class="about-info">
@@ -155,7 +164,6 @@
                         <h4>Área de atuação: <span>Beleza</span></h4>
                         <h4>País: <span>Brasil</span></h4>
                         <h4>Ramo de trabalho: <span>Estilização</span></h4>
-
                     </div>
 
                     <div class="counting">

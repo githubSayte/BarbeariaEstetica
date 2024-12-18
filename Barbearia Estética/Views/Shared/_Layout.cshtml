@@ -1,10 +1,10 @@
 ﻿
-<!DOCTYPE html>
+<
 <html lang="pt-br">
  <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
     <!-- Titulo -->
     <title>Barbearia Estética</title>
 
@@ -30,18 +30,18 @@
             string tipoUsuario = Environment.GetEnvironmentVariable("USUARIO_TIPO");
         }
 
-        <!-- Logo inicio-->
+        <!-- Logo inicio -->
            <div class="logo-container" style="display: flex; align-items: center;">
             <a class="logo" href="#home" style="display: flex; align-items: center; text-decoration: none;">
                 <img src="~/images/Home/Home.jpeg" alt="Logo" style="width: 50px; height: 50px; margin-right: 10px; border-radius: 50%;">
-                <h2 style="margin: 0; font-size: 24px; font-family: 'Segoe Script', cursive; color: #725f47; text-transform: none;">Barbearia Estética</h2>
+                <h2 style="margin: 0; font-size: 24px; font-family: 'Dancing Script', cursive; color: #725f47; text-transform: none;">Barbearia Estética</h2>
             </a>
         </div>
-        <!--Logo final -->
+        <!-- Logo final -->
 
         <!-- Navbar -->
         <nav class="navbar" style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap;">
-
+           
             <!-- Links do menu -->
             <span style="display: flex; align-items: center; margin-right: 20px;">
                 <i class="fas fa-home fa-lg" aria-hidden="true" style="color:#725f47;"></i>
@@ -89,8 +89,8 @@
                             <i class="fa fa-user" aria-hidden="true" style="color: #725f47;"></i>
                             <a href="#" style="margin-left: 10px;">@usuarioNome</a>
                             <i class="fa fa-chevron-down" aria-hidden="true" style="color: #725f47; margin-left: 5px;"></i>
-
                         </span>
+
                         <div class="dropdown-content" style="display: none; position: absolute; background-color: #EAE7DC; width: 200px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1; padding: 8px; border-radius: 3%; border: #A65F3C solid 1px; box-shadow: 5px #A65F3C;">
                             <a href="/Usuario/Index" style="padding: 7px; text-decoration: none; display: flex; align-items: center; margin: 5px;">
                                 <i class="fa fa-users" aria-hidden="true" style="margin-right: 8px;"></i>Usuarios
@@ -112,15 +112,14 @@
                 }
                 else
                 {
-
                     <!-- Menu do Usuário -->
                     <div class="dropdown" style="position: relative; display: inline-block;">
                         <span style="display: flex; align-items: center; margin-right: 20px;">
                             <i class="fa fa-user" aria-hidden="true" style="color: #725f47;"></i>
                             <a href="#" style="margin-left: 10px;">@usuarioNome</a>
                             <i class="fa fa-chevron-down" aria-hidden="true" style="color: #725f47; margin-left: 5px;"></i>
-
                         </span>
+
                         <div class="dropdown-content" style="display: none; position: absolute; background-color: #EAE7DC; width: 200px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1; padding: 8px; border-radius: 3%; border: #A65F3C solid 1px; box-shadow: 5px #A65F3C;">
                             <a href="/Agendamento/AgendamentoUsuario" style="padding: 7px; text-decoration: none; display: flex; align-items: center; margin: 5px;">
                                 <i class="fa fa-calendar" aria-hidden="true" style="margin-right: 8px;"></i>Agendamento User
@@ -154,26 +153,48 @@
         </main>
     </div>
 
-    <!-------------------- Área de Rodapé (Início) -------------------->
     <script>
 
         function logout() {
-            // Envia a requisição AJAX para o servidor
             $.ajax({
-                url: '/Usuario/Logout', // URL do método Logout no controller
-                type: 'POST', // Tipo de requisição (POST)
+                url: '/Usuario/Logout',  // URL correta para o método Logout
+                type: 'POST',            // Tipo de requisição POST
+                data: {
+                    '__RequestVerificationToken': $('input[name="__RequestVerificationToken"]').val()  // Incluindo o token CSRF
+                },
                 success: function (response) {
-                    // Se a requisição for bem-sucedida
                     if (response.success) {
-                        // Redireciona para a página de login ou outra página conforme desejado
-                        window.location.href = '/Home/Index';
+                        // Limpar dados armazenados no sessionStorage
+                        sessionStorage.removeItem("USUARIO_ID");
+                        sessionStorage.removeItem("USUARIO_NOME");
+                        sessionStorage.removeItem("USUARIO_EMAIL");
+                        sessionStorage.removeItem("USUARIO_TELEFONE");
+                        sessionStorage.removeItem("USUARIO_TIPO");
+
+                        // Limpar dados armazenados no localStorage
+                        localStorage.removeItem("USUARIO_ID");
+                        localStorage.removeItem("USUARIO_NOME");
+                        localStorage.removeItem("USUARIO_EMAIL");
+                        localStorage.removeItem("USUARIO_TELEFONE");
+                        localStorage.removeItem("USUARIO_TIPO");
+
+                        // Limpar cookies, se necessário
+                        document.cookie = "USUARIO_ID=; path=/; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+                        document.cookie = "USUARIO_NOME=; path=/; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+                        document.cookie = "USUARIO_EMAIL=; path=/; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+                        document.cookie = "USUARIO_TELEFONE=; path=/; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+                        document.cookie = "USUARIO_TIPO=; path=/; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+
+                        // Redirecionar para a página de login ou outra página desejada
+                        window.location.href = '/Home/Index';  // Você pode alterar a URL conforme necessário
                     } else {
-                        // Se houver uma mensagem de erro, exibe
-                        alert('Erro ao realizar o logout: ' + (response.message || 'Erro desconhecido'));
+                        // Caso haja um erro, exibe uma mensagem
+                        alert('Erro ao realizar logout: ' + (response.message || 'Erro desconhecido'));
                     }
                 },
                 error: function (xhr, status, error) {
-                    // Se ocorrer algum erro na requisição AJAX
+                    // Exibe o erro de forma detalhada no console
+                    console.error("Erro no Logout:", xhr.responseText, status, error);
                     alert('Erro ao processar a solicitação de logout. Detalhes: ' + error);
                 }
             });

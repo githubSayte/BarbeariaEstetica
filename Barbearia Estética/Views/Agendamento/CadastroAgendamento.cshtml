@@ -4,7 +4,7 @@
 @{
     Layout = null;
 }
-<!DOCTYPE html>
+
 <html lang="pt-br">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,6 +13,7 @@
     <link rel="shortcut icon" href="~/img/favicon.ico" type="image/x-ico">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
 
     <!-- bibliotecas -->
     <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
@@ -24,7 +25,7 @@
     <link rel="stylesheet" href="~/css/login.css">
 
     <title>Agendamento</title>
-
+    <!-- 
     <style>
         /* Estilo para o overlay (fundo escuro) */
         #overlay {
@@ -52,7 +53,7 @@
             z-index: 9999; /* Colocar acima do overlay */
             display: none; /* Inicialmente escondido */
         }
-    </style>
+    </style>-->
 </head>
  
 
@@ -65,12 +66,15 @@
     </div>
 
     <!-- Cabeçalho com logo e nome da empresa -->
-    <div style="background-color: white color: white; padding: 10px; text-align: center;">
+    <div style="background-color: white; padding: 10px; text-align: center;">
         <a href="#home" style="text-decoration: none; color: white; display: inline-flex; align-items: center;">
-            <img src="~/images/Home/Home.jpeg" alt="Barbearia Estética" style="width: 25%; height: 25%; margin-right: 10px;" br>
-            <h1 style="margin: 0; font-size: 36px; color: #ffff;">Barbearia Estética</h1>
+            <img src="~/images/Home/Home.jpeg" alt="Barbearia Estética" style="width: 25%; height: 25%; margin-right: 10px;">
+            <!-- Aqui é onde você aplica o nome da empresa -->
+            <h1 style="margin: 0; font-size: 36px; color: #ffff; font-family: 'Dancing Script', cursive;">Barbearia Estética</h1>
         </a>
     </div>
+
+
 
    <div id="agendamentoModal" class="container">
 

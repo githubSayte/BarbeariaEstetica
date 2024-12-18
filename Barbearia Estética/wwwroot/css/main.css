@@ -259,14 +259,14 @@ header #menu-btn:hover{
 
 }
 
-    .home .image img {
-        height: 100px;
-        width: 100px;
-        border-radius: 50% 50% 50% 50% / 30% 30% 70% 70%;
-        object-fit: cover;
-        border: 2px solid #91917a;
+.home .image img {
+    height: 100px;
+    width: 100px;
+    border-radius: 50% 50% 50% 50% / 30% 30% 70% 70%;
+    object-fit: cover;
+    border: 2px solid #91917a;
         
-    }
+}
 
 .home .content{
     -webkit-box-flex: 1;
@@ -314,8 +314,6 @@ header #menu-btn:hover{
     line-height: 1.5;
 }
 /*--------------------- 4- Home Area CSS (End) ---------------------*/
-
-
 
 /*--------------------- 5- About Area CSS (Start) ---------------------*/
 .about .box-container{
@@ -589,8 +587,6 @@ header #menu-btn:hover{
 
 /*--------------------- 6- Qualification Area CSS (End) ---------------------*/
 
-
-
 /*--------------------- 7- Services Area CSS (Start) ---------------------*/
 .service .box-container {
     display: -webkit-box;
@@ -649,8 +645,6 @@ header #menu-btn:hover{
 }
 
 /*--------------------- 7- Services Area CSS (End) ---------------------*/
-
-
 
 /*--------------------- 8- Portfolio Area CSS (Start) ---------------------*/
 .controls{
@@ -835,11 +829,7 @@ header #menu-btn:hover{
 .mfp-newspaper.mfp-removing.mfp-bg {
     opacity: 0;
 }
-
-
 /*--------------------- 8- Portfolio Area CSS (End) ---------------------*/
-
-
 
 /*--------------------- 9- Testimonials Area CSS (Start) ---------------------*/
 .testimonial-slider{
@@ -894,10 +884,7 @@ header #menu-btn:hover{
     font-size: 1.4rem;
     font-weight: 400;
 }
-
 /*--------------------- 9- Testimonials Area CSS (End) ---------------------*/
-
-
 
 /*--------------------- 10- Blog Area CSS (Start) ---------------------*/
 .blog-slider{
@@ -975,8 +962,6 @@ header #menu-btn:hover{
 }
 
 /*--------------------- 10- Blog Area CSS (End) ---------------------*/
-
-
 
 /*--------------------- 11- Contact Area CSS (Start) ---------------------*/
 .contact .alert{
@@ -1101,8 +1086,6 @@ header #menu-btn:hover{
 
 /*--------------------- 11- Contact Area CSS (End) ---------------------*/
 
-
-
 /*--------------------- 12- Footer Area CSS (Start) ---------------------*/
 footer{
     background-color: var(--purple);
@@ -1154,8 +1137,6 @@ footer .content p span{
 }
 
 /*--------------------- 12- Footer Area CSS (End) ---------------------*/
-
-
 
 /*--------------------- 13- Scroll-Top (Start) ---------------------*/
 .scroll-top{

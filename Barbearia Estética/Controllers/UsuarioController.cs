@@ -1,9 +1,12 @@
 using Barbearia_Estética.Models;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SiteAgendamento.Repositorio;
 using System.Diagnostics;
+using System.Security.Claims;
 
 namespace SiteAgendamento.Controllers
 {
@@ -19,7 +22,7 @@ namespace SiteAgendamento.Controllers
 
         public IActionResult Login()
         {
-            return View();
+            return View(new LoginViewModel());
         }
         public IActionResult Cadastro()
         {
@@ -38,38 +41,61 @@ namespace SiteAgendamento.Controllers
             var Usuarios = _usuarioRepositorio.ListarUsuarios();
             return View(Usuarios);
         }
-        public IActionResult VerificarLogin(string email, string senha)
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> VerificarLogin(LoginViewModel model)
         {
             try
             {
-                // Verifica se os parâmetros foram passados corretamente
-                if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(senha))
+                // Verifica se o modelo é válido
+                if (!ModelState.IsValid)
                 {
-                    return Json(new { success = false, message = "E-mail e senha são necessários." });
+                    // Retorna à view de login com o modelo, incluindo os erros de validação, se houver
+                    return View("Login", model); // Especifica a view "Login"
                 }
 
-                // Chama o método do repositório para verificar o usuário baseado no e-mail e senha
-                var usuario = _usuarioRepositorio.VerificarLogin(email, senha);
+                // Verifica se o usuário existe com as credenciais fornecidas
+                var usuario = _usuarioRepositorio.VerificarLogin(model.Email, model.Senha);
 
-                // Verifica se o usuário foi encontrado e autenticado
                 if (usuario != null)
                 {
-                    // Se o usuário foi encontrado, significa que o login foi bem-sucedido
-                    return Json(new { success = true, message = "Usuário autenticado com sucesso!" });
+                    // Criação das claims do usuário para o cookie de autenticação
+                    var claims = new List<Claim>
+                     {
+                         new Claim(ClaimTypes.Name, usuario.Nome),
+                         new Claim(ClaimTypes.Email, usuario.Email),
+                         // Você pode adicionar outras claims, como roles ou permissões, se necessário
+                     };
+
+                    // Criação da identidade do usuário para o cookie de autenticação
+                    var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+
+                    // Criação do principal (usuário autenticado)
+                    var principal = new ClaimsPrincipal(identity);
+
+                    // Autenticação do usuário e criação do cookie
+                    await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
+
+                    // Redireciona para a página inicial ou outra página que você preferir
+                    return RedirectToAction("Index", "Home");  // Redirecionamento para a página inicial
                 }
                 else
                 {
-                    // Se não encontrar o usuário, a resposta é de falha na autenticação
-                    return Json(new { success = false, message = "E-mail ou senha inválidos." });
+                    // Caso o usuário não seja encontrado, exibe uma mensagem de erro
+                    ViewData["ErrorMessage"] = "E-mail ou senha inválidos.";
+                    Debug.WriteLine("Erro: E-mail ou senha inválidos.");
+
+                    // Redireciona para a view "Login", onde a mensagem de erro será exibida
+                    return View("Login", model); // Retorna para a view Login com o modelo
                 }
             }
             catch (Exception ex)
             {
-                // Em caso de erro inesperado, captura e exibe o erro
-                return Json(new { success = false, message = "Erro ao processar a solicitação. Detalhes: " + ex.Message });
+                // Em caso de erro inesperado, captura o erro e exibe a mensagem
+                ViewData["ErrorMessage"] = "Erro ao processar a solicitação. Detalhes: " + ex.Message;
+                return View("Login", model); // Retorna à mesma view "Login" com a mensagem de erro
             }
         }
-
         public IActionResult InserirUsuario(string Nome, string Senha, string Email, string Telefone, int TipoUsuario)
         {
             try
@@ -141,10 +167,19 @@ namespace SiteAgendamento.Controllers
             }
         }
 
-        public IActionResult Logout()
+        public async Task<IActionResult> Logout()
         {
             try
             {
+                var csrfToken = Request.Form["__RequestVerificationToken"];
+                if (string.IsNullOrEmpty(csrfToken))
+                {
+                    throw new Exception("Token CSRF ausente");
+                }
+
+                // Limpa o cookie de autenticação
+                await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+
                 // Limpar a sessão
                 HttpContext.Session.Clear();
 
@@ -154,15 +189,31 @@ namespace SiteAgendamento.Controllers
                 Environment.SetEnvironmentVariable("USUARIO_EMAIL", null);
                 Environment.SetEnvironmentVariable("USUARIO_TELEFONE", null);
                 Environment.SetEnvironmentVariable("USUARIO_TIPO", null);
+                // Forçar a expiração de todos os cookies
+                foreach (var cookie in Request.Cookies.Keys)
+                {
+                    Response.Cookies.Delete(cookie);  // Deleta todos os cookies
+                }
+                // Evitar cache de páginas protegidas (verificando antes de adicionar)
+                if (!Response.Headers.ContainsKey("Cache-Control"))
+                {
+                    Response.Headers["Cache-Control"] = "no-store, no-cache, must-revalidate";
+                    Response.Headers["Pragma"] = "no-cache";
+                    Response.Headers["Expires"] = "0";
+                }
 
-                // Caso esteja usando o SignInManager, também deve chamar o método de logout
-                // _signInManager.SignOutAsync();
-
-                return Json(new { success = true });
+                // Verificar se é uma requisição AJAX
+                if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
+                {
+                    return Json(new { success = true });
+                }
+                else
+                {
+                    return RedirectToAction("Login", "Account");
+                }
             }
             catch (Exception ex)
             {
-                // Se ocorrer um erro, retornar uma resposta de erro com a mensagem
                 return Json(new { success = false, message = ex.Message });
             }
         }

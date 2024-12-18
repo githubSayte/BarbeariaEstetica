@@ -1,7 +1,8 @@
 using Barbearia_Estética.ORM;
 using Microsoft.EntityFrameworkCore;
 using SiteAgendamento.Repositorio;
-using Microsoft.AspNetCore.Session;  // Necessário para usar sessões
+using Microsoft.AspNetCore.Session;
+using Microsoft.AspNetCore.Authentication.Cookies;  // Necessário para usar sessões
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -31,7 +32,19 @@ builder.Services.AddSession(options =>
     options.Cookie.IsEssential = true;  // Garantir que o cookie seja essencial para o funcionamento da aplicação
 });
 
+// Adicionar suporte a autenticação com cookies
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.LoginPath = "/Usuario/Login";  // Caminho para a página de login
+        options.LogoutPath = "/Usuario/Logout";  // Caminho para a página de logout
+        options.ExpireTimeSpan = TimeSpan.FromMinutes(30);  // Tempo de expiração do cookie
+    });
+
+
 var app = builder.Build();
+
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
