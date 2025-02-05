@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "kxppSVm8ecGvuiIvGcGpTIssV9U8PXcozCgjOElbpGY=",
+  "Hash": "TMryeoKHwCI2KgKCl2VD9SDTkovuyiiL4LLCIQELvgk=",
   "Source": "Barbearia Estética",
   "BasePath": "_content/Barbearia Estética",
   "Mode": "Default",
@@ -2105,6 +2105,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\swiper\\swiper-bundle.min.js.map"
+    },
+    {
+      "Identity": "C:\\Users\\Aluno Noite\\Área de Trabalho\\BarbeariaEstetica\\Barbearia Estética\\wwwroot\\PedacosDeCodigos\\Pedacos.cs",
+      "SourceId": "Barbearia Estética",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Aluno Noite\\Área de Trabalho\\BarbeariaEstetica\\Barbearia Estética\\wwwroot\\",
+      "BasePath": "_content/Barbearia Estética",
+      "RelativePath": "PedacosDeCodigos/Pedacos.cs",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\PedacosDeCodigos\\Pedacos.cs"
     },
     {
       "Identity": "C:\\Users\\Aluno Noite\\Área de Trabalho\\BarbeariaEstetica\\Barbearia Estética\\wwwroot\\php\\smtp\\class.phpmailer.php",

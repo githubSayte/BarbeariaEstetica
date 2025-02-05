@@ -1,0 +1,126 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_LayoutGerenciamento.cshtml";
+}
+<style>
+    /* Estilo para a box-container */
+    .box-container {
+        padding: 30px; /* Aumenta o padding interno */
+        margin-bottom: 30px; /* Espaço entre a box-container e outros elementos */
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        height: auto; /* Ajusta automaticamente a altura com base no conteúdo */
+    }
+
+    /* Estilo para os grupos de filtros */
+    .filter-group {
+        display: flex;
+        justify-content: space-between; /* Espaço entre os itens */
+        margin-bottom: 20px; /* Aumenta o espaço entre os campos */
+    }
+
+        .filter-group > div {
+            flex: 1;
+            margin-right: 10px; /* Espaço entre os filtros */
+        }
+
+            .filter-group > div:last-child {
+                margin-right: 0;
+            }
+
+    /* Estilo para os campos de entrada e seleção */
+    .filter-input,
+    .filter-select {
+        width: 100%;
+        padding: 12px; /* Aumenta o padding interno para mais espaço */
+        font-size: 16px;
+        border-radius: 5px;
+        border: 1px solid #ddd;
+        box-sizing: border-box;
+        transition: all 0.3s ease;
+    }
+
+        .filter-input:focus,
+        .filter-select:focus {
+            border-color: #4CAF50;
+            outline: none;
+        }
+
+    /* Estilo para o botão */
+    .btn {
+        padding: 12px 25px;
+        background-color: #4CAF50;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+        .btn:hover {
+            background-color: #45a049;
+        }
+</style>
+
+<body style="background-color: #EAE7DC;">
+    <!-- Overlay e Loader -->
+    <div id="overlay" style="display: none;"></div>
+    <div id="loader" style="display: none;">
+        <i class="fa fa-spinner fa-spin"></i> Carregando...
+    </div>
+    <section class="maneger-page-section">
+        <div class="container page-maneger" style="height:800px">
+            <div class="add-user-button">
+                <br />
+                <h3 class="section-title cliente-title-maneger">Gerenciamento de Serviços <i class="fas fa-cogs"></i></h3>
+            </div>
+            <section class="home" id="home">
+                <div class="filter-group">
+                    <div>
+                        <label for="colunaFiltro1" style="color:white"> Escolha a coluna 1: </label>
+                        <select id="colunaFiltro1" class="filter-select">
+                            <option value="coluna1">Coluna 1</option>
+                            <option value="coluna2">Coluna 2</option>
+                            <option value="coluna3">Coluna 3</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="campoFiltro1" style="color:white">Filtro 1:</label>
+                        <input type="text" id="campoFiltro1" placeholder="Digite o filtro" class="filter-input">
+                    </div>
+                </div>
+                <div class="filter-group">
+                    <div>
+                        <label for="colunaFiltro2" style="color:white">Escolha a coluna 2:</label>
+                        <select id="colunaFiltro2" class="filter-select">
+                            <option value="coluna1">Coluna 1</option>
+                            <option value="coluna2">Coluna 2</option>
+                            <option value="coluna3">Coluna 3</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="campoFiltro2" style="color:white">Filtro 2:</label>
+                        <input type="text" id="campoFiltro2" placeholder="Digite o filtro" class="filter-input">
+                    </div>
+                </div>
+                <div class="filter-group">
+                    <div>
+                        <label for="colunaFiltro3" style="color:white">Escolha a coluna 3:</label>
+                        <select id="colunaFiltro3" class="filter-select">
+                            <option value="coluna1">Coluna 1</option>
+                            <option value="coluna2">Coluna 2</option>
+                            <option value="coluna3">Coluna 3</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="campoFiltro3" style="color:white">Filtro 3:</label>
+                        <input type="text" id="campoFiltro3" placeholder="Digite o filtro" class="filter-input">
+                    </div>
+                </div>
+                <button id="pesquisarBtn" class="btn">Pesquisar</button>
+            </section>
+        </div>
+    </section>
+</body>
+

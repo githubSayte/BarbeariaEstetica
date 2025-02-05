@@ -96,49 +96,49 @@ button.accept-policy[b-bg6yn9xett] {
   white-space: nowrap;
   line-height: 60px;
 }
-/* _content/Barbearia Estética/Views/Shared/_LayoutGereciamento.cshtml.rz.scp.css */
+/* _content/Barbearia Estética/Views/Shared/_LayoutGerenciamento.cshtml.rz.scp.css */
 /* Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 
-a.navbar-brand[b-x4jceaqlxa] {
+a.navbar-brand[b-sqquxvdhyq] {
   white-space: normal;
   text-align: center;
   word-break: break-all;
 }
 
-a[b-x4jceaqlxa] {
+a[b-sqquxvdhyq] {
   color: #0077cc;
 }
 
-.btn-primary[b-x4jceaqlxa] {
+.btn-primary[b-sqquxvdhyq] {
   color: #fff;
   background-color: #1b6ec2;
   border-color: #1861ac;
 }
 
-.nav-pills .nav-link.active[b-x4jceaqlxa], .nav-pills .show > .nav-link[b-x4jceaqlxa] {
+.nav-pills .nav-link.active[b-sqquxvdhyq], .nav-pills .show > .nav-link[b-sqquxvdhyq] {
   color: #fff;
   background-color: #1b6ec2;
   border-color: #1861ac;
 }
 
-.border-top[b-x4jceaqlxa] {
+.border-top[b-sqquxvdhyq] {
   border-top: 1px solid #e5e5e5;
 }
-.border-bottom[b-x4jceaqlxa] {
+.border-bottom[b-sqquxvdhyq] {
   border-bottom: 1px solid #e5e5e5;
 }
 
-.box-shadow[b-x4jceaqlxa] {
+.box-shadow[b-sqquxvdhyq] {
   box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
 }
 
-button.accept-policy[b-x4jceaqlxa] {
+button.accept-policy[b-sqquxvdhyq] {
   font-size: 1rem;
   line-height: inherit;
 }
 
-.footer[b-x4jceaqlxa] {
+.footer[b-sqquxvdhyq] {
   position: absolute;
   bottom: 0;
   width: 100%;
