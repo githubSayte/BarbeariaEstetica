@@ -26,14 +26,7 @@ namespace SiteAgendamento.Controllers
             return View();
         }
 
-        [HttpGet("filtrar")]
-        public IActionResult GetAgendamentos(
-          [FromQuery] string campo1,
-          [FromQuery] string campo2,
-          [FromQuery] string campo3,
-          [FromQuery] string valor1,
-          [FromQuery] string valor2,
-          [FromQuery] string valor3)
+        public IActionResult GetAgendamentos([FromQuery] string campo1, [FromQuery] string campo2, [FromQuery] string campo3, [FromQuery] string valor1, [FromQuery] string valor2, [FromQuery] string valor3)
         {
             // Chama o método da service para obter os agendamentos filtrados
             List<ViewAgendamento> agendamentos = _relatorioRepositorio.GetAgendamentos(
@@ -42,6 +35,7 @@ namespace SiteAgendamento.Controllers
             // Retorna os agendamentos em formato JSON
             return Ok(agendamentos);
         }
+
 
     }
 }
