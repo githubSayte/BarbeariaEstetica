@@ -24,8 +24,9 @@ builder.Services.AddScoped<ServicoRepositorio>();
 // Registrar o repositório (AgendamentoRepositorio)
 builder.Services.AddScoped<AgendamentoRepositorio>();
 // Registrar o repositório (RelatorioRepositorio)
-
 builder.Services.AddScoped<RelatorioRepositorio>();
+// Registrar o repositório (DashboardRepositorio)
+builder.Services.AddScoped<DashboardRepositorio>();
 // Adicionar suporte a sessões
 builder.Services.AddSession(options =>
 {

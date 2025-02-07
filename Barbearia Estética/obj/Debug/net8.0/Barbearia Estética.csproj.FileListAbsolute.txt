@@ -631,3 +631,10 @@ C:\Users\Aluno Noite\Área de Trabalho\BarbeariaEstetica\Barbearia Estética\obj
 C:\Users\Aluno Noite\Área de Trabalho\BarbeariaEstetica\Barbearia Estética\obj\Debug\net8.0\Barbearia Estética.genruntimeconfig.cache
 C:\Users\Aluno Noite\Área de Trabalho\BarbeariaEstetica\Barbearia Estética\obj\Debug\net8.0\ref\Barbearia Estética.dll
 C:\Users\Aluno Noite\Área de Trabalho\BarbeariaEstetica\Barbearia Estética\obj\Debug\net8.0\scopedcss\Views\Shared\_LayoutGerenciamento.cshtml.rz.scp.css
+C:\Users\Aluno Noite\Área de Trabalho\BarbeariaEstetica\Barbearia Estética\bin\Debug\net8.0\Highsoft.Web.Mvc.dll
+C:\Users\Aluno Noite\Área de Trabalho\BarbeariaEstetica\Barbearia Estética\bin\Debug\net8.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\Aluno Noite\Área de Trabalho\BarbeariaEstetica\Barbearia Estética\bin\Debug\net8.0\Microsoft.AspNetCore.Mvc.Razor.Host.dll
+C:\Users\Aluno Noite\Área de Trabalho\BarbeariaEstetica\Barbearia Estética\bin\Debug\net8.0\Microsoft.Extensions.Globalization.CultureInfoCache.dll
+C:\Users\Aluno Noite\Área de Trabalho\BarbeariaEstetica\Barbearia Estética\bin\Debug\net8.0\Microsoft.Extensions.PlatformAbstractions.dll
+C:\Users\Aluno Noite\Área de Trabalho\BarbeariaEstetica\Barbearia Estética\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\Aluno Noite\Área de Trabalho\BarbeariaEstetica\Barbearia Estética\obj\Debug\net8.0\Barbearia Estética.MvcApplicationPartsAssemblyInfo.cs

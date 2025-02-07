@@ -8,6 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Repositorio\NovaPasta\**" />
+    <Content Remove="Repositorio\NovaPasta\**" />
+    <EmbeddedResource Remove="Repositorio\NovaPasta\**" />
+    <None Remove="Repositorio\NovaPasta\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <_ContentIncludedByDefault Remove="wwwroot\images\Blogs\pagina1.png" />
   </ItemGroup>
 
@@ -22,6 +29,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Highsoft.Web.Mvc" Version="5.0.14" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.0">
       <PrivateAssets>all</PrivateAssets>

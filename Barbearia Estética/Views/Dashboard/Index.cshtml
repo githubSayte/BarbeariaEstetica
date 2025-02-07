@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div id="chart-container"></div>
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        Highcharts.chart('chart-container', {
+            chart: { type: 'line' },
+            title: { text: 'Gráfico de Exemplo' },
+            xAxis: { categories: ['Jan', 'Fev', 'Mar', 'Abr'] },
+            series: [{
+                name: 'Vendas',
+                data: @Html.Raw(ViewBag.ChartData)
+                }]
+        });
+    });
+</script>
