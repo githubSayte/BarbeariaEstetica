@@ -11,3 +11,5 @@ string tipoUsuario = Environment.GetEnvironmentVariable("USUARIO_TIPO");
 //Environment.SetEnvironmentVariable("USUARIO_SENHA", usuario.Senha);
 
 //fonte: French Script MT
+
+// public DateTime DataHoraCadastro { get; set; }
