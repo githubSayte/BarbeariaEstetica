@@ -6,6 +6,7 @@ using SiteAgendamento.Repositorio;
 using System.Diagnostics;
 using System.Text.Json;
 using Barbearia_Estética.Models;
+using System.Globalization;
 
 namespace SiteAgendamento.Controllers
 {
@@ -46,49 +47,68 @@ namespace SiteAgendamento.Controllers
             decimal lucroTotal = _dashboardRepositorio.SomarLucroPorAno(ano);
             return Json(lucroTotal);  // Redireciona para a View Index
         }
-        public IActionResult ContarAgendamentosPorMes(int ano)
-        {
-            try
-            {
-                var agendamentosPorMes = _dashboardRepositorio.ContarAgendamentosPorMes(ano);
-                return Ok(agendamentosPorMes);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest($"Erro ao contar agendamentos: {ex.Message}");
-            }
-        }
-        public IActionResult ContarUsuariosPorMes(int ano)
-        {
-            try
-            {
-                var usuariosPorMes = _dashboardRepositorio.ContarUsuariosPorMes(ano);
-                return Ok(usuariosPorMes);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest($"Erro ao contar usuários: {ex.Message}");
-            }
-        }
-        public IActionResult SomarLucroPorMes(int ano)
-        {
-            try
-            {
-                var lucroPorMes = _dashboardRepositorio.SomarLucroPorMes(ano);
-                return Ok(lucroPorMes);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest($"Erro ao calcular lucro: {ex.Message}");
-            }
-        }
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
-    }
 
+        // Método para contar agendamentos por mês
+        public JsonResult ContarAgendamentosPorMes(int ano)
+        {
+            var dados = _dashboardRepositorio.ContarAgendamentosPorMes(ano);
+
+            var categorias = dados.Select(d => CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(d.Mes)).ToList();
+            var valores = dados.Select(d => d.TotalAgendamentos).ToList();
+
+            var seriesData = valores.Select(v => new { y = v }).ToList(); // Formatação para Highcharts
+
+            return Json(new
+            {
+                categorias,
+                series = new[]
+                {
+        new { name = "Agendamentos", data = seriesData }
+    }
+            });
+        }
+
+        // Método para contar usuários cadastrados por mês
+        public JsonResult ContarUsuariosPorMes(int ano)
+        {
+            var dados = _dashboardRepositorio.ContarUsuariosPorMes(ano);
+
+            var categorias = dados.Select(d => CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(d.Mes)).ToList();
+            var valores = dados.Select(d => d.TotalUsuarios).ToList();
+
+            var seriesData = valores.Select(v => new { y = v }).ToList(); // Formatação para Highcharts
+
+            return Json(new
+            {
+                categorias,
+                series = new[]
+                {
+        new { name = "Usuários Cadastrados", data = seriesData }
+    }
+            });
+        }
+
+        // Método para somar lucro por mês
+        public JsonResult SomarLucroPorMes(int ano)
+        {
+            var dados = _dashboardRepositorio.SomarLucroPorMes(ano);
+
+            var categorias = dados.Select(d => CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(d.Mes)).ToList();
+            var valores = dados.Select(d => d.TotalLucro).ToList();
+
+            var seriesData = valores.Select(v => new { y = v }).ToList(); // Formatação para Highcharts
+
+            return Json(new
+            {
+                categorias,
+                series = new[]
+                {
+        new { name = "Lucro", data = seriesData }
+    }
+            });
+        }
+
+    }
 }
 
 

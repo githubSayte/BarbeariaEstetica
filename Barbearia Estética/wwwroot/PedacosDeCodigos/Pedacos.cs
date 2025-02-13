@@ -13,3 +13,5 @@ string tipoUsuario = Environment.GetEnvironmentVariable("USUARIO_TIPO");
 //fonte: French Script MT
 
 // public DateTime DataHoraCadastro { get; set; }
+
+//@model IEnumerable<Barbearia_Estética.Models.RelatorioVM>
