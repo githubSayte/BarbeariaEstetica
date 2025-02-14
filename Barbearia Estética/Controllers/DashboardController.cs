@@ -108,6 +108,62 @@ namespace SiteAgendamento.Controllers
             });
         }
 
+        public JsonResult ConsultarEvolucaoMensalPorAno()
+        {
+            var dados = _dashboardRepositorio.ConsultarEvolucaoMensalAtendimentos();
+
+            // Agrupa os dados por ano
+            var dadosAgrupadosPorAno = dados
+                .GroupBy(d => d.Ano)
+                .Select(g => new
+                {
+                    Ano = g.Key,
+                    DadosMensais = g.OrderBy(d => d.Mes).Select(d => d.TotalAtendimentos).ToList()
+                })
+                .ToList();
+
+            // Definindo as categorias (meses)
+            var categorias = Enumerable.Range(1, 12).Select(m => m.ToString("D2")).ToList(); // Meses de 01 a 12
+
+            // Preparar as séries para o gráfico (um para cada ano)
+            var series = dadosAgrupadosPorAno.Select(anoData => new
+            {
+                name = anoData.Ano.ToString(),
+                data = anoData.DadosMensais
+            }).ToList();
+
+            // Retorna os dados no formato correto para o Highcharts
+            return Json(new
+            {
+                categorias,
+                series
+            });
+        }
+        public JsonResult SomarServicosMaisUsadosPorAno(int ano)
+        {
+            // Chama o serviço para obter os dados
+            var dados = _dashboardRepositorio.ConsultarServicosMaisUsadosPorAno(ano);
+
+            // Cria as categorias com os nomes dos serviços
+            var categorias = dados.Select(d => d.TipoServico).ToList();  // Utilizando TipoServico para a categoria
+
+            // Cria os valores (quantidade de usos de cada serviço)
+            var valores = dados.Select(d => d.TotalUsos).ToList();
+
+            // Formatação para o gráfico, onde cada valor se torna um objeto com a chave 'y'
+            var seriesData = valores.Select(v => new { y = v }).ToList();
+
+            // Retorna os dados em formato JSON compatível com o gráfico
+            return Json(new
+            {
+                categorias,  // Os nomes dos serviços
+                series = new[]
+                {
+      new { name = "Serviços Mais Usados", data = seriesData }
+  }
+            });
+        }
+
     }
 }
 

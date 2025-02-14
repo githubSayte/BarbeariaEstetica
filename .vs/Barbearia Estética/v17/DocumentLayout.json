@@ -3,28 +3,52 @@
   "WorkspaceRootPath": "C:\\Users\\Aluno Noite\\\u00C1rea de Trabalho\\BarbeariaEstetica\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{37F40DAB-6E5E-4079-86E5-E3D77EED3542}|Barbearia Est\u00E9tica\\Barbearia Est\u00E9tica.csproj|c:\\users\\aluno noite\\\u00E1rea de trabalho\\barbeariaestetica\\barbearia est\u00E9tica\\views\\dashboard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{37F40DAB-6E5E-4079-86E5-E3D77EED3542}|Barbearia Est\u00E9tica\\Barbearia Est\u00E9tica.csproj|solutionrelative:barbearia est\u00E9tica\\views\\dashboard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{37F40DAB-6E5E-4079-86E5-E3D77EED3542}|Barbearia Est\u00E9tica\\Barbearia Est\u00E9tica.csproj|c:\\users\\aluno noite\\\u00E1rea de trabalho\\barbeariaestetica\\barbearia est\u00E9tica\\views\\usuario\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{37F40DAB-6E5E-4079-86E5-E3D77EED3542}|Barbearia Est\u00E9tica\\Barbearia Est\u00E9tica.csproj|solutionrelative:barbearia est\u00E9tica\\views\\usuario\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{37F40DAB-6E5E-4079-86E5-E3D77EED3542}|Barbearia Est\u00E9tica\\Barbearia Est\u00E9tica.csproj|c:\\users\\aluno noite\\\u00E1rea de trabalho\\barbeariaestetica\\barbearia est\u00E9tica\\views\\shared\\_layoutgerenciamento.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{37F40DAB-6E5E-4079-86E5-E3D77EED3542}|Barbearia Est\u00E9tica\\Barbearia Est\u00E9tica.csproj|solutionrelative:barbearia est\u00E9tica\\views\\shared\\_layoutgerenciamento.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{37F40DAB-6E5E-4079-86E5-E3D77EED3542}|Barbearia Est\u00E9tica\\Barbearia Est\u00E9tica.csproj|c:\\users\\aluno noite\\\u00E1rea de trabalho\\barbeariaestetica\\barbearia est\u00E9tica\\views\\relatorio\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{37F40DAB-6E5E-4079-86E5-E3D77EED3542}|Barbearia Est\u00E9tica\\Barbearia Est\u00E9tica.csproj|solutionrelative:barbearia est\u00E9tica\\views\\relatorio\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{37F40DAB-6E5E-4079-86E5-E3D77EED3542}|Barbearia Est\u00E9tica\\Barbearia Est\u00E9tica.csproj|c:\\users\\aluno noite\\\u00E1rea de trabalho\\barbeariaestetica\\barbearia est\u00E9tica\\a1 pedacosdecodigos\\pedacos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{37F40DAB-6E5E-4079-86E5-E3D77EED3542}|Barbearia Est\u00E9tica\\Barbearia Est\u00E9tica.csproj|solutionrelative:barbearia est\u00E9tica\\a1 pedacosdecodigos\\pedacos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{37F40DAB-6E5E-4079-86E5-E3D77EED3542}|Barbearia Est\u00E9tica\\Barbearia Est\u00E9tica.csproj|c:\\users\\aluno noite\\\u00E1rea de trabalho\\barbeariaestetica\\barbearia est\u00E9tica\\views\\shared\\_layoutcadastro.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{37F40DAB-6E5E-4079-86E5-E3D77EED3542}|Barbearia Est\u00E9tica\\Barbearia Est\u00E9tica.csproj|solutionrelative:barbearia est\u00E9tica\\views\\shared\\_layoutcadastro.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{37F40DAB-6E5E-4079-86E5-E3D77EED3542}|Barbearia Est\u00E9tica\\Barbearia Est\u00E9tica.csproj|c:\\users\\aluno noite\\\u00E1rea de trabalho\\barbeariaestetica\\barbearia est\u00E9tica\\repositorio\\relatoriorepositorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{37F40DAB-6E5E-4079-86E5-E3D77EED3542}|Barbearia Est\u00E9tica\\Barbearia Est\u00E9tica.csproj|solutionrelative:barbearia est\u00E9tica\\repositorio\\relatoriorepositorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{37F40DAB-6E5E-4079-86E5-E3D77EED3542}|Barbearia Est\u00E9tica\\Barbearia Est\u00E9tica.csproj|c:\\users\\aluno noite\\\u00E1rea de trabalho\\barbeariaestetica\\barbearia est\u00E9tica\\views\\usuario\\cadastro.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{37F40DAB-6E5E-4079-86E5-E3D77EED3542}|Barbearia Est\u00E9tica\\Barbearia Est\u00E9tica.csproj|solutionrelative:barbearia est\u00E9tica\\views\\usuario\\cadastro.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{37F40DAB-6E5E-4079-86E5-E3D77EED3542}|Barbearia Est\u00E9tica\\Barbearia Est\u00E9tica.csproj|c:\\users\\aluno noite\\\u00E1rea de trabalho\\barbeariaestetica\\barbearia est\u00E9tica\\wwwroot\\pedacosdecodigos\\pedacos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{37F40DAB-6E5E-4079-86E5-E3D77EED3542}|Barbearia Est\u00E9tica\\Barbearia Est\u00E9tica.csproj|solutionrelative:barbearia est\u00E9tica\\wwwroot\\pedacosdecodigos\\pedacos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{37F40DAB-6E5E-4079-86E5-E3D77EED3542}|Barbearia Est\u00E9tica\\Barbearia Est\u00E9tica.csproj|c:\\users\\aluno noite\\\u00E1rea de trabalho\\barbeariaestetica\\barbearia est\u00E9tica\\views\\dashboard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{37F40DAB-6E5E-4079-86E5-E3D77EED3542}|Barbearia Est\u00E9tica\\Barbearia Est\u00E9tica.csproj|solutionrelative:barbearia est\u00E9tica\\views\\dashboard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{37F40DAB-6E5E-4079-86E5-E3D77EED3542}|Barbearia Est\u00E9tica\\Barbearia Est\u00E9tica.csproj|c:\\users\\aluno noite\\\u00E1rea de trabalho\\barbeariaestetica\\barbearia est\u00E9tica\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{37F40DAB-6E5E-4079-86E5-E3D77EED3542}|Barbearia Est\u00E9tica\\Barbearia Est\u00E9tica.csproj|solutionrelative:barbearia est\u00E9tica\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{37F40DAB-6E5E-4079-86E5-E3D77EED3542}|Barbearia Est\u00E9tica\\Barbearia Est\u00E9tica.csproj|c:\\users\\aluno noite\\\u00E1rea de trabalho\\barbeariaestetica\\barbearia est\u00E9tica\\views\\servico\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{37F40DAB-6E5E-4079-86E5-E3D77EED3542}|Barbearia Est\u00E9tica\\Barbearia Est\u00E9tica.csproj|solutionrelative:barbearia est\u00E9tica\\views\\servico\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{37F40DAB-6E5E-4079-86E5-E3D77EED3542}|Barbearia Est\u00E9tica\\Barbearia Est\u00E9tica.csproj|c:\\users\\aluno noite\\\u00E1rea de trabalho\\barbeariaestetica\\barbearia est\u00E9tica\\wwwroot\\css\\login.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{37F40DAB-6E5E-4079-86E5-E3D77EED3542}|Barbearia Est\u00E9tica\\Barbearia Est\u00E9tica.csproj|solutionrelative:barbearia est\u00E9tica\\wwwroot\\css\\login.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{37F40DAB-6E5E-4079-86E5-E3D77EED3542}|Barbearia Est\u00E9tica\\Barbearia Est\u00E9tica.csproj|c:\\users\\aluno noite\\\u00E1rea de trabalho\\barbeariaestetica\\barbearia est\u00E9tica\\wwwroot\\css\\index.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{37F40DAB-6E5E-4079-86E5-E3D77EED3542}|Barbearia Est\u00E9tica\\Barbearia Est\u00E9tica.csproj|solutionrelative:barbearia est\u00E9tica\\wwwroot\\css\\index.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{37F40DAB-6E5E-4079-86E5-E3D77EED3542}|Barbearia Est\u00E9tica\\Barbearia Est\u00E9tica.csproj|c:\\users\\aluno noite\\\u00E1rea de trabalho\\barbeariaestetica\\barbearia est\u00E9tica\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{37F40DAB-6E5E-4079-86E5-E3D77EED3542}|Barbearia Est\u00E9tica\\Barbearia Est\u00E9tica.csproj|solutionrelative:barbearia est\u00E9tica\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{37F40DAB-6E5E-4079-86E5-E3D77EED3542}|Barbearia Est\u00E9tica\\Barbearia Est\u00E9tica.csproj|c:\\users\\aluno noite\\\u00E1rea de trabalho\\barbeariaestetica\\barbearia est\u00E9tica\\views\\agendamento\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{37F40DAB-6E5E-4079-86E5-E3D77EED3542}|Barbearia Est\u00E9tica\\Barbearia Est\u00E9tica.csproj|solutionrelative:barbearia est\u00E9tica\\views\\agendamento\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,7 +58,7 @@
       "DocumentGroups": [
         {
           "DockedHeight": 734,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Bookmark",
@@ -52,66 +76,66 @@
               "RelativeDocumentMoniker": "Barbearia Est\u00E9tica\\Views\\Shared\\_LayoutGerenciamento.cshtml",
               "ToolTip": "C:\\Users\\Aluno Noite\\\u00C1rea de Trabalho\\BarbeariaEstetica\\Barbearia Est\u00E9tica\\Views\\Shared\\_LayoutGerenciamento.cshtml",
               "RelativeToolTip": "Barbearia Est\u00E9tica\\Views\\Shared\\_LayoutGerenciamento.cshtml",
-              "ViewState": "AQIAAC0AAAAAAAAAAAAAAEIAAAA1AAAA",
+              "ViewState": "AQIAACkAAAAAAAAAAAAowFEAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-02-13T12:46:54.909Z",
+              "WhenOpened": "2025-02-14T14:12:03.274Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "_LayoutCadastro.cshtml",
-              "DocumentMoniker": "C:\\Users\\Aluno Noite\\\u00C1rea de Trabalho\\BarbeariaEstetica\\Barbearia Est\u00E9tica\\Views\\Shared\\_LayoutCadastro.cshtml",
-              "RelativeDocumentMoniker": "Barbearia Est\u00E9tica\\Views\\Shared\\_LayoutCadastro.cshtml",
-              "ToolTip": "C:\\Users\\Aluno Noite\\\u00C1rea de Trabalho\\BarbeariaEstetica\\Barbearia Est\u00E9tica\\Views\\Shared\\_LayoutCadastro.cshtml",
-              "RelativeToolTip": "Barbearia Est\u00E9tica\\Views\\Shared\\_LayoutCadastro.cshtml",
+              "DocumentIndex": 10,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Aluno Noite\\\u00C1rea de Trabalho\\BarbeariaEstetica\\Barbearia Est\u00E9tica\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "Barbearia Est\u00E9tica\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Aluno Noite\\\u00C1rea de Trabalho\\BarbeariaEstetica\\Barbearia Est\u00E9tica\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "Barbearia Est\u00E9tica\\Views\\Home\\Index.cshtml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-02-13T12:46:51.972Z",
+              "WhenOpened": "2025-02-14T14:11:16.576Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Pedacos.cs",
-              "DocumentMoniker": "C:\\Users\\Aluno Noite\\\u00C1rea de Trabalho\\BarbeariaEstetica\\Barbearia Est\u00E9tica\\wwwroot\\PedacosDeCodigos\\Pedacos.cs",
-              "RelativeDocumentMoniker": "Barbearia Est\u00E9tica\\wwwroot\\PedacosDeCodigos\\Pedacos.cs",
-              "ToolTip": "C:\\Users\\Aluno Noite\\\u00C1rea de Trabalho\\BarbeariaEstetica\\Barbearia Est\u00E9tica\\wwwroot\\PedacosDeCodigos\\Pedacos.cs",
-              "RelativeToolTip": "Barbearia Est\u00E9tica\\wwwroot\\PedacosDeCodigos\\Pedacos.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAA7AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-13T12:36:23.199Z",
+              "DocumentIndex": 9,
+              "Title": "index.css",
+              "DocumentMoniker": "C:\\Users\\Aluno Noite\\\u00C1rea de Trabalho\\BarbeariaEstetica\\Barbearia Est\u00E9tica\\wwwroot\\css\\index.css",
+              "RelativeDocumentMoniker": "Barbearia Est\u00E9tica\\wwwroot\\css\\index.css",
+              "ToolTip": "C:\\Users\\Aluno Noite\\\u00C1rea de Trabalho\\BarbeariaEstetica\\Barbearia Est\u00E9tica\\wwwroot\\css\\index.css",
+              "RelativeToolTip": "Barbearia Est\u00E9tica\\wwwroot\\css\\index.css",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-02-14T14:10:03.071Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\Aluno Noite\\\u00C1rea de Trabalho\\BarbeariaEstetica\\Barbearia Est\u00E9tica\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "Barbearia Est\u00E9tica\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\Aluno Noite\\\u00C1rea de Trabalho\\BarbeariaEstetica\\Barbearia Est\u00E9tica\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "Barbearia Est\u00E9tica\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AQIAAEsAAAAAAAAAAAAAAHIAAAAaAAAA",
+              "DocumentIndex": 8,
+              "Title": "login.css",
+              "DocumentMoniker": "C:\\Users\\Aluno Noite\\\u00C1rea de Trabalho\\BarbeariaEstetica\\Barbearia Est\u00E9tica\\wwwroot\\css\\login.css",
+              "RelativeDocumentMoniker": "Barbearia Est\u00E9tica\\wwwroot\\css\\login.css",
+              "ToolTip": "C:\\Users\\Aluno Noite\\\u00C1rea de Trabalho\\BarbeariaEstetica\\Barbearia Est\u00E9tica\\wwwroot\\css\\login.css",
+              "RelativeToolTip": "Barbearia Est\u00E9tica\\wwwroot\\css\\login.css",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAG4AAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-02-14T13:01:36.949Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Aluno Noite\\\u00C1rea de Trabalho\\BarbeariaEstetica\\Barbearia Est\u00E9tica\\Views\\Servico\\Index.cshtml",
+              "RelativeDocumentMoniker": "Barbearia Est\u00E9tica\\Views\\Servico\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Aluno Noite\\\u00C1rea de Trabalho\\BarbeariaEstetica\\Barbearia Est\u00E9tica\\Views\\Servico\\Index.cshtml",
+              "RelativeToolTip": "Barbearia Est\u00E9tica\\Views\\Servico\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-02-13T12:42:19.384Z",
+              "WhenOpened": "2025-02-14T12:55:12.159Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "RelatorioRepositorio.cs",
-              "DocumentMoniker": "C:\\Users\\Aluno Noite\\\u00C1rea de Trabalho\\BarbeariaEstetica\\Barbearia Est\u00E9tica\\Repositorio\\RelatorioRepositorio.cs",
-              "RelativeDocumentMoniker": "Barbearia Est\u00E9tica\\Repositorio\\RelatorioRepositorio.cs",
-              "ToolTip": "C:\\Users\\Aluno Noite\\\u00C1rea de Trabalho\\BarbeariaEstetica\\Barbearia Est\u00E9tica\\Repositorio\\RelatorioRepositorio.cs",
-              "RelativeToolTip": "Barbearia Est\u00E9tica\\Repositorio\\RelatorioRepositorio.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAdAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-13T12:37:29.567Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 6,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\Aluno Noite\\\u00C1rea de Trabalho\\BarbeariaEstetica\\Barbearia Est\u00E9tica\\Views\\Dashboard\\Index.cshtml",
               "RelativeDocumentMoniker": "Barbearia Est\u00E9tica\\Views\\Dashboard\\Index.cshtml",
@@ -119,7 +143,85 @@
               "RelativeToolTip": "Barbearia Est\u00E9tica\\Views\\Dashboard\\Index.cshtml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-02-13T12:33:02.477Z",
+              "WhenOpened": "2025-02-14T12:55:05.615Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Cadastro.cshtml",
+              "DocumentMoniker": "C:\\Users\\Aluno Noite\\\u00C1rea de Trabalho\\BarbeariaEstetica\\Barbearia Est\u00E9tica\\Views\\Usuario\\Cadastro.cshtml",
+              "RelativeDocumentMoniker": "Barbearia Est\u00E9tica\\Views\\Usuario\\Cadastro.cshtml",
+              "ToolTip": "C:\\Users\\Aluno Noite\\\u00C1rea de Trabalho\\BarbeariaEstetica\\Barbearia Est\u00E9tica\\Views\\Usuario\\Cadastro.cshtml",
+              "RelativeToolTip": "Barbearia Est\u00E9tica\\Views\\Usuario\\Cadastro.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-14T12:51:23.692Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "_LayoutCadastro.cshtml",
+              "DocumentMoniker": "C:\\Users\\Aluno Noite\\\u00C1rea de Trabalho\\BarbeariaEstetica\\Barbearia Est\u00E9tica\\Views\\Shared\\_LayoutCadastro.cshtml",
+              "RelativeDocumentMoniker": "Barbearia Est\u00E9tica\\Views\\Shared\\_LayoutCadastro.cshtml",
+              "ToolTip": "C:\\Users\\Aluno Noite\\\u00C1rea de Trabalho\\BarbeariaEstetica\\Barbearia Est\u00E9tica\\Views\\Shared\\_LayoutCadastro.cshtml",
+              "RelativeToolTip": "Barbearia Est\u00E9tica\\Views\\Shared\\_LayoutCadastro.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABsAAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-14T12:51:04.747Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\Aluno Noite\\\u00C1rea de Trabalho\\BarbeariaEstetica\\Barbearia Est\u00E9tica\\Views\\Usuario\\Login.cshtml",
+              "RelativeDocumentMoniker": "Barbearia Est\u00E9tica\\Views\\Usuario\\Login.cshtml",
+              "ToolTip": "C:\\Users\\Aluno Noite\\\u00C1rea de Trabalho\\BarbeariaEstetica\\Barbearia Est\u00E9tica\\Views\\Usuario\\Login.cshtml",
+              "RelativeToolTip": "Barbearia Est\u00E9tica\\Views\\Usuario\\Login.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-14T12:50:53.971Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Pedacos.cs",
+              "DocumentMoniker": "C:\\Users\\Aluno Noite\\\u00C1rea de Trabalho\\BarbeariaEstetica\\Barbearia Est\u00E9tica\\A1 PedacosDeCodigos\\Pedacos.cs",
+              "RelativeDocumentMoniker": "Barbearia Est\u00E9tica\\A1 PedacosDeCodigos\\Pedacos.cs",
+              "ToolTip": "C:\\Users\\Aluno Noite\\\u00C1rea de Trabalho\\BarbeariaEstetica\\Barbearia Est\u00E9tica\\A1 PedacosDeCodigos\\Pedacos.cs",
+              "RelativeToolTip": "Barbearia Est\u00E9tica\\A1 PedacosDeCodigos\\Pedacos.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAIMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-14T12:48:34.995Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Aluno Noite\\\u00C1rea de Trabalho\\BarbeariaEstetica\\Barbearia Est\u00E9tica\\Views\\Relatorio\\Index.cshtml",
+              "RelativeDocumentMoniker": "Barbearia Est\u00E9tica\\Views\\Relatorio\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Aluno Noite\\\u00C1rea de Trabalho\\BarbeariaEstetica\\Barbearia Est\u00E9tica\\Views\\Relatorio\\Index.cshtml",
+              "RelativeToolTip": "Barbearia Est\u00E9tica\\Views\\Relatorio\\Index.cshtml",
+              "ViewState": "AQIAABgAAAAAAAAAAAAAAAQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-14T12:42:04.355Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Aluno Noite\\\u00C1rea de Trabalho\\BarbeariaEstetica\\Barbearia Est\u00E9tica\\Views\\Agendamento\\Index.cshtml",
+              "RelativeDocumentMoniker": "Barbearia Est\u00E9tica\\Views\\Agendamento\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Aluno Noite\\\u00C1rea de Trabalho\\BarbeariaEstetica\\Barbearia Est\u00E9tica\\Views\\Agendamento\\Index.cshtml",
+              "RelativeToolTip": "Barbearia Est\u00E9tica\\Views\\Agendamento\\Index.cshtml",
+              "ViewState": "AQIAAA8DAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-14T12:40:12.371Z",
               "EditorCaption": ""
             }
           ]

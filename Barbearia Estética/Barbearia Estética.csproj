@@ -19,6 +19,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="A1 PedacosDeCodigos\Pedacos.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="wwwroot\images\About\" />
     <Folder Include="wwwroot\vendors\font-awesome\NovaPasta1\" />
     <Folder Include="wwwroot\vendors\font-awesome\webfonts\" />

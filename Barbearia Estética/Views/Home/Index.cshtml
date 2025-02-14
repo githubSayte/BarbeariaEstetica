@@ -1,82 +1,8 @@
-﻿
-<head>
-    <style>
-        .scissors 
-        {
-            position: relative;
-            width: 64px;
-            height: 64px;
-        }
-        .scissors .blade 
-        {
-            position: absolute;
-            width: 50%;
-            height: 6px;
-            background: #000;
-            top: 50%;
-            left: 50%;
-            transform-origin: left center;
-            transform: rotate(0deg);
-            transition: transform 0.3s ease-in-out;
-        }
-        .scissors .blade-1 
-        {
-           transform-origin: left center;
-        }
-        .scissors .blade-2 
-        {
-           transform-origin: left center;
-           transform: rotate(180deg);
-        }
-        .scissors:hover .blade-1 
-        {
-            transform: rotate(30deg);
-        }
-        .scissors:hover .blade-2 
-        {
-           transform: rotate(150deg);
-        }
-    </style>
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 
-    <style>
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #f9f9f9;
-            min-width: 200px;
-            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-            z-index: 1;
-            padding: 8px;
-            border-radius: 3%;
-            right: 0;
-            /* Alinha o submenu à direita */
-        }
-        .dropdown-content a {
-                color: black;
-                padding: 7px;
-                text-decoration: none;
-                display: flex;
-                align-items: center;
-                margin: 5px;
-                color: black;
-                padding: 18px;
-                /* Adiciona padding */
-                text-decoration: none;
-                display: flex;
-                margin: 1px;
-                /* Adiciona a margem */
-                border-radius: 3%;
-        }
-        .dropdown-content a:hover 
-        {
-            background-color: #ddd;
-            border: #725f47 solid 2px;
-            border-radius: 3%;
-        }
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-    </style>
+<head>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="~/css/responsive.css" />
 </head>

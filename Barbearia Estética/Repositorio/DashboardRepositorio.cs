@@ -85,6 +85,40 @@ namespace SiteAgendamento.Repositorio
                 })
                 .ToList();
         }
+
+        public IEnumerable<AgendamentosPorAnoMes> ConsultarEvolucaoMensalAtendimentos()
+        {
+            var resultados = _context.TbAgendamentos
+                .GroupBy(a => new { a.DataAgendamento.Year, a.DataAgendamento.Month })  // Agrupa por ano e mês
+                .Select(group => new AgendamentosPorAnoMes
+                {
+                    Ano = group.Key.Year,
+                    Mes = group.Key.Month,
+                    TotalAtendimentos = group.Count()
+                })
+                .OrderBy(result => result.Ano)
+                .ThenBy(result => result.Mes)  // Ordena primeiro por ano e depois por mês
+                .ToList();
+
+            return resultados;
+        }
+        public IEnumerable<ServicoMaisUsadoPorAno> ConsultarServicosMaisUsadosPorAno(int ano)
+        {
+            var resultados = _context.TbAgendamentos
+                .Where(a => a.DataAgendamento.Year == ano)  // Filtra por ano
+                .GroupBy(a => new { a.DataAgendamento.Year, a.FkServicoId })  // Agrupa por ano e serviço
+                .Select(group => new ServicoMaisUsadoPorAno
+                {
+                    Ano = group.Key.Year,  // Ano
+                    ServicoId = group.Key.FkServicoId,  // ID do serviço
+                    TotalUsos = group.Count(),  // Contagem de agendamentos por serviço
+                    TipoServico = group.FirstOrDefault().FkServico.TipoServico  // Acessando a propriedade TipoServico
+                })
+                .OrderByDescending(result => result.TotalUsos)  // Ordena pela quantidade de usos
+                .ToList();
+
+            return resultados;
+        }
     }
 }
 
