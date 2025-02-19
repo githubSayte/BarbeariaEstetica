@@ -1,13 +1,15 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+	  <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>Barbearia_Estética</RootNamespace>
   </PropertyGroup>
+	
 
-  <ItemGroup>
+
+	<ItemGroup>
     <Compile Remove="Repositorio\NovaPasta\**" />
     <Content Remove="Repositorio\NovaPasta\**" />
     <EmbeddedResource Remove="Repositorio\NovaPasta\**" />

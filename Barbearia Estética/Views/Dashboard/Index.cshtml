@@ -3,7 +3,6 @@
     Layout = "~/Views/Shared/_LayoutGerenciamento.cshtml";
 }
 
-
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -34,7 +33,7 @@
         .box {
             width: 250px;
             height: 80px;
-            background-color: orange;
+            background-color: #725f47;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -49,13 +48,13 @@
         .small-box {
             width: 200px;
             height: 40px;
-            background-color: #ffcc80;
+            background-color: #725f47;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 14px;
             font-weight: bold;
-            color: #444;
+            color: white;
             border-radius: 5px;
             box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
         }
@@ -74,41 +73,58 @@
         }
     </style>
 </head>
-<body>
+<body style="background-color: #EAE7DC;">
     <!-- Cabeçalho com 3 divs grandes e o select -->
-    <div class="dashboard-header">
-        <!-- Caixa para o total de usuários cadastrados -->
-        <div class="box-container">
-            <div class="box">Total de usuários cadastrados em 2025:</div>
-            <div class="small-box" id="totalUsuarios">Carregando...</div>
-        </div>
+    <div class="container" style="padding: 20px; border: 2px solid #725f47; width: 1500px; margin: 0 auto;">
 
-        <!-- Caixa para o total de agendamentos -->
-        <div class="box-container">
-            <div class="box">Total de agendamentos feitos em 2025:</div>
-            <div class="small-box" id="totalAgendamentos">Carregando...</div>
-        </div>
-
-        <!-- Caixa para o lucro total -->
-        <div class="box-container">
-            <div class="box">Lucro total em 2025:</div>
-            <div class="small-box" id="lucroTotal">Carregando...</div>
-        </div>
-
-        <select id="anoSelect" onchange="mudarAno()">
+        <label for="anoSelect" style="font-size: 18px; color: #725f47; font-weight: bold;">Selecione o Ano</label>
+        <select id="anoSelect" onchange="mudarAno()" style="padding: 10px; border-radius: 5px; border: 1px solid #725f47; font-size: 16px; background-color: white!important; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); width: 300px;">
         </select>
+    </div>
 
+    <div class="container" style="padding: 20px; border: 2px solid #725f47; width: 1500px; margin: 0 auto;">
+        <h2 style="color: black !important; font-size: 24px; text-align: center; margin-bottom: 20px;">Indicadores Globais</h2>
+        <div class="dashboard-header">
+            <!-- Caixa para o total de usuários cadastrados -->
+            <div class="box-container">
+                <div class="box">Usuarios:</div>
+                <div class="small-box" id="totalUsuarios">Carregando...</div>
+            </div>
+
+            <!-- Caixa para o total de agendamentos -->
+            <div class="box-container">
+                <div class="box">Agendamentos:</div>
+                <div class="small-box" id="totalAgendamentos">Carregando...</div>
+            </div>
+
+            <!-- Caixa para o lucro total -->
+            <div class="box-container">
+                <div class="box">Lucro:</div>
+                <div class="small-box" id="lucroTotal">Carregando...</div>
+            </div>
+
+        </div>
     </div>
+
+
     <!-- Divs para os gráficos -->
-    <div style="display: flex; justify-content: space-between;">
-        <div id="graficoAgendamentos" style="height: 400px; width: 400px;"></div>
-        <div id="graficoUsuarios" style="height: 400px; width: 400px;"></div>
-        <div id="graficoLucros" style="height: 400px; width: 400px;"></div>
+    <div class="container" style="padding: 20px; border: 2px solid #000; width: 1500px; margin: 0 auto; background-color:#725f47">
+        <h2 style="color: black !important; font-size: 24px; text-align: center; margin-bottom: 20px;">Indicadores Especificos</h2>
+
+        <div style="display: flex; justify-content: space-between;">
+            <div id="graficoAgendamentos" style="height: 400px; width: 400px;"></div>
+            <div id="graficoUsuarios" style="height: 400px; width: 400px;"></div>
+            <div id="graficoLucros" style="height: 400px; width: 400px;"></div>
+        </div>
+        <br />
+        <div style="display: flex; justify-content: space-between;">
+            <div id="container"></div>
+            <div id="grafico"></div>
+        </div>
     </div>
-    <div style="display: flex; justify-content: space-between;">
-        <div id="container"></div>
-        <div id="grafico"></div>
-    </div>
+
+
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.highcharts.com/highcharts.js"></script>
@@ -203,7 +219,9 @@
             $.getJSON('@Url.Action("ContarAgendamentosPorMes", "Dashboard")', { ano: ano }, function (dados) {
                 Highcharts.chart('graficoAgendamentos', {
                     chart: {
-                        type: 'column'
+                        type: 'column',
+                        borderColor: 'black',  // Cor da borda
+                        borderWidth: 2        // Largura da borda
                     },
                     title: {
                         text: 'Agendamentos por Mês'
@@ -226,7 +244,9 @@
             $.getJSON('@Url.Action("ContarUsuariosPorMes", "Dashboard")', { ano: ano }, function (dados) {
                 Highcharts.chart('graficoUsuarios', {
                     chart: {
-                        type: 'column'
+                        type: 'column',
+                        borderColor: 'black',  // Cor da borda
+                        borderWidth: 2        // Largura da borda
                     },
                     title: {
                         text: 'Usuários Cadastrados por Mês'
@@ -249,7 +269,9 @@
             $.getJSON('@Url.Action("SomarLucroPorMes", "Dashboard")', { ano: ano }, function (dados) {
                 Highcharts.chart('graficoLucros', {
                     chart: {
-                        type: 'column'
+                        type: 'column',
+                        borderColor: 'black',  // Cor da borda
+                        borderWidth: 2        // Largura da borda
                     },
                     title: {
                         text: 'Lucro por Mês'
@@ -278,7 +300,9 @@
                     // Cria o gráfico de pizza usando Highcharts
                     Highcharts.chart('container', {
                         chart: {
-                            type: 'pie'  // Tipo de gráfico: pizza
+                            type: 'pie',  // Tipo de gráfico: pizza
+                            borderColor: 'black',  // Cor da borda
+                            borderWidth: 2        // Largura da borda
                         },
                         title: {
                             text: `Serviços Mais Usados em ${ano}`  // Título do gráfico
@@ -324,7 +348,9 @@
                     // Cria o gráfico Highcharts
                     Highcharts.chart('grafico', {
                         chart: {
-                            type: 'line'  // Tipo de gráfico: linha
+                            type: 'line',  // Tipo de gráfico: linha
+                            borderColor: 'black',  // Cor da borda
+                            borderWidth: 2        // Largura da borda
                         },
                         title: {
                             text: 'Evolução Mensal dos Atendimentos por Ano'  // Título do gráfico
@@ -355,54 +381,6 @@
                 });
         });
 
-    </script>
-
-    <script>
-        // Função para pegar os dados da API e gerar o gráfico
-        function gerarGraficoPizza(ano) {
-            // Chama a API para obter os dados dos serviços mais usados
-            fetch(`http://localhost:5000/api/agendamentos/servicos-mais-usados/${ano}`)
-                .then(response => response.json())  // Converte a resposta para JSON
-                .then(data => {
-                    // Prepara os dados para o gráfico (labels e valores)
-                    var categorias = data.categorias;  // Lista de serviços (ou IDs de serviço)
-                    var valores = data.series[0].data.map(item => item.y);  // Quantidade de usos
-
-                    // Cria o gráfico de pizza usando Highcharts
-                    Highcharts.chart('container', {
-                        chart: {
-                            type: 'pie'  // Tipo de gráfico: pizza
-                        },
-                        title: {
-                            text: `Serviços Mais Usados em ${ano}`  // Título do gráfico
-                        },
-                        tooltip: {
-                            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'  // Exibe a porcentagem de cada fatia
-                        },
-                        series: [{
-                            name: 'Serviços',
-                            data: categorias.map((categoria, index) => ({
-                                name: categoria,  // Nome do serviço
-                                y: valores[index]  // Quantidade de vezes que o serviço foi usado
-                            }))
-                        }],
-                        plotOptions: {
-                            pie: {
-                                dataLabels: {
-                                    enabled: true,  // Habilita rótulos de dados
-                                    format: '{point.name}: {point.percentage:.1f}%'  // Exibe a porcentagem ao lado de cada fatia
-                                }
-                            }
-                        }
-                    });
-                })
-                .catch(error => {
-                    console.error("Erro ao carregar os dados:", error);
-                });
-        }
-
-        // Chama a função para gerar o gráfico para o ano de 2024 (por exemplo)
-        gerarGraficoPizza(2024);
     </script>
 
 </body>

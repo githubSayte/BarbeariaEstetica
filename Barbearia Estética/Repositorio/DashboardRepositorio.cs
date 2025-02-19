@@ -3,7 +3,9 @@ using Barbearia_Estética.Models;
 using Barbearia_Estética.ORM;
 using Highsoft.Web.Mvc.Charts;
 using System.Collections.Generic;
-
+using static System.Net.Mime.MediaTypeNames;
+using System.Net.NetworkInformation;
+using System.Text.Json;
 
 namespace SiteAgendamento.Repositorio
 {

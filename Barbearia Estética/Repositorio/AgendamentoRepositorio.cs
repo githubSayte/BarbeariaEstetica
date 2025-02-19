@@ -36,7 +36,7 @@ namespace SiteAgendamento.Repositorio
 
                 return true; // Retorna true indicando sucesso
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 // Em caso de erro, pode-se logar a exceção (ex.Message)
                 return false; // Retorna false em caso de erro

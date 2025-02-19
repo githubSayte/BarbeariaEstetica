@@ -1,4 +1,5 @@
-﻿//Acessando as variáveis de ambiente
+﻿using System;
+//Acessando as variáveis de ambiente
 /*string id = Environment.GetEnvironmentVariable("USUARIO_ID");
 string nome = Environment.GetEnvironmentVariable("USUARIO_NOME");
 string email = Environment.GetEnvironmentVariable("USUARIO_EMAIL");
@@ -374,3 +375,81 @@ string tipoUsuario = Environment.GetEnvironmentVariable("USUARIO_TIPO");
         display: none; /* Inicialmente escondido 
     }
 </style>*/
+
+// css cadastro agendamento
+/*< style >
+/* Estilo para o overlay (fundo escuro) 
+# overlay {
+            position: fixed;
+top: 0;
+left: 0;
+width: 100 %;
+height: 100 %;
+background - color: rgba(0, 0, 0, 0.6); /* Fundo escuro semi-transparente 
+z - index: 9998; /* Abaixo do loader 
+display: none; /* Inicialmente oculto 
+backdrop - filter: blur(5px); /* Efeito de desfoque 
+        }
+
+        /* Estilo para o loader 
+        #loader {
+            position: fixed;
+top: 50 %;
+left: 50 %;
+transform: translate(-50 %, -50 %);
+padding: 20px 40px;
+background - color: rgba(0, 0, 0, 0.85); /* Fundo escuro 
+color: white;
+border - radius: 8px;
+font - size: 18px;
+font - weight: bold;
+z - index: 9999; /* Acima do overlay 
+display: none; /* Inicialmente oculto 
+box - shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+text - align: center;
+animation: fadeIn 0.3s ease-in-out;
+        }
+
+        /* Animação de fade-in para o loader 
+        @@keyframes fadeIn
+{
+    from
+    {
+    opacity: 0;
+    transform: translate(-50 %, -55 %);
+    }
+
+    to
+    {
+    opacity: 1;
+    transform: translate(-50 %, -50 %);
+    }
+}
+
+        /* Animação de spinner dentro do loader 
+        .spinner {
+            border: 4px solid rgba(255, 255, 255, 0.3);
+border - top: 4px solid white;
+border - radius: 50 %;
+width: 40px;
+height: 40px;
+animation: spin 1s linear infinite;
+margin: 10px auto;
+        }
+
+        @@keyframes spin
+{
+            0% {
+    transform: rotate(0deg);
+    }
+
+            100% {
+    transform: rotate(360deg);
+    }
+}
+    </ style > */
+
+//referencia
+/* <a href="/Agendamento/CadastroAgendamento" style="padding: 7px; text-decoration: none; display: flex; align-items: center; margin: 5px;">
+                             <i class="fa fa-file" aria-hidden="true" style="margin-right: 8px;"></i>Cadastro Agendamento
+                         </a>*/
