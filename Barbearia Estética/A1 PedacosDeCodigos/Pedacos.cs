@@ -453,3 +453,5 @@ margin: 10px auto;
 /* <a href="/Agendamento/CadastroAgendamento" style="padding: 7px; text-decoration: none; display: flex; align-items: center; margin: 5px;">
                              <i class="fa fa-file" aria-hidden="true" style="margin-right: 8px;"></i>Cadastro Agendamento
                          </a>*/
+
+// alt="Barbearia Estética"

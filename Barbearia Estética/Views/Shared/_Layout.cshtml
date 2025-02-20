@@ -4,7 +4,10 @@
  <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+   
+    <!-- Importação da fonte -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+
     <!-- Titulo -->
     <title>Barbearia Estética</title>
 
@@ -20,6 +23,22 @@
     <!-- Custom Stylesheets -->
     <link rel="stylesheet" href="~/css/main.css" />    
     <link rel="stylesheet" href="~/css/responsive.css" />
+    <!-- Importação da fonte -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+
+    <style>
+        /* Estilo simples para o header com imagem de fundo */
+        .header {
+            background: transparent !important; /* Remove a imagem e deixa o fundo transparente */
+            height: 50px; /* Ajuste a altura conforme necessário */
+            display: flex;
+            align-items: c; /* Centraliza verticalmente os itens */
+            justify-content: ; /* Centraliza horizontalmente os itens */
+            /* Defina a cor do texto conforme desejado, se necessário */
+            color: transparent;
+        }
+
+    </style>
  </head>
  <body>
     <header class="header">
@@ -30,54 +49,56 @@
             string tipoUsuario = Environment.GetEnvironmentVariable("USUARIO_TIPO");
         }
 
-        <!-- Logo inicio -->
-           <div class="logo-container" style="display: flex; align-items: center;">
-            <a class="logo" href="#home" style="display: flex; align-items: center; text-decoration: none;">
-                <img src="~/images/Home/Home.jpeg" alt="Logo" style="width: 50px; height: 50px; margin-right: 10px; border-radius: 50%;">
-                <h2 style="margin: 0; font-size: 24px; font-family: 'Dancing Script', cursive; color: #725f47; text-transform: none;">Barbearia Estética</h2>
+        <!-- Menu de navegação (inicio) -->
+        <!-- Cabeçalho com logo e nome da empresa (Inicio) -->
+        <div>
+            <a href="#home" style="text-decoration:; display: inline-flex; align-items:center;">
+                <img src="~/images/Home/Home.jpeg" style="width: 50px; height: 50px; border-radius: 50%;">
+                <h1 style="margin: 0; font-size: 26px; font-family: 'Dancing Script', cursive; color: #725f47;">Barbearia Estética</h1>
             </a>
         </div>
-        <!-- Logo final -->
+        <!-- Cabeçalho com logo e nome da empresa (Final) -->
 
         <!-- Navbar -->
         <nav class="navbar" style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap;">
            
-            <!-- Links do menu -->
-            <span style="display: flex; align-items: center; margin-right: 20px;">
-                <i class="fas fa-home fa-lg" aria-hidden="true" style="color:#725f47;"></i>
-                <a href="#home" style="margin-left: 10px;">Inicio</a>
-            </span>
+                <!-- Links do menu -->
+                <span style="display: flex; align-items: center; margin-right: 20px;">
+                    <i class="fas fa-home fa-lg" aria-hidden="true" style="color:#725f47;"></i>
+                    <a href="#home" style="margin-left: 10px;">Inicio</a>
+                </span>
 
-            <span style="display: flex; align-items: center; margin-right: 20px;">
-                <i class="fas fa-info-circle fa-lg" aria-hidden="true" style="color: #725f47;"></i>
-                <a href="#about" style="margin-left: 10px;">Sobre</a>
-            </span>
+                <span style="display: flex; align-items: center; margin-right: 20px;">
+                    <i class="fas fa-info-circle fa-lg" aria-hidden="true" style="color: #725f47;"></i>
+                    <a href="#about" style="margin-left: 10px;">Sobre</a>
+                </span>
 
-            <span style="display: flex; align-items: center; margin-right: 20px;">
-                <i class="fas fa-gavel fa-lg" aria-hidden="true" style="color: #725f47;"></i>
-                <a href="#service" style="margin-left: 10px;">Serviço</a>
-            </span>
+                <span style="display: flex; align-items: center; margin-right: 20px;">
+                    <i class="fas fa-gavel fa-lg" aria-hidden="true" style="color: #725f47;"></i>
+                    <a href="#service" style="margin-left: 10px;">Serviço</a>
+                </span>
 
-            <span style="display: flex; align-items: center; margin-right: 20px;">
-                <i class="fas fa-window-restore fa-lg" aria-hidden="true" style="color: #725f47;"></i>
-                <a href="#portfolio" style="margin-left: 10px;">Portifólio</a>
-            </span>
+                <span style="display: flex; align-items: center; margin-right: 20px;">
+                    <i class="fas fa-window-restore fa-lg" aria-hidden="true" style="color: #725f47;"></i>
+                    <a href="#portfolio" style="margin-left: 10px;">Portifólio</a>
+                </span>
 
-            <span style="display: flex; align-items: center; margin-right: 20px;">
-                <i class="fa fa-users fa-lg" aria-hidden="true" style="color: #725f47;"></i>
-                <a href="#testimonial" style="margin-left: 10px;">Depoimento</a>
-            </span>
+                <span style="display: flex; align-items: center; margin-right: 20px;">
+                    <i class="fa fa-users fa-lg" aria-hidden="true" style="color: #725f47;"></i>
+                    <a href="#testimonial" style="margin-left: 10px;">Depoimento</a>
+                </span>
 
-            <span style="display: flex; align-items: center; margin-right: 20px;">
-                <i class="fa fa-file fa-lg" aria-hidden="true" style="color: #725f47;"></i>
-                <a href="#blog" style="margin-left: 10px;">Noticias</a>
-            </span>
+                <span style="display: flex; align-items: center; margin-right: 20px;">
+                    <i class="fa fa-file fa-lg" aria-hidden="true" style="color: #725f47;"></i>
+                    <a href="#blog" style="margin-left: 10px;">Noticias</a>
+                </span>
 
-            <span style="display: flex; align-items: center; margin-right: 20px;">
-                <i class="fa fa-phone-square fa-lg" aria-hidden="true" style="color: #725f47;"></i>
-                <a href="#contact" style="margin-left: 10px;">Contato</a>
-            </span>
-
+                <span style="display: flex; align-items: center; margin-right: 20px;">
+                    <i class="fa fa-phone-square fa-lg" aria-hidden="true" style="color: #725f47;"></i>
+                    <a href="#contact" style="margin-left: 10px;">Contato</a>
+                </span>
+            <!-- Menu de navegação (final) -->
+            
             <!-- Menu baseado no tipo de usuário -->
             @if (usuarioAutenticado)
             {
