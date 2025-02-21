@@ -456,3 +456,27 @@ margin: 10px auto;
                          </a>*/
 
 // alt="Barbearia Estética"
+
+// css do menu na home index
+/*< !--
+/*< style >
+/* Estilo simples para o header com imagem de fundo 
+.header {
+background: transparent!important; /* Remove a imagem e deixa o fundo transparente 
+height: 50px; /* Ajuste a altura conforme necessário 
+display: flex;
+align - items: ; /* Centraliza verticalmente os itens 
+justify - content: ; /* Centraliza horizontalmente os itens 
+/* Defina a cor do texto conforme desejado, se necessário 
+color: transparent;
+}
+</ style >
+
+Cabeçalho com logo e nome da empresa (Inicio) 
+<div>
+<a href="#home" style="text-decoration:; display: inline-flex; align-items:center;">
+<img src="~/images/Home/Home.jpeg" style="width: 50px; height: 50px; border-radius: 50%;">
+<h1 style="margin: 0; font-size: 26px; font-family: 'Dancing Script', cursive; color: #725f47;">Barbearia Estética</h1>
+</a>
+</div>
+Cabeçalho com logo e nome da empresa (Final)  -->*/
